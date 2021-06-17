@@ -1,0 +1,23 @@
+{% include "partials/_header.html" %}
+<div class="container-scroller">
+    {% include "partials/_navbar.html" %}
+    <div class="container-fluid page-body-wrapper">
+        {% include "partials/_nondash_sidebar.html" %}
+        <div class="main-panel">
+            <div class="content-wrapper">
+                <div class="container text-center pricing-table">
+                    <div class="grid-margin stretch-card pricing-card">
+                        <div class="card border-primary border pricing-card-body">
+                            <div class="text-center pricing-card-head">
+                                <img src="/static/images/{{ image }}.png" style="width: 64px; height: 64px;">
+                                <h4 class="font-weight-normal mb-4">{{ error }}</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% include "partials/_footer.html" %}
+        </div>
+    </div>
+</div>
+{% include "partials/_ender.html" %}

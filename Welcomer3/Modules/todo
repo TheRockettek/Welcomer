@@ -1,0 +1,12 @@
+fstring automod
+fstring badges
+fstring modules
+fstring specialroles
+fstring support
+
+redo badges/specialroles paging
+shove sync into modules class & data_reloadall .etc
+shove sync into support
+
+make oauth2 on new site
+add managing of donations on

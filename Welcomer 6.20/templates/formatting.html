@@ -1,0 +1,43 @@
+{% include "partials/_header.html" %}
+<div class="container-scroller">
+  {% include "partials/_navbar.html" %}
+  <div class="container-fluid page-body-wrapper">
+    {% include "partials/_nondash_sidebar.html" %}
+    <div class="main-panel">
+      <div class="content-wrapper">
+
+        <div class="container-fluid bg-primary py-2 mb-4">
+          <p class="mb-0 text-white">Welcomer Formatting</p>
+        </div>
+          
+        {% for t,d in markdown_docs.items() %}
+        <div class="set-divider"></div>
+        <h2 class="set-subtitle">
+            {{t.upper()}}
+        </h2>
+        <div class="row">
+            <div class="col-6">
+                Formatting Tag
+            </div>
+            <div class="col-6">
+                Description
+            </div>
+        </div>
+        {% for b,f in d.items() %}
+        <div class="row">
+            <div class="col-6">
+              {{"{"+b+"}"}}
+            </div>
+            <div class="col-6">
+              {{f}}
+            </div>
+        </div>
+        {% endfor %}
+        {% endfor %}
+
+      </div>
+      {% include "partials/_footer.html" %}
+    </div>
+  </div>
+</div>
+{% include "partials/_ender.html" %}

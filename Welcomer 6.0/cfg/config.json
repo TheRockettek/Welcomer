@@ -1,0 +1,68 @@
+{
+    "tokens": {
+        "main": ".DqaQyA.",
+        "debug": ".DUqNAQ.",
+        "donator": ".DunTRw."
+    },
+    "lavalink": {
+        "mitm": ["127.0.0.1", 15004],
+        "server": ["127.0.0.1", 5004]
+    },
+    "ipc": {
+        "host": "127.0.0.1",
+        "port": 15006,
+        "auth_key": "h"
+    },
+    "keys": {
+        "_": "For api keys in the future"
+    },
+    "paypal": {
+        "mode": "live",
+        "client_id": "",
+        "client_secret": ""
+    },
+    "cdn": {
+        "location": "/home/rock/cdn/",
+        "host": "127.0.0.1",
+        "port": 15005,
+        "public": true,
+        "_public": "If set to false, users will not be able to use /retrieve/"
+    },
+    "bot": {
+        "starting_port": 15007,
+        "shards": 40,
+        "clusters": 10,
+        "prefix": "+",
+        "emote_server": 350653691684061184
+    },
+    "db": {
+        "host": "localhost",
+        "port": 28015,
+        "table": "welcomer6"
+    },
+    "oauth": {
+        "client_id": "",
+        "client_secret": "",
+        "redirect_uri": {
+            "welcomer.fun": "https://welcomer.fun/callback",
+            "beta.welcomer.fun": "https://beta.welcomer.fun/callback"
+        },
+        "api_base": "https://discordapp.com/api",
+        "authorization_url": "https://discordapp.com/api/oauth2/authorize",
+        "token_url": "https://discordapp.com/api/oauth2/token"
+    },
+    "webhooks": {
+        "guilds": "",
+        "big_guilds": "",
+        "donations": "",
+        "upvotes": "",
+        "cluster_status": "",
+        "errors": ""
+    },
+    "roles": {
+        "support": [],
+        "developer": [],
+        "admins": [],
+        "trusted": []
+    }
+}

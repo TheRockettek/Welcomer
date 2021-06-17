@@ -1,0 +1,71 @@
+{
+    "autodelete" : {
+        "bot-responces" : false,
+        "bot-timeout" : 120,
+        "embed" : false,
+        "invites" : true,
+        "mention-threshold" : 5,
+        "mentions" : true,
+        "swearing" : false,
+        "urls" : false
+    },
+    "autorole" : {
+        "enable" : true,
+        "roleid" : 0
+    },
+    "bot-prefix" : "+",
+    "channel-blacklist" : {
+        "channels" : {},
+        "enable" : false
+    },
+    "channel-whitelist" : {
+        "channels" : {},
+        "enable" : false
+    },
+    "greet-dm" : {
+        "enable" : false,
+        "text" : "Welcome to %SERVER_NAME%, %NAME%. You're the %SERVER_COUNT% %COUNT_SUFFIX% user :tada:"
+    },
+    "leaver" : {
+        "channel" : 0,
+        "enable" : true,
+        "text" : ":wave: Farewell **%NAME%**, we will miss you..."
+    },
+    "logging" : {
+        "channel" : 0,
+        "created-channels" : true,
+        "deleted-channels" : true,
+        "deleted-messages" : true,
+        "edited-channels" : true,
+        "edited-messages" : true,
+        "enable" : false,
+        "member-ban" : true,
+        "member-edit" : true,
+        "member-join" : false,
+        "member-leave" : false,
+        "member-unban" : true,
+        "server-role-create" : true,
+        "server-role-delete" : true,
+        "server-role-edit" : true
+    },
+    "nickname-requesting" : {
+        "channel" : 0,
+        "enable" : false
+    },
+    "private-messaging" : {
+        "help" : true,
+        "usage" : true
+    },
+    "staff-members" : {},
+    "welcomer" : {
+        "background" : "default",
+        "cclr" : "FFFFFF",
+        "channel" : "133614943311233024",
+        "enable" : true,
+        "imagetext" : "Welcome|%MEMBER%|You are the %SERVER_MEMBER_COUNT%%SERVER_COUNT_SUFFIX% user|Have a good time :)",
+        "tclr" : "FFFFFF",
+        "text" : "Welcome to **%SERVER_NAME%**, <@%MEMBER_ID%>! You are the %SERVER_MEMBER_COUNT%%SERVER_COUNT_SUFFIX% user :tada:",
+        "use-image" : true,
+        "use-text" : true
+    }
+}

@@ -1,0 +1,196 @@
+{% include "partials/_header.html" %}
+<div class="container-scroller">
+  {% include "partials/_navbar.html" %}
+  <div class="container-fluid page-body-wrapper">
+    {% include "partials/_nondash_sidebar.html" %}
+    <div class="main-panel">
+      <div class="content-wrapper">
+
+        <div class="container-fluid bg-primary py-2 mb-4">
+          <p class="mb-0 text-white">Bot Status</p>
+        </div>
+
+        <div class="container my-4 w-75">
+          <p class="mb-0 text-white">Welcomer Content Delivery Network Cache</p>
+          <p class="font-weight-light text-white text-center"><span id="space_used"></span>/<span id="total_space"></span> GB - <span id="stored_images"></span> stored images</p>
+          <div class="row justify-content-center">
+            <div id="totalSpace">
+              <div id="usedSpace">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container my-4 w-75">
+          <p class="font-weight-light text-white text-center">In 2021... <span id="images_made"></span> images were made and <span id="gb_generated"></span> GB generated</p>
+        </div>
+        <style>
+        #totalSpace {
+          width: 100%;
+          height: 2vh;
+          background-color: #2b2e33;
+        }
+        #usedSpace {
+          width: {{ space_percentage }}%;
+          height: 2vh;
+          background-color: #ff6258;
+        }
+        </style>
+
+        <p class="font-weight-light text-white text-center">This page updates every 60 seconds</p>
+        <p id="offline" class="font-weight-light text-white text-center"></p>
+
+        <div class="container my-4 w-50">
+          <div class="row justify-content-center" id="bot-status">
+            <div class="col-3 col-sm-2 ml-1 mr-1 my-1 p-3 text-center">
+              <div id='bwbutton' class='square-path-loader'></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container my-4">
+          <div class="row justify-content-center">
+            <div class="col-9 alert-fill-success ml-1 mr-1 my-1 p-2 text-center">
+              Operational
+            </div>
+            <div class="col-9 alert-fill-warning ml-1 mr-1 my-1 p-2 text-center">
+              Partial Outage
+            </div>
+            <div class="col-9 alert-fill-danger ml-1 mr-1 my-1 p-2 text-center">
+              Total Outage
+            </div>
+            <div class="col-9 alert-fill-dark ml-1 mr-1 my-1 p-2 text-center">
+              IPC Error / Offline
+            </div>
+          </div>
+        </div>
+
+        <div class="container my-4">
+          <div class="row justify-content-center pb-4">
+            <a href="https://discordbots.org/bot/330416853971107840" class="justify-content-center">
+              <img src="https://discordbots.org/api/widget/330416853971107840.svg" alt="Welcomer" />
+            </a>
+          </div>
+          <div class="row justify-content-center pb-4">
+            <a href="https://botsfordiscord.com/bot/330416853971107840" class="justify-content-center">
+              <img src="https://botsfordiscord.com/api/bot/330416853971107840/widget" alt="Welcomer" />
+            </a>
+          </div>
+        </div>
+
+        <style>
+          .clusterinfo {
+            width: 60px;
+            height: 60px;
+          }
+        </style>
+
+        <script>
+          var clusters = {}
+    
+          function updateShards(data) {
+            document.getElementById("space_used").innerText = data['space']['space_used'];
+            document.getElementById("total_space").innerText = data['space']['total_space'];
+            document.getElementById("stored_images").innerText = data['space']['stored_images'];
+            document.getElementById("usedSpace").style.width = data['space']['space_percentage'] + "%";
+
+            document.getElementById("gb_generated").innerText = Math.round(data['space']['analytics']['kb_generated']/10000)/100;
+            document.getElementById("images_made").innerText = data['space']['analytics']['images_made'];
+
+            var botStatus = document.getElementById("bot-status");
+            clusters = data;
+            for (var i in data['clusters']) {
+              cluster = data['clusters'][i];
+              $("#cluster" + cluster.name).tooltip("dispose");
+            };
+
+            botStatus.innerHTML = "";
+            down = 0;
+            for (var i in data['clusters']) {
+              cluster = data['clusters'][i];
+              var div = document.createElement("div");
+              div.setAttribute("class", "clusterinfo align-middle ml-1 mr-1 my-1 p-3 text-center alert-fill-success");
+              if (!$.isEmptyObject(cluster.stats)) {
+                if (cluster.stats.down > 0 || cluster.stats.highest_latency > 0.5) {
+                  div.setAttribute("class", "clusterinfo align-middle ml-1 mr-1 my-1 p-3 text-center alert-fill-warning");
+                }
+                if (cluster.stats.lowest_latency < 0) {
+                  div.setAttribute("class", "clusterinfo align-middle ml-1 mr-1 my-1 p-3 text-center alert-fill-danger");
+                }
+                if (!cluster.pingalive) {
+                  div.setAttribute("class", "clusterinfo align-middle ml-1 mr-1 my-1 p-3 text-center alert-fill-primary");
+                }
+              } else {
+                div.setAttribute("class", "clusterinfo align-middle ml-1 mr-1 my-1 p-3 text-center alert-fill-dark");
+              };
+              div.setAttribute("id", "cluster" + cluster.name);
+              div.textContent = cluster.name;
+              botStatus.appendChild(div);
+
+              text = "";
+              if (!$.isEmptyObject(cluster.stats)) {
+                text += "Shards #" + (isNaN(Math.min(...cluster.stats.shards)) ? "Unknown" : Math.min(...cluster.stats.shards)) + " - #" + (isNaN(Math.max(...cluster.stats.shards)) ? "Unknown" : Math.max(...cluster.stats.shards)) + "<br>";
+                text += cluster.stats.guilds + " guilds<br><br>";
+                text += "Uptime: " + cluster.stats.displayed + "<br>";
+                for (var s in cluster.stats.latencies) {
+                  latency = cluster.stats.latencies[s];
+                  text += "Shard " + latency[0] + ": " + Math.ceil(latency[1] * 1000) + "ms<br>"
+                };
+                hasissue = false;
+                issues = "";
+                if (cluster.stats.down > 0) {
+                  down = down + cluster.stats.down;
+                  issues = cluster.stats.down + " guild(s) unavaliable";
+                  hasissue = true;};
+                if (cluster.stats.highest_latency > 0.5) {
+                  issues = "Some shards have abnormal latency (" + Math.floor(cluster.stats.highest_latency * 1000) + "ms > 500ms)";
+                  hasissue = true;};
+                if (cluster.stats.lowest_latency < 0) {
+                  issues = "Some shards have are failing to catch up (" + Math.floor(cluster.stats.lowest_latency * 1000) + "ms < 0ms)";
+                  hasissue = true;};
+                if (!cluster.pingalive) {
+                  issues = "Cluster is unresponsive";
+                  hasissue = true;};
+              } else {
+                if (cluster.lastping == 0) {
+                  issues = "This cluster is Offline";
+                  hasissue = true;
+                } else {
+                  issues = "Cluster not responding to IPC";
+                  hasissue = true;
+                }
+              };
+              if (hasissue) {
+                text = "<b>" + issues + "</b><br>" + text;
+              } else {
+                text = "<b>No known issues</b><br>" + text;
+              };
+              text = "<h4>Cluster " + cluster.name + "</h4>(" + cluster.id + ")<br>" + text;
+
+              $("#cluster" + cluster.name).tooltip({title: text, html:true});
+            }
+            if (down > 0) {
+              document.getElementById("offline").innerText = down + " guild(s) unavaliable";
+            } else {
+              document.getElementById("offline").innerText = "";
+            };
+          };
+
+          function reloadShards() {
+            $.ajax({url: "/api/status", dataType: "json",
+              success: function(data) { updateShards(data) },
+              error: function() {$.toast({heading: 'An error had occured while retrieving bot status', loaderBg: '#7289da', bgColor: '#5767a0', position: 'top-right', hideAfter: 5000, showHideTransition: 'fade', icon: 'error'})}
+            });
+          }
+
+          $("document").ready(function() {
+            reloadShards();
+            setInterval(reloadShards, 60000);
+          });
+        </script>
+      </div>
+      {% include "partials/_footer.html" %}
+    </div>
+  </div>
+</div>
+{% include "partials/_ender.html" %}

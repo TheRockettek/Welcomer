@@ -1,0 +1,288 @@
+{% block sidebar %}
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+    <ul class="nav">
+        <li class="nav-item nav-profile pt-3">
+            <div class="nav-link">
+                <div class="user-wrapper">
+                    <div class="profile-image">
+                        {% if guild and guild.get('icon', None) %}
+                        <img
+                            src="https://cdn.discordapp.com/icons/{{ guild.get('id', '')}}/{{ guild.get('icon', '')}}.jpg?size=128">
+                        {% endif %}
+                    </div>
+                    <div class="text-wrapper">
+                        {% if guild %}
+                        <p class="profile-name">{{ guild.get('name', 'Unknown') }}</p>
+                        {% else %}
+                        <p class="profile-name">Unknown</p>
+                        {% endif %}
+                        <div>
+                            <small id="changeguild" class="designation text-muted">Change server</small>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-success btn-sm btn-block">
+                    Invite Welcomer <i class="mdi mdi-plus"></i>
+                </button>
+            </div>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/donate" style="background: rgb(231, 81, 59); color: white;">
+                <i class="menu-icon mdi mdi-gift"></i>
+                <span class="menu-title">Donate</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/invite/welcomer" style="background: #7289da; color: white;">
+                <i class="menu-icon mdi mdi-lifebuoy"></i>
+                <span class="menu-title">Support Server</span>
+            </a>
+        </li>
+
+        {% if guild %}
+        <li class="nav-item">
+            <a class="nav-link" href="/guild/{{ guild.get('id','0') }}">
+                <i class="menu-icon mdi mdi-card-text"></i>
+                <span class="menu-title">View Guild Page</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/dashboard/invites">
+                <i class="menu-icon mdi mdi-door-open"></i>
+                <span class="menu-title">Invites</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/dashboard/botconfig">
+                <i class="menu-icon mdi mdi-cogs"></i>
+                <span class="menu-title">Bot Settings</span>
+            </a>
+        </li>
+
+        <!--<li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#guild-management" aria-expanded="false" aria-controls="guild-settings">
+                    <i class="menu-icon mdi mdi-shield-lock"></i>
+                    <span class="menu-title">Guild Management</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="guild-management">
+                    <ul class="nav flex-column sub-menu">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/guild/{{ guild.get('id','0') }}">View Guild Page</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard/donation">Donation Status</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard/invites">Invites</a>
+                    </li>
+
+                    <li><div class="set-divider"></div></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard/guildreset" style="color: #f04747;">Reset Config</a>
+                    </li>
+                    </ul>
+                </div>
+                </li>-->
+
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#welcomer-settings" aria-expanded="false"
+                aria-controls="welcomer-settings">
+                <i class="menu-icon mdi mdi-account-multiple-plus"></i>
+                <span class="menu-title">Welcomer</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="welcomer-settings">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard/welcomergeneral">General</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/formatting">Formatting</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/customembeds">Custom Embed Builder</a>
+                    </li>
+
+                    <li>
+                        <div class="set-divider"></div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard/welcomerimages">Welcomer Images</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard/welcomertext">Welcomer Text Messages</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard/welcomerdms">Welcomer Direct Messages</a>
+                    </li>
+
+                    <!-- <li><div class="set-divider"></div></li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/dashboard/welcomerwizard" style="color: #7289da;">Setup Wizard</a>
+                            </li> -->
+                </ul>
+            </div>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#moderation-settings" aria-expanded="false"
+                aria-controls="role-settings">
+                <i class="menu-icon mdi mdi-gavel"></i>
+                <span class="menu-title">Moderation</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="moderation-settings">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard/punishments">Manage</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard/punishments/view">View Punishments</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard/punishments/active">Active Punishments</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#roles-settings" aria-expanded="false"
+                aria-controls="role-settings">
+                <i class="menu-icon mdi mdi-account-star"></i>
+                <span class="menu-title">Roles</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="roles-settings">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard/timerole">TimeRoles</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard/autorole">AutoRoles</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard/freerole">FreeRoles</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                                <a class="nav-link" href="/dashboard/xprole">XPRoles</a>
+                            </li> -->
+                </ul>
+            </div>
+        </li>
+
+        <!-- <li class="nav-item">
+                    <a class="nav-link" data-toggle="collapse" href="#logging-settings" aria-expanded="false" aria-controls="role-settings">
+                        <i class="menu-icon mdi mdi-archive"></i>
+                        <span class="menu-title">Logging</span>
+                        <i class="menu-arrow"></i>
+                    </a>
+                    <div class="collapse" id="logging-settings">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/dashboard/logs">Manage</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/dashboard/logs/view">View</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>     -->
+
+        <li class="nav-item">
+            <a class="nav-link" href="/dashboard/leaver">
+                <i class="menu-icon mdi mdi-exit-to-app"></i>
+                <span class="menu-title">Leaver</span>
+            </a>
+        </li>
+
+        <!-- <li class="nav-item">
+                    <a class="nav-link" href="/dashboard/analytics">
+                        <i class="menu-icon mdi mdi-chart-timeline"></i>
+                        <span class="menu-title text-muted">Analytics</span>
+                    </a>
+                </li> -->
+
+        <li class="nav-item">
+            <a class="nav-link" href="/dashboard/staff">
+                <i class="menu-icon mdi mdi-progress-wrench"></i>
+                <span class="menu-title">Staff</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/dashboard/rules">
+                <i class="menu-icon mdi mdi-clipboard-text-outline"></i>
+                <span class="menu-title">Rules</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/dashboard/automod">
+                <i class="menu-icon mdi mdi-message-processing"></i>
+                <span class="menu-title">Auto Moderator</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/dashboard/borderwall">
+                <i class="menu-icon mdi mdi-castle"></i>
+                <span class="menu-title">Borderwall</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/dashboard/tempchannel">
+                <i class="menu-icon mdi mdi-microphone-settings"></i>
+                <span class="menu-title">Temporary Channels</span>
+            </a>
+        </li>
+        <!-- 
+        <li class="nav-item">
+            <a class="nav-link" href="/dashboard/namepurge">
+                <i class="menu-icon mdi mdi-filter-remove"></i>
+                <span class="menu-title">Name Purge</span>
+            </a>
+        </li> -->
+
+        <!-- <li class="nav-item">
+                    <a class="nav-link" href="/dashboard/music">
+                        <i class="menu-icon mdi mdi-headphones-settings"></i>
+                        <span class="menu-title">Music</span>
+                    </a>
+                </li> -->
+
+        <li class="nav-item">
+            <a class="nav-link" href="/dashboard/serverstats">
+                <i class="menu-icon mdi mdi-format-list-bulleted-type"></i>
+                <span class="menu-title">Server Stats</span>
+            </a>
+        </li>
+
+        <!-- <li class="nav-item">
+                    <a class="nav-link" href="/dashboard/serverlock">
+                        <i class="menu-icon mdi mdi-shield-lock-outline"></i>
+                        <span class="menu-title">Server Lock</span>
+                    </a>
+                </li> -->
+        {% endif %}
+        </li>
+    </ul>
+    <script>
+        $(function () {
+            $("body")[0].classList.remove("sidebar-icon-only");
+        })
+    </script>
+    <style>
+        .avgrund-popin.custom {
+            width: 70%;
+            height: 80%;
+        }
+    </style>
+</nav>
+{% endblock %}

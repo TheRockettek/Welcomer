@@ -1,0 +1,137 @@
+<html>
+
+    <head>
+
+        <link rel="stylesheet" href="https://welcomer.fun/static/blurple.css">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/cufon/1.09i/cufon-yui.min.js" type="text/javascript"></script>
+        <script src="https://welcomer.fun/static/uni-sans-bold.cufonfonts.js" type="text/javascript"></script>
+    
+        <script type="text/javascript">
+            Cufon.replace('.uni-sans-bold', { fontFamily: 'Uni Sans Bold', hover: true });
+            Cufon.replace('.title', { fontFamily: 'Uni Sans Bold', hover: true });
+
+            function ValidURL(str) {
+                return(str.match(/\.(jpeg|jpg|gif|png)$/) != null);
+            }
+
+            function check() {                
+                document.getElementsByClassName("formSubmit")[0].disabled = (document.getElementsByClassName("formFile")[0].files.length == 0);
+                if (document.getElementsByClassName("formInput")[0].value != "") {
+                    document.getElementsByClassName("formSubmit")[1].disabled = (ValidURL(document.getElementsByClassName("formInput")[0].value) == false);
+                } else {
+                    document.getElementsByClassName("formSubmit")[1].disabled = true;
+                }
+
+                if (document.getElementsByClassName("formCheck")[0].checked == true) {
+                    document.getElementsByName("imageForm")[0].action = "https://welcomer.fun/api/blurple?dither=true";
+                } else {
+                    document.getElementsByName("imageForm")[0].action = "https://welcomer.fun/api/blurple";
+                };
+
+                if (document.getElementsByClassName("formCheck")[1].checked == true) {
+                    document.getElementsByName("imageForm")[1].action = "https://welcomer.fun/api/blurple?dither=true";
+                } else {
+                    document.getElementsByName("imageForm")[1].action = "https://welcomer.fun/api/blurple";
+                };
+            };
+
+            setInterval(check, 200);
+
+        </script>
+
+    </head>
+ 
+    <body>
+
+        <div class="container">
+
+            <div class="containertop">
+                
+                <div class="sitelanding">
+
+                    <a class="sitename uni-sans-bold">Blurple.club</a>
+                    Blurpified over <b class="imagesMade">{{ images }}</b> images
+
+                </div>
+
+            </div>
+
+            <div class="containerbottom">
+                
+                <div class="optionleft">
+                
+                    <div class="title">
+                        
+                        Upload an image
+
+                    </div>
+
+                    <div class="leftform">
+
+                        <form name=imageForm action="/api/blurple" method=post enctype=multipart/form-data>
+
+                            <input type=file name=file class=formFile>
+
+                            <br>
+
+                            <div class="formContainer">
+
+                                <label class="switch">
+                                    <input id="checkBox" class=formCheck type="checkbox"> 
+                                    <span class="slider round"></span>
+                                </label>
+
+                                Use dithering
+
+                                <input type=submit name=submit class=formSubmit>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+                <div class="optionright">
+                
+                    <div class="title">
+                        Custom Url
+                    </div>
+
+                    <div class="rightform">
+
+                        <form name=imageForm action="/api/blurple" method=get>
+
+                            <input type=url name=url class=formInput placeholder=" Accepts: PNG, JPEG, JPG, GIF">
+
+                            <br>
+
+                            <div class="formContainer">
+
+                                <label class="switch">
+                                    <input id="checkBox" class=formCheck type="checkbox"> 
+                                    <span class="slider round"></span>
+                                </label>
+
+                                Use dithering
+
+                                <input type=submit name=submit class=formSubmit>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+    
+
+            </div>
+
+        </div>
+
+    </body>
+
+</html>

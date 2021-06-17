@@ -1,0 +1,1111 @@
+{% include "partials/_header.html" %}
+<div class="container-scroller">
+  {% include "partials/_navbar.html" %}
+  <div class="container-fluid page-body-wrapper">
+    {% include "partials/_sidebar.html" %}
+    <div class="main-panel">
+      <div class="content-wrapper">
+
+        {{ error or "" |safe}}
+
+        New dashboard when?
+
+        <!-- <div class="col-lg-6 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Line chart</h4>
+              <canvas id="lineChart" style="height:250px"></canvas>
+            </div>
+          </div>
+        </div> -->
+
+            <div class="row">
+              <div class="col-md-6 d-flex align-items-stretch grid-margin">
+                <div class="row flex-grow">
+                  <div class="col-12">
+                    <div class="card">
+                      <div class="card-body">
+                        <h4 class="card-title">Default form</h4>
+                        <p class="card-description"> Basic form layout </p>
+                        <form class="forms-sample">
+                          <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email"> </div>
+                          <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"> </div>
+                          <button type="submit" class="btn btn-success mr-2">Submit</button>
+                          <button class="btn btn-light">Cancel</button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 stretch-card">
+                    <div class="card">
+                      <div class="card-body">
+                        <h4 class="card-title">Horizontal Form</h4>
+                        <p class="card-description"> Horizontal form layout </p>
+                        <form class="forms-sample">
+                          <div class="form-group row">
+                            <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Email</label>
+                            <div class="col-sm-9">
+                              <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email"> </div>
+                          </div>
+                          <div class="form-group row">
+                            <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Password</label>
+                            <div class="col-sm-9">
+                              <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password"> </div>
+                          </div>
+                          <button type="submit" class="btn btn-success mr-2">Submit</button>
+                          <button class="btn btn-light">Cancel</button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Basic form</h4>
+                    <p class="card-description"> Basic form elements </p>
+                    <form class="forms-sample">
+                      <div class="form-group">
+                        <label for="exampleInputName1">Name</label>
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Name"> </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail3">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email"> </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword4">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password"> </div>
+                      <div class="form-group">
+                        <label>File upload</label>
+                        <input type="file" name="img[]" class="file-upload-default">
+                        <div class="input-group col-xs-12">
+                          <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                          <span class="input-group-append">
+                            <button class="file-upload-browse btn btn-info" type="button">Upload</button>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputCity1">City</label>
+                        <input type="text" class="form-control" id="exampleInputCity1" placeholder="Location"> </div>
+                      <div class="form-group">
+                        <label for="exampleTextarea1">Textarea</label> <textarea class="form-control" id="exampleTextarea1" rows="2"></textarea> </div>
+                      <button type="submit" class="btn btn-success mr-2">Submit</button>
+                      <button class="btn btn-light">Cancel</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 d-flex align-items-stretch">
+                <div class="row flex-grow">
+                  <div class="col-md-12 grid-margin stretch-card">
+                    <div class="card">
+                      <div class="card-body">
+                        <h4 class="card-title">Select 2</h4>
+                        <div class="form-group">
+                          <label>Single select box using select 2</label>
+                          <select class="js-example-basic-single" style="width:100%">
+                            <option value="AL">Alabama</option>
+                            <option value="WY">Wyoming</option>
+                            <option value="AM">America</option>
+                            <option value="CA">Canada</option>
+                            <option value="RU">Russia</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <label>Multiple select using select 2</label>
+                          <select class="js-example-basic-multiple" multiple="multiple" style="width:100%">
+                            <option value="AL">Alabama</option>
+                            <option value="WY">Wyoming</option>
+                            <option value="AM">America</option>
+                            <option value="CA">Canada</option>
+                            <option value="RU">Russia</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-12 grid-margin stretch-card">
+                    <div class="card">
+                      <div class="card-body">
+                        <h4 class="card-title">Typeahead</h4>
+                        <p class="card-description"> A simple suggestion engine </p>
+                        <div class="form-group row">
+                          <div class="col">
+                            <label>Basic</label>
+                            <div id="the-basics">
+                              <input class="typeahead" type="text" placeholder="States of USA"> </div>
+                          </div>
+                          <div class="col">
+                            <label>Bloodhound</label>
+                            <div id="bloodhound">
+                              <input class="typeahead" type="text" placeholder="States of USA"> </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Coloured select box</h4>
+                    <p class="card-description"> Basic bootstrap select in theme colors </p>
+                    <div class="form-group">
+                      <label for="exampleSelectPrimary">Primary</label>
+                      <select class="form-control border-primary" id="exampleSelectPrimary">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleSelectInfo">Info</label>
+                      <select class="form-control border-info" id="exampleSelectInfo">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleSelectSuccess">Success</label>
+                      <select class="form-control border-success" id="exampleSelectSuccess">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleSelectDanger">Danger</label>
+                      <select class="form-control border-danger" id="exampleSelectDanger">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleSelectWarning">Warning</label>
+                      <select class="form-control border-warning" id="exampleSelectWarning">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-5 d-flex align-items-stretch">
+                <div class="row flex-grow">
+                  <div class="col-12 grid-margin">
+                    <div class="card">
+                      <div class="card-body">
+                        <h4 class="card-title">Basic input groups</h4>
+                        <p class="card-description"> Basic bootstrap input groups </p>
+                        <div class="form-group">
+                          <div class="input-group">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">@</span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Username" aria-label="Username"> </div>
+                        </div>
+                        <div class="form-group">
+                          <div class="input-group">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">$</span>
+                            </div>
+                            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                            <div class="input-group-append">
+                              <span class="input-group-text">.00</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <div class="input-group">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">$</span>
+                            </div>
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">0.00</span>
+                            </div>
+                            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)"> </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 grid-margin stretch-card">
+                    <div class="card">
+                      <div class="card-body">
+                        <h4 class="card-title">Colored input groups</h4>
+                        <p class="card-description"> Input groups with colors </p>
+                        <div class="form-group">
+                          <div class="input-group">
+                            <div class="input-group-prepend bg-info">
+                              <span class="input-group-text bg-transparent">
+                                <i class="mdi mdi-shield-outline text-white"></i>
+                              </span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Username" aria-label="Username"> </div>
+                        </div>
+                        <div class="form-group">
+                          <div class="input-group">
+                            <div class="input-group-prepend bg-primary border-primary">
+                              <span class="input-group-text bg-transparent">
+                                <i class="mdi mdi mdi-menu text-white"></i>
+                              </span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Username" aria-label="Username"> </div>
+                        </div>
+                        <div class="form-group">
+                          <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Username" aria-label="Username">
+                            <div class="input-group-append bg-primary border-primary">
+                              <span class="input-group-text bg-transparent">
+                                <i class="mdi mdi-menu text-white"></i>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <div class="input-group">
+                            <div class="input-group-prepend bg-primary border-primary">
+                              <span class="input-group-text bg-transparent text-white">$</span>
+                            </div>
+                            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                            <div class="input-group-append bg-primary border-primary">
+                              <span class="input-group-text bg-transparent text-white">.00</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-7 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Input size</h4>
+                    <p class="card-description"> This is the default bootstrap form layout </p>
+                    <div class="form-group">
+                      <label>Large input</label>
+                      <input type="text" class="form-control form-control-lg" placeholder="Username" aria-label="Username"> </div>
+                    <div class="form-group">
+                      <label>Default input</label>
+                      <input type="text" class="form-control" placeholder="Username" aria-label="Username"> </div>
+                    <div class="form-group">
+                      <label>Small input</label>
+                      <input type="text" class="form-control form-control-sm" placeholder="Username" aria-label="Username"> </div>
+                  </div>
+                  <div class="card-body">
+                    <h4 class="card-title">Selectize</h4>
+                    <div class="form-group">
+                      <label for="exampleFormControlSelect1">Large select</label>
+                      <select class="form-control form-control-lg" id="exampleFormControlSelect1">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleFormControlSelect2">Default select</label>
+                      <select class="form-control" id="exampleFormControlSelect2">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleFormControlSelect3">Small select</label>
+                      <select class="form-control form-control-sm" id="exampleFormControlSelect3">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Checkbox Controls</h4>
+                    <p class="card-description">Checkbox and radio controls</p>
+                    <form class="forms-sample">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <div class="form-check">
+                              <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input"> Default </label>
+                            </div>
+                            <div class="form-check">
+                              <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" checked> Checked </label>
+                            </div>
+                            <div class="form-check">
+                              <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" disabled> Disabled </label>
+                            </div>
+                            <div class="form-check">
+                              <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" disabled checked> Disabled checked </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <div class="form-radio">
+                              <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="" checked> Option one </label>
+                            </div>
+                            <div class="form-radio">
+                              <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2"> Option two </label>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="form-radio disabled">
+                              <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="optionsRadios2" id="optionsRadios3" value="option3" disabled> Option three is disabled </label>
+                            </div>
+                            <div class="form-radio disabled">
+                              <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="optionsRadio2" id="optionsRadios4" value="option4" disabled checked> Option four is selected and disabled </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Checkbox Flat Controls</h4>
+                    <p class="card-description">Checkbox and radio controls with flat design</p>
+                    <form class="forms-sample">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <div class="form-check form-check-flat">
+                              <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input"> Default </label>
+                            </div>
+                            <div class="form-check form-check-flat">
+                              <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" checked> Checked </label>
+                            </div>
+                            <div class="form-check form-check-flat">
+                              <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" disabled> Disabled </label>
+                            </div>
+                            <div class="form-check form-check-flat">
+                              <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" disabled checked> Disabled checked </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <div class="form-radio form-radio-flat">
+                              <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="flatRadios1" id="flatRadios1" value="" checked> Option one </label>
+                            </div>
+                            <div class="form-radio form-radio-flat">
+                              <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="flatRadios2" id="flatRadios2" value="option2"> Option two </label>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="form-radio form-radio-flat disabled">
+                              <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="flatRadios3" id="flatRadios3" value="option3" disabled> Option three is disabled </label>
+                            </div>
+                            <div class="form-radio form-radio-flat disabled">
+                              <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="flatRadios4" id="flatRadios4" value="option4" disabled checked> Option four is selected and disabled </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 grid-margin">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Horizontal Two column</h4>
+                    <form class="form-sample">
+                      <p class="card-description"> Personal info </p>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">First Name</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" /> </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Last Name</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" /> </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Gender</label>
+                            <div class="col-sm-9">
+                              <select class="form-control">
+                                <option>Male</option>
+                                <option>Female</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Date of Birth</label>
+                            <div class="col-sm-9">
+                              <input class="form-control" placeholder="dd/mm/yyyy" /> </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Category</label>
+                            <div class="col-sm-9">
+                              <select class="form-control">
+                                <option>Category1</option>
+                                <option>Category2</option>
+                                <option>Category3</option>
+                                <option>Category4</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Membership</label>
+                            <div class="col-sm-4">
+                              <div class="form-radio">
+                                <label class="form-check-label">
+                                  <input type="radio" class="form-check-input" name="membershipRadios" id="membershipRadios1" value="" checked> Free </label>
+                              </div>
+                            </div>
+                            <div class="col-sm-5">
+                              <div class="form-radio">
+                                <label class="form-check-label">
+                                  <input type="radio" class="form-check-input" name="membershipRadios" id="membershipRadios2" value="option2"> Professional </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <p class="card-description"> Address </p>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Address 1</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" /> </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">State</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" /> </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Address 2</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" /> </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Postcode</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" /> </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">City</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" /> </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Country</label>
+                            <div class="col-sm-9">
+                              <select class="form-control">
+                                <option>America</option>
+                                <option>Italy</option>
+                                <option>Russia</option>
+                                <option>Britain</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-body pb-0">
+                    <h4 class="card-title mb-0">Icheck</h4>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-6 grid-margin grid-margin-lg-0">
+                      <div class="card-body">
+                        <p class="card-description">Minimal skin</p>
+                        <div class="icheck">
+                          <input tabindex="5" type="checkbox" id="minimal-checkbox-1">
+                          <label for="minimal-checkbox-1">Checkbox 1</label>
+                        </div>
+                        <div class="icheck">
+                          <input tabindex="6" type="checkbox" id="minimal-checkbox-2" checked>
+                          <label for="minimal-checkbox-2">Checkbox 2</label>
+                        </div>
+                        <div class="icheck">
+                          <input type="checkbox" id="minimal-checkbox-disabled" disabled>
+                          <label for="minimal-checkbox-disabled">Disabled</label>
+                        </div>
+                        <div class="icheck">
+                          <input type="checkbox" id="minimal-checkbox-disabled-checked" checked disabled>
+                          <label for="minimal-checkbox-disabled-checked">Disabled &amp; checked</label>
+                        </div>
+                        <div class="icheck">
+                          <input tabindex="7" type="radio" id="minimal-radio-1" name="minimal-radio">
+                          <label for="minimal-radio-1">Radio button 1</label>
+                        </div>
+                        <div class="icheck">
+                          <input tabindex="8" type="radio" id="minimal-radio-2" name="minimal-radio" checked>
+                          <label for="minimal-radio-2">Radio button 2</label>
+                        </div>
+                        <div class="icheck">
+                          <input type="radio" id="minimal-radio-disabled" disabled>
+                          <label for="minimal-radio-disabled">Disabled</label>
+                        </div>
+                        <div class="icheck">
+                          <input type="radio" id="minimal-radio-disabled-checked" checked disabled>
+                          <label for="minimal-radio-disabled-checked">Disabled &amp; checked</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 grid-margin grid-margin-lg-0">
+                      <div class="card-body">
+                        <p class="card-description">Square skin</p>
+                        <div class="icheck-square">
+                          <input tabindex="5" type="checkbox" id="square-checkbox-1">
+                          <label for="square-checkbox-1">Checkbox 1</label>
+                        </div>
+                        <div class="icheck-square">
+                          <input tabindex="6" type="checkbox" id="square-checkbox-2" checked>
+                          <label for="square-checkbox-2">Checkbox 2</label>
+                        </div>
+                        <div class="icheck-square">
+                          <input type="checkbox" id="square-checkbox-disabled" disabled>
+                          <label for="square-checkbox-disabled">Disabled</label>
+                        </div>
+                        <div class="icheck-square">
+                          <input type="checkbox" id="square-checkbox-disabled-checked" checked disabled>
+                          <label for="square-checkbox-disabled-checked">Disabled &amp; checked</label>
+                        </div>
+                        <div class="icheck-square">
+                          <input tabindex="7" type="radio" id="square-radio-1" name="minimal-radio">
+                          <label for="square-radio-1">Radio button 1</label>
+                        </div>
+                        <div class="icheck-square">
+                          <input tabindex="8" type="radio" id="square-radio-2" name="minimal-radio" checked>
+                          <label for="square-radio-2">Radio button 2</label>
+                        </div>
+                        <div class="icheck-square">
+                          <input type="radio" id="square-radio-disabled" disabled>
+                          <label for="square-radio-disabled">Disabled</label>
+                        </div>
+                        <div class="icheck-square">
+                          <input type="radio" id="square-radio-disabled-checked" checked disabled>
+                          <label for="square-radio-disabled-checked">Disabled &amp; checked</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 grid-margin grid-margin-lg-0">
+                      <div class="card-body">
+                        <p class="card-description">Flat skin</p>
+                        <div class="icheck-flat">
+                          <input tabindex="5" type="checkbox" id="flat-checkbox-1">
+                          <label for="flat-checkbox-1">Checkbox 1</label>
+                        </div>
+                        <div class="icheck-flat">
+                          <input tabindex="6" type="checkbox" id="flat-checkbox-2" checked>
+                          <label for="flat-checkbox-2">Checkbox 2</label>
+                        </div>
+                        <div class="icheck-flat">
+                          <input type="checkbox" id="flat-checkbox-disabled" disabled>
+                          <label for="flat-checkbox-disabled">Disabled</label>
+                        </div>
+                        <div class="icheck-flat">
+                          <input type="checkbox" id="flat-checkbox-disabled-checked" checked disabled>
+                          <label for="flat-checkbox-disabled-checked">Disabled &amp; checked</label>
+                        </div>
+                        <div class="icheck-flat">
+                          <input tabindex="7" type="radio" id="flat-radio-1" name="minimal-radio">
+                          <label for="flat-radio-1">Radio button 1</label>
+                        </div>
+                        <div class="icheck-flat">
+                          <input tabindex="8" type="radio" id="flat-radio-2" name="minimal-radio" checked>
+                          <label for="flat-radio-2">Radio button 2</label>
+                        </div>
+                        <div class="icheck-flat">
+                          <input type="radio" id="flat-radio-disabled" disabled>
+                          <label for="flat-radio-disabled">Disabled</label>
+                        </div>
+                        <div class="icheck-flat">
+                          <input type="radio" id="flat-radio-disabled-checked" checked disabled>
+                          <label for="flat-radio-disabled-checked">Disabled &amp; checked</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="card-body">
+                        <p class="card-description">Line skin</p>
+                        <div class="icheck-line">
+                          <input tabindex="5" type="checkbox" id="line-checkbox-1">
+                          <label for="line-checkbox-1">Checkbox 1</label>
+                        </div>
+                        <div class="icheck-line">
+                          <input tabindex="6" type="checkbox" id="line-checkbox-2" checked>
+                          <label for="line-checkbox-2">Checkbox 2</label>
+                        </div>
+                        <div class="icheck-line">
+                          <input type="checkbox" id="line-checkbox-disabled" disabled>
+                          <label for="line-checkbox-disabled">Disabled</label>
+                        </div>
+                        <div class="icheck-line">
+                          <input type="checkbox" id="line-checkbox-disabled-checked" checked disabled>
+                          <label for="line-checkbox-disabled-checked">Disabled &amp; checked</label>
+                        </div>
+                        <div class="icheck-line">
+                          <input tabindex="7" type="radio" id="line-radio-1" name="minimal-radio">
+                          <label for="line-radio-1">Radio button 1</label>
+                        </div>
+                        <div class="icheck-line">
+                          <input tabindex="8" type="radio" id="line-radio-2" name="minimal-radio" checked>
+                          <label for="line-radio-2">Radio button 2</label>
+                        </div>
+                        <div class="icheck-line disabled">
+                          <input type="radio" id="line-radio-disabled" disabled>
+                          <label for="line-radio-disabled">Disabled</label>
+                        </div>
+                        <div class="icheck-line disabled">
+                          <input type="radio" id="line-radio-disabled-checked" checked disabled>
+                          <label for="line-radio-disabled-checked">Disabled &amp; checked</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-4 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">CSS rating</h4>
+                    <p class="card-description">CSS star rating</p>
+                    <select id="example-css" name="rating" autocomplete="off">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">1/10 rating</h4>
+                    <p class="card-description">Rating from 1 to 10</p>
+                    <div class="br-wrapper br-theme-bars-1to10">
+                      <select id="example-1to10" name="rating" autocomplete="off" style="display: none;">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7" selected="selected">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Movie rating</h4>
+                    <p class="card-description">Rating reviews</p>
+                    <div class="br-wrapper br-theme-bars-movie mb-4">
+                      <select id="example-movie" name="rating" autocomplete="off" style="display: none;">
+                        <option value="Bad">Bad</option>
+                        <option value="Mediocre">Mediocre</option>
+                        <option value="Good" selected="selected">Good</option>
+                        <option value="Awesome">Awesome</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Square rating</h4>
+                    <p class="card-description">Rating in square options</p>
+                    <div class="br-wrapper br-theme-bars-square">
+                      <select id="example-square" name="rating" autocomplete="off" style="display: none;">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Pill rating</h4>
+                    <p class="card-description">Rating options as pills</p>
+                    <div class="br-wrapper br-theme-bars-pill">
+                      <select id="example-pill" name="rating" autocomplete="off" style="display: none;">
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                        <option value="E">E</option>
+                        <option value="F">F</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Reversed rating</h4>
+                    <p class="card-description">Rating in reversed order</p>
+                    <div class="mb-5">
+                      <select id="example-reversed" name="rating" autocomplete="off">
+                        <option value="Strongly Agree">Strongly Agree</option>
+                        <option value="Agree">Agree</option>
+                        <option value="Disagree">Disagree</option>
+                        <option value="Strongly Disagree">Strongly Disagree</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Horizontal rating</h4>
+                    <p class="card-description">Rating as horizontal options</p>
+                    <div class="br-wrapper br-theme-bars-horizontal">
+                      <select id="example-horizontal" name="rating" autocomplete="off" style="display: none;">
+                        <option value="10">10</option>
+                        <option value="9">9</option>
+                        <option value="8">8</option>
+                        <option value="7">7</option>
+                        <option value="6">6</option>
+                        <option value="5">5</option>
+                        <option value="4">4</option>
+                        <option value="3">3</option>
+                        <option value="2">2</option>
+                        <option value="1" selected="selected">1</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6 grid-margin stretch-card">
+                <!--x-editable starts-->
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">X-editable Editor</h4>
+                    <p class="card-description">Edit forms inline</p>
+                    <div class="template-demo">
+                      <form id="editable-form" class="editable-form">
+                        <div class="form-group row">
+                          <label class="col-6 col-lg-4 col-form-label">Simple text field</label>
+                          <div class="col-6 col-lg-8">
+                            <a href="#" id="username" data-type="text" data-pk="1">awesome</a>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label class="col-6 col-lg-4 col-form-label">Empty text field, required</label>
+                          <div class="col-6 col-lg-8">
+                            <a href="#" id="firstname" data-type="text" data-pk="1" data-placement="right" data-placeholder="Required" data-title="Enter your firstname"></a>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label class="col-6 col-lg-4 col-form-label">Select, local array, custom display</label>
+                          <div class="col-6 col-lg-8">
+                            <a href="#" id="sex" data-type="select" data-pk="1" data-value="" data-title="Select sex">not selected</a>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label class="col-6 col-lg-4 col-form-label">Combodate (date)</label>
+                          <div class="col-6 col-lg-8">
+                            <a href="#" id="dob" data-type="combodate" data-value="1984-05-15" data-format="YYYY-MM-DD" data-viewformat="DD/MM/YYYY" data-template="D / MMM / YYYY" data-pk="1" data-title="Select Date of birth">15/05/1984</a>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label class="col-6 col-lg-4 col-form-label">Textarea, buttons below. Submit by ctrl+enter</label>
+                          <div class="col-6 col-lg-8">
+                            <a href="#" id="comments" data-type="textarea" data-pk="1" data-placeholder="Your comments here..." data-title="Enter comments">awesome user!</a>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                <!--x-editable ends-->
+              </div>
+              <div class="col-lg-6 grid-margin stretch-card">
+                <!--form mask starts-->
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Form mask</h4>
+                    <p class="card-description">Gives a preview of input format</p>
+                    <form class="forms-sample">
+                      <div class="form-group row">
+                        <div class="col">
+                          <label>Date:</label>
+                          <input class="form-control" data-inputmask="'alias': 'date'" /> </div>
+                        <div class="col">
+                          <label>Date time:</label>
+                          <input class="form-control" data-inputmask="'alias': 'datetime'" /> </div>
+                      </div>
+                      <div class="form-group">
+                        <label>Date with custom placeholder:</label>
+                        <input class="form-control" data-inputmask="'alias': 'date','placeholder': '*'" /> </div>
+                      <div class="form-group">
+                        <label>Phone:</label>
+                        <input class="form-control" data-inputmask="'alias': 'phonebe'" /> </div>
+                      <div class="form-group">
+                        <label>Currency:</label>
+                        <input class="form-control" data-inputmask="'alias': 'currency'" /> </div>
+                      <div class="form-group row">
+                        <div class="col">
+                          <label>Email:</label>
+                          <input class="form-control" data-inputmask="'alias': 'email'" /> </div>
+                        <div class="col">
+                          <label>Ip:</label>
+                          <input class="form-control" data-inputmask="'alias': 'ip'" /> </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <!--form mask ends-->
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-4 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title d-flex">Dropify
+                      <small class="ml-auto align-self-end">
+                        <a href="dropify.html" class="font-weight-light" target="_blank">More dropify examples</a>
+                      </small>
+                    </h4>
+                    <input type="file" class="dropify" /> </div>
+                </div>
+              </div>
+              <div class="col-lg-4 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Dropzone</h4>
+                    <form action="/file-upload" class="dropzone d-flex align-items-center" id="my-awesome-dropzone"></form>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Jquery file upload</h4>
+                    <div class="file-upload-wrapper">
+                      <div id="fileuploader">Upload</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row grid-margin">
+              <div class="col-12">
+                <div class="card">
+                  <div class="row">
+                    <div class="col-lg-4 grid-margin grid-margin-lg-0">
+                      <div class="card-body">
+                        <h4 class="card-title">Color picker (default)</h4>
+                        <p class="card-description">Click to select color</p>
+                        <input type='text' class="color-picker" value="#ffe74c" /> </div>
+                    </div>
+                    <div class="col-lg-4 grid-margin grid-margin-lg-0">
+                      <div class="card-body">
+                        <h4 class="card-title">Color picker (complex)</h4>
+                        <p class="card-description">Advanced options for colorpicker</p>
+                        <input type='text' class="color-picker" data-mode="complex" value="#6bf178" /> </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="card-body">
+                        <h4 class="card-title">Color picker (gradient)</h4>
+                        <p class="card-description">Click to select gradient</p>
+                        <input type='text' class="color-picker" data-mode="gradient" value="#ff5964" /> </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6 grid-margin d-flex align-items-stretch">
+                <div class="row flex-grow">
+                  <div class="col-12 grid-margin stretch-card">
+                    <div class="card">
+                      <div class="card-body">
+                        <h4 class="card-title">Datepicker (default)</h4>
+                        <p class="card-description">Click to open datepicker</p>
+                        <div id="datepicker-popup" class="input-group date datepicker">
+                          <input type="text" class="form-control">
+                          <span class="input-group-addon input-group-append border-left">
+                            <span class="mdi mdi-calendar input-group-text"></span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--tag strats-->
+                  <div class="col-12 stretch-card">
+                    <div class="card">
+                      <div class="card-body">
+                        <h4 class="card-title">Clockpicker (default)</h4>
+                        <p class="card-description">A simple clockpicker</p>
+                        <div class="input-group date" id="timepicker-example" data-target-input="nearest">
+                          <div class="input-group" data-target="#timepicker-example" data-toggle="datetimepicker">
+                            <input type="text" class="form-control datetimepicker-input" data-target="#timepicker-example" />
+                            <div class="input-group-addon input-group-append">
+                              <i class="mdi mdi-clock input-group-text"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--tag ends-->
+                </div>
+              </div>
+              <div class="col-lg-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Inline datepicker</h4>
+                    <p class="card-description">An inline datepicker</p>
+                    <div id="inline-datepicker" class="datepicker"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="card">
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="card-body">
+                        <h4 class="card-title">Form repeater</h4>
+                        <p class="card-description">Click the add button to repeat the form</p>
+                        <form class="form-inline repeater">
+                          <div data-repeater-list="group-a">
+                            <div data-repeater-item class="d-flex mb-2">
+                              <label class="sr-only" for="inlineFormInputGroup1">Users</label>
+                              <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text">@</span>
+                                </div>
+                                <input type="text" class="form-control form-control-sm" id="inlineFormInputGroup1" placeholder="Add user"> </div>
+                              <label class="sr-only">Password</label>
+                              <button type="submit" class="btn btn-success btn-sm">Submit</button>
+                              <button data-repeater-delete type="button" class="btn btn-danger btn-sm icon-btn ml-2">
+                                <i class="mdi mdi-delete"></i>
+                              </button>
+                            </div>
+                          </div>
+                          <button data-repeater-create type="button" class="btn btn-info btn-sm icon-btn ml-2 mb-2">
+                            <i class="mdi mdi-plus"></i>
+                          </button>
+                        </form>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="card-body">
+                        <h4 class="card-title">Input Tag</h4>
+                        <p class="card-description">Type to add a new tag</p>
+                        <input name="tags" id="tags" value="London,Canada,Australia,Mexico" /> </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- content-wrapper ends -->
+        </div>
+
+      </div>
+      {% include "partials/_footer.html" %}
+    </div>
+  </div>
+</div>
+{% include "partials/_ender.html" %}

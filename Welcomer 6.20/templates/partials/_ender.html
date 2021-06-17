@@ -1,0 +1,108 @@
+{% block ender %}
+
+<script src="/static/js/shared/formpickers.js"></script>
+<script src="/static/js/shared/dropify.js"></script>
+<script>
+  (function ($) {
+    'use strict';
+    $(function () {
+      $('#changeguild').avgrund({
+        holderClass: 'custom',
+        showClose: true,
+        showCloseText: 'x',
+        onBlurContainer: '.container-scroller',
+        template: `
+      <style>
+      .selector-name {
+        text-decoration: none;
+        color: white;
+      }
+      .selector-name:hover {
+        text-decoration: none;
+        color: #9F9EA3;
+      }
+      .avgrund-popin.custom {
+        width: 70%;
+        height: 80%;
+      }
+      </style>
+
+      <p>Select a server</p>
+
+      <div class="wrapper">
+        <a href="/invitebot"><button class="btn btn-primary btn-lg">Invite Welcomer</button></a>
+        <a href="/invitebot/donator"><button class="btn btn-danger btn-lg">Invite Welcomer Donator</button></a>
+      </div>
+
+      <br>
+
+      <ul class="guildlist" style="list-style: none;overflow-y: auto;height: inherit;">
+        <span id="guildlistplaceholder">Loading... This shouldn't take too long :)</span>
+        <div id='bwbutton' class='square-path-loader'></div>
+      </ul>`
+      });
+      $("#changeguild").on("click", function () {
+        var done = false;
+        setTimeout(function() {
+          if (!done) {
+            document.getElementById("guildlistplaceholder").innerText = "This is taking longer than usual..."
+          }
+        }, 10000);
+        console.debug("Loading guild list");
+        $.ajax({
+          url: "/api/guilds",
+          type: "GET",
+          success: function (data) {
+            done = true;
+            if (data.success) {
+              console.log(`Fetched ${data.guilds.length} guild(s)`);
+              var guildlist = $(".guildlist");
+              guildlist.empty();
+              data.guilds.forEach(function (guild) {
+                if (guild.has_elevation) {
+                  console.log(guild);
+                  var _container = document.createElement("li");
+
+                  var _guildtoast = document.createElement("a");
+                  _guildtoast.classList.add("selector-name");
+                  _guildtoast.setAttribute("href", "/dashboard/changeguild/" + guild.id);
+                  _guildtoast.style.cssText = "padding-left: 40.2px;";
+
+                  var _icon = document.createElement("img");
+                  if (guild.icon != undefined && guild.icon != "None") {
+                    _icon.setAttribute("src", "https://cdn.discordapp.com/icons/" + guild.id + "/" + guild.icon + ".png?size=32")
+                    _icon.style.cssText = "border-radius: 100%; margin-right:5px;";
+                  } else {
+                    _icon.style.cssText = "width:32px; margin-right:5px;";
+                  }
+                  _guildtoast.append(_icon);
+
+                  _guildtoast.append(guild.name);
+
+                  _container.append(_guildtoast);
+                  var _divider = document.createElement("li");
+                  var _dividerdiv = document.createElement("div");
+                  _dividerdiv.classList.add("set-divider");
+                  _divider.append(_dividerdiv);
+                  guildlist.append(_container);
+                  guildlist.append(_divider);
+                }
+
+              });
+            }
+          },
+          error: function () {
+            console.error("Error");
+            $(".guildlist").text("Failed to load list");
+          },
+        });
+      })
+    })
+  })(jQuery);
+</script>
+{% endblock %}
+{% block finish %}
+</body>
+
+</html>
+{% endblock %}

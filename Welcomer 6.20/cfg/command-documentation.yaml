@@ -1,0 +1,106 @@
+AutoMod:
+  enable:
+    Enables automoderation for your server:
+      automod enable
+  disable:
+    Disables automoderation for your server:
+      automod disable
+  filter <list/add/remove> [...]:
+    Allows you to configure the text filter on your server:
+      automod filter list<br>
+      automod filter add text<br>
+      automod filter remove 1
+  regex <list/add/remove> [...]:
+    Allows you to configure the regex filter on your server:
+      automod regex list<br>
+      automod regex add [a-z]<br>
+      automod regex remove 1
+  threshold <mentions/caps> [count]:
+    Allows you to configure the threshold for mass mentions or mass caps:
+      automod threshold mentions 3<br>
+      automod threshold caps 50
+  smartmod [enable/disable]:
+    Enables or disables smart moderation where the message is filtered and resent:
+      automod smartmod enable
+  moderate <key> [enable/disable]:
+    Toggles what auto moderation should moderate:
+      automod moderate massmention enable<br>
+      automod moderate urls
+AutoRole:
+  enable:
+    Enables giving new users roles when they join:
+      autorole enable
+  disable:
+    Disables automatic roles:
+      autorole disable
+  list:
+    Lists all roles that are given when a user joins the server:
+      autorole list
+  add <@>:
+    Adds a role for when new users join the server:
+      autorole add @Members<br>
+      autorole add Members
+  remove <@>:
+    Removes a role from autorole:
+      autorole remove @Members<br>
+      autorole remove Members
+Borderwall:
+  enable:
+    Enables borderwall when users join:
+      borderwall enable
+  disable:
+    Disables borderwall when users join the server:
+      borderwall disable
+  dms [enable/disable]:
+    Toggles if users will receive their borderwall code in their dms (recommended):
+      borderwall dms<br>
+      borderwall dms enable
+  setchannel <#>:
+    Sets a channel where borderwall links will be sent:
+      borderwall setchannel \#verification<br>
+      borderwall setchannel verification
+  setmessage <verify/verified> ...:
+    Sets the message users are sent when they join the server or have verified:
+      borderwall setmessage verify This server is secured by borderwall, please verify at {link}, {mention}.<br>
+      borderwall setmessage verified Thank you for verifying {mention}. You can now access {guild}.
+  setrole <@>:
+    Changes the role users are assigned once that have verified:
+      borderwall setrole @Verified<br>
+      borderwall setrole Verified
+Freeroles:
+  enable:
+    Enables freeroles:
+      freeroles enable
+  disable:
+    Disables freeroles:
+      freeroles disable
+  list:
+    Lists all free roles a user can receive:
+      freeroles list
+  addrole <@>:
+    Adds a role to the free role list:
+      freeroles addrole @Green<br>
+      freeroles addrole Green
+  removerole <@>:
+    Removes a role from the free role list:
+      freeroles removerole @Green<br>
+      freeroles removerole Green
+  give <@>:
+    Gives you a freerole:
+      freeroles give Green
+  remove <@>:
+    Removes a freerole you have:
+      freeroles remove Green
+Guild:
+  massgiverole <target> <role>:
+    Assigns every user in the target the specified role:
+      guild massgiverole @everyone @verified
+  reloaddata:
+    Reloads guild information incase it is out of date:
+      guild reloaddata
+  setlocale <name>:
+    Changes the locale the bot will respond in:
+      guild setlocale en-gb
+  setprefix [prefix]:
+    Changes the guild prefix:
+      guild setprefix =

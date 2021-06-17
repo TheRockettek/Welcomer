@@ -1,0 +1,43 @@
+<style>
+
+html {
+    height:100% !important;
+    display:table !important;
+    width:100% !important;
+}
+
+body {
+    height:100% !important;
+    display:table-cell !important;
+    text-align:center !important;
+    vertical-align:middle !important;
+    background: #36393e !important;
+}
+
+</style>
+
+<head>
+
+    <link rel="stylesheet" href="https://welcomer.fun/static/style.css">
+
+</head>
+
+<script>
+    fetch("https://welcomer.fun/api/invite/341685098468343822")
+        .then(res => res.json())
+            .then((out) => {
+                if (out['works'] == true) {
+                    document.location = "https://discord.gg/" + out['code']
+                } else {
+                    document.getElementsByClassName("mg")[0].innerHTML = '<img src="https://welcomer.fun/static/invalid.svg">';
+                    document.getElementsByClassName("name")[0].innerText = 'Unable to create a server invite';
+                };
+            })
+        .catch(err => { throw err });
+</script>
+
+<div class="mg">
+    <span class="spinner-inner spinner-wandering-cubes"><span class="spinner-item"></span><span class="spinner-item"></span></span>
+</div>
+
+<span class="inviteName">Retrieving a server invite</span>

@@ -1,0 +1,29 @@
+[
+    {
+        "e" : ":thumbsup:",
+        "h" : "FFFFFF",
+        "i" : 0,
+        "n" : "Generic Human Person"
+    },
+    {
+        "d" : "Support",
+        "e" : ":gear:",
+        "h" : "F44336",
+        "i" : 1,
+        "n" : "Welcomer Support"
+    },
+    {
+        "d" : "Admin",
+        "e" : ":hammer_pick:",
+        "h" : "9ACD32",
+        "i" : 2,
+        "n" : "Welcomer Administrator"
+    },
+    {
+        "d" : "Bot",
+        "e" : ":robot:",
+        "h" : "03A9F4",
+        "i" : 3,
+        "n" : "Bot"
+    }
+]

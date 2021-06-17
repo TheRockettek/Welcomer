@@ -1,0 +1,154 @@
+id
+details
+    data_version 0
+    general {}
+        guild_creation
+        guild_addition
+        icon
+        name
+        owner
+        force_dms
+    bot {}
+        cluster ""
+        has_donator false
+        shard 0 
+        locale ""
+        splash ""
+        show_staff true
+        allow_invite true
+        prefix ""
+        description ""
+    members {}
+        bots 0
+        members 0
+        all 0
+        update 0
+    detailed {}
+        streaming 0 
+        online 0
+        idle 0
+        dnd 0 
+        offline 0
+        update 0
+    channels {}
+        categories []
+        voice []
+        text []
+        update 0
+    donations []
+    invites []
+analytics
+    enabled false
+rules
+    enabled true
+    rules []
+channels
+    black
+        enabled false
+        channels []
+    white
+        enabled false
+        channels []
+server_lock
+    whitelist
+        enabled false
+        users []
+    password
+        enabled false
+        hash ""
+staff
+    users []
+        userid, allow_ping ()
+    allow_pings false
+tempchannel
+    enable true
+    autopurge true
+    category 0
+autorole
+    enabled true
+    roles []
+rolereact []
+    {}
+        message id 0
+        roles []
+            emoji id, roleid ()
+leaver
+    enabled
+    channel 0
+    embed true
+    text ""
+    icon_type 0
+freerole
+    enabled false
+    roles []
+timeroles
+    enabled false
+    roles []
+        role id, time (seconds) ()
+namepurge
+    enabled false
+    filter []
+welcomer
+    general
+        channel 0
+        embed true
+        badges false
+        invited false
+        icon_type 0
+    images
+        enabled true
+        background true
+        colours []
+            text_border 0
+            text_back 0
+            profile_border 0
+            image_border 0
+        message """ """
+        text_align 0
+        image_type 0
+    text
+        enabled
+        message
+        custom_embed false
+        embed_content {}
+            title ""
+            thumbnail ""
+            content ""
+            colour 0
+            footer ""
+    dms
+        message
+        enable false
+        embed false
+stats
+    enabled
+    category 0
+    channels []
+automod
+    enabled
+    general {}
+        invites
+        urlredirect
+        ipgrabbers
+        capsspam
+        mentionspam
+    threshold {}
+        mention 0
+        caps 0
+    regex []
+    smartmod true
+    autoslowmode true
+    slow_exceptions []
+borderwall
+    enable false
+    role 0 
+    channel 0
+    dms false
+    message ""
+    message_verify ""
+
+
+
+
+
+

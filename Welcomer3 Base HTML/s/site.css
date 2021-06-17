@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+* {
+    font-family: Oxygen, Ubuntu, Roboto;
+    text-rendering: optimizeLegibility;
+}
+body {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    font-family: Whitney,Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif;
+    background-color: #36393f;
+    vertical-align: middle;
+    color: #ffffff;
+}
+header {
+    background-color: #2e3136;
+    padding: 1rem;
+}
+
+.container {
+    padding: 2rem 3rem;
+    text-align: center;
+	background: transparent;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    text-align: center;
+}
+
+.menu a {
+    margin: -.5rem;
+    padding: 10px .5rem;
+    text-decoration: none;
+    display: flex;
+    color: #ffffff;
+}
+
+.menu a:hover {
+    background: rgba(0,0,0,0.1);
+    transition: 0.05s;
+    color: #FFFFFF;
+}
+
+.title {
+    font-size: xx-large;
+    text-shadow: 1px 1px #2c2f33, 4px 4px rgba(0,0,0,0.2);
+    border-bottom-color: #ffffff;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    padding: 3px;
+}
+
+ul.menu li {
+    margin-left: 1rem;
+}
+ul.menu li:first-child {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-right: auto;
+    margin-left: 0px;
+    padding-left: 0px;
+}
+
+.userinfo {
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.userinfo .pfp {
+    width: 128px;
+    height: 128px;
+    border-color: #ffffff;
+    border-radius: 100%;
+    border-width: 4px;
+    border-style: double;
+    vertical-align: middle;
+}
+
+.userinfo .info {
+    padding-left: 10px;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: left;
+}
+
+.awsome {
+    font-family: FontAwesome;
+}
+
+.badge {
+    padding: 0.2em 0.5rem;
+    border-radius: 8px 0px;
+    box-shadow: 1px 1px #2c2f33, 2px 2px rgba(0,0,0,0.2);
+    vertical-align: super;
+    margin-left: 4px;
+}
+
+.roles {
+	display: inline-block;
+}
+
+.role {
+    padding: 0.1em 1rem;
+    border-radius: 10px;
+    box-shadow: 1px 1px #2c2f33, 2px 2px rgba(0,0,0,0.2);
+    vertical-align: super;
+    display: inherit;
+	width: auto;
+    height: auto;
+    margin: 2px;
+}
+
+.userinfo .info .name{
+    font-size: xx-large;
+    text-shadow: 1px 1px #2c2f33, 4px 4px rgba(0,0,0,0.2);
+}
+
+.myserver {
+    width: 220px;
+    height: 200px;
+    border-radius: 6px;
+    background-color: #35383c;
+    box-shadow: 0 1px 10px rgba(0,0,0,.1);
+    box-sizing: border-box;
+    display: inline-grid;
+    margin: 10px 4px;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.myserver .upper {
+    width: 220px;
+    height: 139px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 4px 4px 0px;
+}
+
+.myserver .upper .img-wrapper {
+    display: table;
+    border-spacing: 1px;
+    border-width: 1px;
+    border: #88898a;
+    border-style: dashed;
+    border-radius: 100%;
+}
+
+.myserver .upper .img-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+}
+
+
+.mysetting {
+    width: 170px;
+    height: 200px;
+    border-radius: 6px;
+    background-color: #33363c;;
+    box-shadow: 0 1px 10px rgba(0,0,0,.1);
+    box-sizing: border-box;
+    display: inline-grid;
+    margin: 10px 3px;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.mysetting .upper {
+    width: 170px;
+    height: 139px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 6px 6px 0px;
+}
+
+.mysetting .upper .img-wrapper {
+    display: table;
+    border-spacing: 1px;
+    border-width: 1px;
+    border: transparent;
+}
+
+.mysetting .upper .img-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 0%;
+}
+
+.mysetting .lower {
+    width: 170px;
+    background-color: #2e3136;
+    height: 61px;
+    border-radius: 0px 0px 6px 6px;
+    align-self: flex-end;
+    display: table;
+}
+
+.mysetting .lower span {
+    text-decoration: None;
+    text-align: center;
+    vertical-align: middle;
+    display: table-cell;
+}
+
+.myuser {
+    width: 100%;
+    height: min-content;
+    border-radius: 6px;
+    background-color: #35383c;
+    box-shadow: 0 1px 10px rgba(0,0,0,.1);
+    box-sizing: border-box;
+    display: inline-grid;
+    margin: 10px 4px;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.myuser .upper {
+    width: 100%;
+    height: min-content;
+    display: flow-root;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+	margin: 8px;
+}
+
+
+.myuser .lower {
+    width: 100%;
+	height: min-content;
+    background-color: #2e3136;
+    border-radius: 0px 0px 6px 6px;
+    align-self: flex-end;
+    display: table;
+	padding-bottom: 3px;
+}
+
+.myuser .lower p {
+    text-decoration: None;
+    text-align: center;
+    width: fit-content;
+    display: inline-flex;
+	vertical-align: middle;
+	margin: 3px;
+	background-color: transparent;
+	border-width: 1px;
+	border-style: solid;
+}
+
+.upfp {
+    width: 50px;
+    border-color: #ffffff;
+    border-radius: 100%;
+    border-width: 4px;
+    border-style: double;
+    vertical-align: middle;
+}
+
+.userlist td:first-child {
+	width: 5%;
+}
+
+

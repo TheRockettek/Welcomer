@@ -1,0 +1,32 @@
+rockutils:
+- pprint(text, prefix="Welcomer", text_colour="default", prefix_colour="light blue")
+- merge(dict)
+- normalize(text)
+- send_webhook(url, text, *data)
+
+core:
+-> check_permission(self, permissions, target, wild=True)
+-> has_permission(self, ctx, **kwargs) [server_staff etc...]
+
+-> send_data(self, ctx, message, raw=False, force_guild=False, force_dm=False, alert=True, title="", footer="")
+
+-> reload_data(self, filename, key="")
+
+- get_guild_info(self, guild_id, refer="") (move create_guild_info inside)
+- update_guild_info(self, guild_id, data, refer="")
+- get_user_info(self, user_id, refer="") (move create_user_info inside)
+- update_user_info(self, user_id, data, refer="")
+
+- get_emoji(self, name, fallback=":white_small_square:")
+- broadcast(self, opcode, recepients, args, timeout=10)
+- get_guild_prefix(self, guild_id)
+
+-> guild_permissions(self, me, check=[])
+- is_elevated(self, user, guild, guild_info)
+
+-> extract_channels(self, guild)
+-> extract_guild_detailed(self, guild)
+- extract_guild_info(self, guild)
+- extract_user_info(self, user)
+- extract_emotes(self, guild)
+- extract_invites(self, guild)

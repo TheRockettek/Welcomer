@@ -1,0 +1,197 @@
+DANGER
+SUCCESS
+PRIMARY
+WARNING
+
+guildinfo.id                                     : guildinfo.id
+
+guildinfo.details.data_version                   : guildinfo.d.dv
+guildinfo.details.general.guild_creation         : guildinfo.d.g.gc
+guildinfo.details.general.guild_addition         : guildinfo.d.g.ga
+guildinfo.details.general.icon                   : guildinfo.d.g.i
+guildinfo.details.general.name                   : guildinfo.d.g.n
+guildinfo.details.general.owner                  : guildinfo.d.g.o
+guildinfo.details.general.force_dms              : guildinfo.d.g.fd
+guildinfo.details.bot.cluster                    : guildinfo.d.b.c
+guildinfo.details.bot.has_donator                : guildinfo.d.b.hd
+guildinfo.details.bot.has_custombg               : guildinfo.d.b.hb
+guildinfo.details.bot.shard                      : guildinfo.d.b.sh
+guildinfo.details.bot.locale                     : guildinfo.d.b.l
+guildinfo.details.bot.splash                     : guildinfo.d.b.s
+guildinfo.details.bot.show_staff                 : guildinfo.d.b.ss
+guildinfo.details.bot.allow_invite               : guildinfo.d.b.ai
+guildinfo.details.bot.prefix                     : guildinfo.d.b.p
+guildinfo.details.bot.description                : guildinfo.d.b.d
+guildinfo.details.bot.embed_colour               : guildinfo.d.b.ec
+guildinfo.details.members.bots                   : guildinfo.d.m.b
+guildinfo.details.members.members                : guildinfo.d.m.m
+guildinfo.details.members.all                    : guildinfo.d.m.a
+guildinfo.details.members.bypass                 : guildinfo.d.m.u
+guildinfo.details.details.streaming              : guildinfo.d.d.s
+guildinfo.details.details.online                 : guildinfo.d.d.o
+guildinfo.details.details.idle     R              : guildinfo.d.d.i
+guildinfo.details.details.dnd                    : guildinfo.d.d.d
+guildinfo.details.details.offline                : guildinfo.d.d.of
+guildinfo.details.details.update                 : guildinfo.d.d.u
+guildinfo.details.channels.categories            : guildinfo.d.c.c
+guildinfo.details.channels.voice                 : guildinfo.d.c.v
+guildinfo.details.channels.text                  : guildinfo.d.c.t
+guildinfo.details.channels.update                : guildinfo.d.c.u
+guildinfo.details.roles.update                   : guildinfo.d.r.u
+guildinfo.details.roles.roles                    : guildinfo.d.r.r
+guildinfo.details.donations                      : guildinfo.d.de
+guildinfo.details.invites                        : guildinfo.d.i
+
+guildinfo.analytics.enabled                      : guildinfo.a.e
+
+guildinfo.rules.rules                            : guildinfo.r.r
+guildinfo.rules.enabled                          : guildinfo.r.e
+
+guildinfo.channels.black.enabled                 : guildinfo.ch.b.e
+guildinfo.channels.black.channels                : guildinfo.ch.b.c
+guildinfo.channels.white.enabled                 : guildinfo.ch.w.e
+guildinfo.channels.white.channels                : guildinfo.ch.w.c
+guildinfo.channels.bypass                        : guildinfo.ch.by
+
+guildinfo.server_lock.whitelist.enabled          : guildinfo.sl.wl.e
+guildinfo.server_lock.whitelist.users            : guildinfo.sl.wl.u
+guildinfo.server_lock.pass.enabled               : guildinfo.sl.p.e
+guildinfo.server_lock.pass.hash                  : guildinfo.sl.p.h
+
+guildinfo.staff.users                            : guildinfo.st.u
+guildinfo.staff.allow_ping_command               : guildinfo.st.ap
+
+guildinfo.tempchannel.enabled                    : guildinfo.tc.e
+guildinfo.tempchannel.auto_purge                 : guildinfo.tc.ap
+guildinfo.tempchannel.category                   : guildinfo.tc.c
+guildinfo.tempchannel.default_limit              : guildinfo.tc.dl
+guildinfo.tempchannel.lobby                      : guildinfo.tc.l
+
+guildinfo.autorole.enabled                       : guildinfo.ar.e
+guildinfo.autorole.roles                         : guildinfo.ar.r
+
+guildinfo.leaver.enabled                         : guildinfo.l.e
+guildinfo.leaver.channel                         : guildinfo.l.c
+guildinfo.leaver.embed                           : guildinfo.l.em
+guildinfo.leaver.useembed                        : guildinfo.l.ue
+guildinfo.leaver.text                            : guildinfo.l.t
+
+guildinfo.freerole.enabled                       : guildinfo.fr.e
+guildinfo.freerole.roles                         : guildinfo.fr.r
+
+guildinfo.timeroles.enabled                      : guildinfo.tr.e
+guildinfo.timeroles.roles                        : guildinfo.tr.r
+
+guildinfo.name_purge.enabled                     : guildinfo.np.e
+guildinfo.name_purge.ignore_bots                 : guildinfo.np.i
+guildinfo.name_purge.filter                      : guildinfo.np.f
+
+guildinfo.welcomer.channel                       : guildinfo.w.c
+guildinfo.welcomer.embed                         : guildinfo.w.e
+guildinfo.welcomer.badges                        : guildinfo.w.b
+guildinfo.welcomer.invited                       : guildinfo.w.iv
+
+guildinfo.welcomer.images.enabled                : guildinfo.w.i.e
+guildinfo.welcomer.images.background             : guildinfo.w.i.bg
+guildinfo.welcomer.images.border                 : guildinfo.w.i.b
+guildinfo.welcomer.images.colours.text_border    : guildinfo.w.i.c.bo
+guildinfo.welcomer.images.colours.text_back      : guildinfo.w.i.c.b
+guildinfo.welcomer.images.colours.profile_border : guildinfo.w.i.c.pb
+guildinfo.welcomer.images.colours.image_border   : guildinfo.w.i.c.ib
+guildinfo.welcomer.images.align                  : guildinfo.w.i.a
+guildinfo.welcomer.images.theme                  : guildinfo.w.i.t
+guildinfo.welcomer.images.message                : guildinfo.w.i.m
+
+guildinfo.welcomer.text.enabled                  : guildinfo.w.t.e
+guildinfo.welcomer.text.message                  : guildinfo.w.t.m
+guildinfo.welcomer.text.embed.title              : guildinfo.w.t.em.t
+guildinfo.welcomer.text.embed.thumbnail          : guildinfo.w.t.em.th
+guildinfo.welcomer.text.embed.colour             : guildinfo.w.t.em.c
+guildinfo.welcomer.text.embed.footer             : guildinfo.w.t.em.f
+
+guildinfo.welcomer.dm.enabled                    : guildinfo.w.dm.e
+guildinfo.welcomer.dm.message                    : guildinfo.w.dm.m
+guildinfo.welcomer.dm.use_embed                  : guildinfo.w.dm.ue
+guildinfo.welcomer.dm.embed.title                : guildinfo.w.t.em.t
+guildinfo.welcomer.dm.embed.thumbnail            : guildinfo.w.t.em.th
+guildinfo.welcomer.dm.embed.colour               : guildinfo.w.t.em.c
+guildinfo.welcomer.text.embed.footer             : guildinfo.w.t.em.f
+
+guildinfo.stats.enabled                          : guildinfo.s.e
+guildinfo.stats.category                         : guildinfo.s.ca
+guildinfo.stats.channels                         : guildinfo.s.c
+
+guildinfo.automod.enabled                        : guildinfo.am.e
+guildinfo.automod.general.invites                : guildinfo.am.g.i
+guildinfo.automod.general.urlredirect            : guildinfo.am.g.ur
+guildinfo.automod.general.urls                   : guildinfo.am.g.ul
+guildinfo.automod.general.ipgrabbers             : guildinfo.am.g.ig
+guildinfo.automod.general.masscaps               : guildinfo.am.g.mc
+guildinfo.automod.general.massmention            : guildinfo.am.g.mm
+guildinfo.automod.general.profanity              : guildinfo.am.g.p
+guildinfo.automod.general.filter                 : guildinfo.am.g.f
+guildinfo.automod.threshold.mention              : guildinfo.am.t.m
+guildinfo.automod.threshold.caps                 : guildinfo.am.t.c
+guildinfo.automod.filter                         : guildinfo.am.f
+guildinfo.automod.regex                          : guildinfo.am.r
+guildinfo.automod.smartmod                       : guildinfo.am.sm
+
+guildinfo.borderwall.enabled                     : guildinfo.bw.e
+guildinfo.borderwall.role                        : guildinfo.bw.r
+guildinfo.borderwall.channel                     : guildinfo.bw.c
+guildinfo.borderwall.dms                         : guildinfo.bw.d
+guildinfo.borderwall.message                     : guildinfo.bw.m
+guildinfo.borderwall.message_verify              : guildinfo.bw.mv
+guildinfo.borderwall.wait_time                   : guildinfo.bw.w
+
+guildinfo.custom_commands                        : guildinfo.cc
+
+guildinfo.music.djs.enabled                      : guildinfo.mu.d.e
+guildinfo.music.djs.list                         : guildinfo.mu.d.l
+guildinfo.music.skiptype                         : guildinfo.mu.st
+guildinfo.music.threshold                        : guildinfo.mu.t
+
+guildinfo.polls                                  : guildinfo.p
+
+guildinfo.logs.enabled                           : guildinfo.lo.e
+guildinfo.logs.audit                             : guildinfo.lo.a
+guildinfo.logs.moderation                        : guildinfo.lo.m
+guildinfo.logs.joinleaves                        : guildinfo.lo.m
+
+guildinfo.moderation.force_reason                : guildinfo.m.fr
+===================================================================
+
+userinfo.id                             : userinfo.id
+
+userinfo.general.data_version           : userinfo.g.dv
+userinfo.general.general.avatar         : userinfo.g.g.a
+userinfo.general.general.name           : userinfo.g.g.n
+userinfo.general.general.discriminator  : userinfo.g.g.d
+userinfo.general.general.user_creation  : userinfo.g.g.uc
+userinfo.general.general.user_addition  : userinfo.g.g.ua
+userinfo.general.general.update         : userinfo.g.g.u
+userinfo.general.general.mutual.update  : userinfo.g.g.m.u
+userinfo.general.bot.locale             : userinfo.g.b.l
+userinfo.general.bot.background         : userinfo.g.b.bg
+userinfo.general.bot.hide_mutual        : userinfo.g.b.hm
+userinfo.general.bot.prefer_dms         : userinfo.g.b.pd
+
+userinfo.reputation.last                : userinfo.r.l
+userinfo.reputation.rep                 : userinfo.r.r
+
+userinfo.membership.servers
+
+
+userinfo.membership.hassingle        : userinfo.m.hs
+userinfo.membership.1.has            : userinfo.m.1.h
+userinfo.membership.1.until          : userinfo.m.1.u
+userinfo.membership.1.patreon        : userinfo.m.1.p
+userinfo.membership.3.has            : userinfo.m.3.h
+userinfo.membership.3.until          : userinfo.m.3.u
+userinfo.membership.3.patreon        : userinfo.m.3.p
+userinfo.membership.5.has            : userinfo.m.5.h
+userinfo.membership.5.until          : userinfo.m.5.u
+userinfo.membership.5.patreon        : userinfo.m.5.p
+userinfo.membership.servers          : userinfo.m.s
+
+userinfo.badges                         : userinfo.b

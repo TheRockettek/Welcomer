@@ -1,0 +1,36 @@
+server: # REST and WS server
+  port: 6789
+  address: 0.0.0.0
+spring:
+  main:
+    banner-mode: log
+lavalink:
+  server:
+    password: "welcome_music"
+    sources:
+      youtube: true
+      bandcamp: true
+      soundcloud: true
+      twitch: true
+      vimeo: true
+      mixer: true
+      http: true
+      local: false
+    bufferDurationMs: 400
+    youtubePlaylistLoadLimit: 6 
+    gc-warnings: true
+
+metrics:
+  prometheus:
+    enabled: true
+    endpoint: /metrics
+
+logging:
+  file:
+    max-history: 30
+    max-size: 1GB
+  path: ./music_logs/
+
+  level:
+    root: INFO
+    lavalink: INFO

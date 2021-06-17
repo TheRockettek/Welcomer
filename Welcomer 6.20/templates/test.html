@@ -1,0 +1,37 @@
+{% include "partials/_header.html" %}
+<div class="container-scroller">
+  {% include "partials/_navbar.html" %}
+  <div class="container-fluid page-body-wrapper">
+    {% include "partials/_settings-panel.html" %}
+    {% include "partials/_sidebar.html" %}
+    <div class="main-panel">
+      <div class="content-wrapper">
+
+        {{error|safe}}
+
+        New dashboard when?
+
+        <form>
+            <input type='text' class="color-picker" name="hex" data-mode="complex"/>
+            <input type="submit">
+        </form>
+      </div>
+
+      {% include "partials/_footer.html" %}
+        </div>
+  </div>
+</div>
+{% include "partials/_ender.html" %}
+<script src="../../../static/js/shared/off-canvas.js"></script>
+<script src="../../../static/js/shared/hoverable-collapse.js"></script>
+<script src="../../../static/js/shared/misc.js"></script>
+<script src="../../../static/js/shared/settings.js"></script>
+<script src="../../../static/js/shared/todolist.js"></script>
+
+<script src="../../../static/js/shared/formpickers.js"></script>
+<script src="../../../static/js/shared/form-addons.js"></script>
+<script src="../../../static/js/shared/x-editable.js"></script>
+<script src="../../../static/js/shared/dropify.js"></script>
+<script src="../../../static/js/shared/dropzone.js"></script>
+<script src="../../../static/js/shared/jquery-file-upload.js"></script>
+<script src="../../../static/js/shared/form-repeater.js"></script>

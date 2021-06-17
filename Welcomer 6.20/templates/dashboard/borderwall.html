@@ -1,0 +1,237 @@
+{% include "partials/_header.html" %}
+<div class="container-scroller">
+    {% include "partials/_navbar.html" %}
+    <div class="container-fluid page-body-wrapper">
+        {% include "partials/_sidebar.html" %}
+        <div class="main-panel">
+            <div class="content-wrapper">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="container-fluid bg-primary py-2 mb-4">
+                            <p class="mb-0 text-white">Borderwall Settings</p>
+                        </div>
+
+                        <div class="row border-bottom mt-4 mb-4">
+                            <div class="col col-6">
+                                <div class="badge badge-outline-primary badge-pill">New Feature</div>
+                                <m3>Enable Borderwall</m3>
+                            </div>
+                            <div class="col col-6 text-right">
+                                <label class="switch"><input id="enabled" type="checkbox"
+                                        {{ "checked" if config['enabled'] else "" }}><span
+                                        class="slider round"></span></label>
+                            </div>
+                            <div class="col col-12">
+                                <p class="text-muted">Borderwall allows you to secure your server and verify the users
+                                    who join are legit by making them have to go and verify from an online link to
+                                    retrieve certain roles. Please note this will not stop them from messaging certain
+                                    channels. A way to circumvent this is to ensure users have a role to send messages
+                                    in channels and assign that role to users when they join</p>
+                            </div>
+                        </div>
+
+                        <div class="row border-bottom my-4">
+                            <div class="col col-6">
+                                <m3>Borderwall Channel</m3>
+                            </div>
+                            <div class="col col-6 text-right">
+
+                                <div class="scrollable-tt w-100">
+                                    <input id="channel" class="typeahead w-100 text-light" type="text"
+                                        placeholder="Type a channel name" value="{{ config['channel'] }}">
+                                </div>
+
+                                <script>
+                                    var blood = new Bloodhound({
+                                        datumTokenizer: Bloodhound.tokenizers.whitespace,
+                                        queryTokenizer: Bloodhound.tokenizers.whitespace,
+                                        local: {{ channellist | safe }}
+                        });
+
+                                    $('.scrollable-tt .typeahead').typeahead(null, {
+                                        hint: true,
+                                        highlight: true,
+                                        limit: 100,
+                                        name: 'channels',
+                                        source: blood
+                                    });
+                                </script>
+
+                            </div>
+                            <div class="col col-12">
+                                <p class="text-muted">The channel borderwall will use to give users details on what to
+                                    do. This is a precaution incase the user has blocked the bot and it is recommended
+                                    you set this up.</p>
+                            </div>
+                        </div>
+
+                        <div class="row border-bottom mt-4 mb-4">
+                            <div class="col col-6">
+                                <m3>Send DM</m3>
+                            </div>
+                            <div class="col col-6 text-right">
+                                <label class="switch"><input id="senddms" type="checkbox"
+                                        {{ "checked" if config['senddms'] else "" }}><span
+                                        class="slider round"></span></label>
+                            </div>
+                            <div class="col col-12">
+                                <p class="text-muted">When enabled, the user will receive the verification message in
+                                    their direct message. This is highly recommended along with a channel</p>
+                            </div>
+                        </div>
+
+                        <!-- <div class="row border-bottom mt-4 mb-4">
+                    <div class="col col-6">
+                        <m3>Verification duration</m3>
+                    </div>
+                    <div class="col col-6 text-right">
+                        <input id="waittime" type="number" min=0 class="form-control" placeholder="Verification duration" value="{{ config['waittime'] }}">
+                        <input id="waittime" type="number" disabled min=0 class="form-control" placeholder="Verification duration" value="0">
+                    </div>
+                    <div class="col col-12">
+                        <p class="text-muted">The amount of minutes before the user is kicked for not verifying automatically. To disable this, simply set the value to 0</p>
+                    </div>
+                    </div> -->
+
+                        <div class="container-fluid bg-primary py-2 mb-4">
+                            <p class="mb-0 text-white">Borderwall Messages</p>
+                        </div>
+
+                        {% set userinfo = dict(session.get("user_data",{})) %}
+
+                        <div class="col col-12 py-2 mb-4">
+                            <p class="text-muted">Borderwall uses a different form of markdown </p>
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Syntax</th>
+                                        <th>Sample</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>{link}</td>
+                                        <td>https://welcomer.fun/borderwall/a</td>
+                                        <td>Link to the borderwall verification link</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>{guild} or {server}</td>
+                                        <td>{{ guild.get('name', 'My Discord Server') }}</td>
+                                        <td>Name of the current server</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>{mention}</td>
+                                        <td>{{ userinfo['username'] }}#{{ userinfo['discriminator']}}</td>
+                                        <td>Mention for the user who needs to verify</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>{id}</td>
+                                        <td>{{ userinfo['id'] }}</td>
+                                        <td>ID of the user who needs to verify</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="row border-bottom my-4">
+                            <div class="col col-6">
+                                <m3>Verification Message</m3>
+                            </div>
+                            <div class="col col-12 text-right">
+                                <textarea style="height: 100px;" id="message" type="text"
+                                    class="form-control">{{ config['message'] }}</textarea>
+                            </div>
+                            <div class="col col-12">
+                                <p class="text-muted">Message sent to the user when they join the server to tell them to
+                                    verify</p>
+                            </div>
+                        </div>
+
+                        <div class="row border-bottom my-4">
+                            <div class="col col-6">
+                                <m3>Verified Message</m3>
+                            </div>
+                            <div class="col col-12 text-right">
+                                <textarea style="height: 100px;" id="messageverify" type="text"
+                                    class="form-control">{{ config['messageverify'] }}</textarea>
+                            </div>
+                            <div class="col col-12">
+                                <p class="text-muted">Message sent to the user once they have successfuly verified</p>
+                            </div>
+                        </div>
+
+                        <div class="container-fluid bg-primary py-2 mb-4">
+                            <p class="mb-0 text-white">Borderwall Verified Settings</p>
+                        </div>
+
+                        <div class="card">
+                            <div class="col col-6">
+                                <m3>Borderwall Role Assign</m3>
+                            </div>
+                            <div class="col col-12">
+                                <p class="text-muted">Any roles that are enabled will be assigned to users when they
+                                    have
+                                    verified with borderwall</p>
+                            </div>
+                            <div class="card-body">
+                                <div id="listresults" class="col-12">
+                                    {% for role in config['roles'].values() %}
+                                    <div class="row border-bottom mt-2 mb-2" id="{{ role['id'] }}">
+                                        <div class="col col-10">
+                                            {% if role['higher'] %}
+                                            <m3 class="text-muted">{{ role['name'] }}</m3>
+                                            {% else %}
+                                            <m3>{{ role['name'] }}</m3>
+                                            {% endif %}
+                                        </div>
+                                        <div class="col col-2 text-right">
+                                            <label class="switch"><input {{ "disabled" if role['higher'] else "" }}
+                                                    id="role{{ role['id'] }}.enabled" type="checkbox"
+                                                    {{ "checked" if role['enabled'] else "" }}><span
+                                                    class="slider round"></span></label>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="wrapper">
+                            <a onclick="applychanges()" class="btn btn-outline-primary btn-block">Save changes</a>
+                        </div>
+
+                        <script>
+                            function applychanges() {
+                                var data = {
+                                    enabled: document.getElementById("enabled").checked,
+                                    senddms: document.getElementById("senddms").checked,
+                                    // waittime: document.getElementById("waittime").value,
+                                    channel: document.getElementById("channel").value,
+                                    message: document.getElementById("message").value,
+                                    messageverify: document.getElementById("messageverify").value,
+                                    roles: {},
+                                };
+
+                                var children = document.getElementById("listresults").children;
+                                for (var i = 0; i < children.length; i++) {
+                                    var tableChild = children[i];
+                                    data['roles'][tableChild.id] = tableChild.children[1].children[0].children[0].checked;
+                                }
+                                $.ajax({
+                                    method: "POST", data: JSON.stringify(data), dataType: "json",
+                                    success: function (data) { if (data.success == true) { $.toast({ heading: 'Your settings have been applied', loaderBg: '#7289da', bgColor: '#5767a0', position: 'top-right', hideAfter: 5000, showHideTransition: 'fade', icon: 'success' }) } else { $.toast({ heading: 'Encountered an error whilst applying changes', loaderBg: '#7289da', bgColor: '#5767a0', text: data.error, position: 'top-right', hideAfter: 5000, showHideTransition: 'fade', icon: 'error' }) } },
+                                    error: function () { $.toast({ heading: 'An error had occured while applying settings', loaderBg: '#7289da', bgColor: '#5767a0', position: 'top-right', hideAfter: 5000, showHideTransition: 'fade', icon: 'error' }) }
+                                });
+                            };
+                        </script>
+                    </div>
+                </div>
+                {% include "partials/_footer.html" %}
+            </div>
+        </div>
+    </div>
+    {% include "partials/_ender.html" %}

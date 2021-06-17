@@ -1,0 +1,87 @@
+{% include "partials/_header.html" %}
+<div class="container-scroller">
+  {% include "partials/_navbar.html" %}
+  <div class="container-fluid page-body-wrapper">
+    {% include "partials/_nondash_sidebar.html" %}
+    <div class="main-panel">
+      <div class="content-wrapper">
+
+        <h2>Welcomer Backgrounds</h2> 
+
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Loop</h4>
+            <div class="owl-carousel owl-theme loop">
+              {% for file in backgrounds %}
+              <div class="item">
+                <img src="/api/getbackground/{{ file }}" alt="banner image" /> </div>
+              {% endfor %}
+            </div>
+          </div>
+          <br>
+          <img class="image-preview" src="/static/promo/LegacyTheme.png">
+          <br>
+          <img class="image-preview" src="/static/promo/BadgeTheme.png">
+          <br>
+          <img class="image-preview" src="/static/promo/ShadowTheme.png">
+          <br>
+          <img class="image-preview" src="/static/promo/VerticalTheme.png">
+          <br>
+          <img class="image-preview" src="/static/promo/WidgetTheme.png">
+        </div>
+
+        <style>
+        .owl-carousel .owl-item img {
+            height:auto;
+            width:100%;
+            display: block;
+        }
+
+        .owl-carousel .item {
+            margin:0px;
+        }
+        .image-preview {
+          display: block;
+          width: 100%;
+        }
+        </style>
+
+        <script>
+        if ($('.loop').length) {
+          $('.loop').owlCarousel({
+            center: true,
+            items: {{ background_count }},
+            loop: true,
+            margin: 10,
+            autoWidth: true,
+            autoplay: true,
+            autoplayTimeout: 2000,
+            center: true,
+            lazyLoad: true,
+            rows: true, 
+            rowsCount: 2,
+            autoHeight: true,
+            responsive: {
+              0: {
+                items: 1,
+                dotsEach: 1,
+              },
+              640: {
+                items: 2,
+                dotsEach: 2,
+              },
+              1025: {
+                items: 4,
+                dotsEach: 4,
+              },
+            },
+          });
+        };
+        </script>
+
+      </div>
+      {% include "partials/_footer.html" %}
+    </div>
+  </div>
+</div>
+{% include "partials/_ender.html" %}

@@ -1,0 +1,205 @@
+import ipc
+import discord, asyncio, json
+import docopt
+import ipc
+
+
+class Event(ipc.Message):
+    def __init__(self, event_type, **properties):
+        self.type = event_type
+        self.properties = properties
+
+    def _get_args(self):
+        return [self.type], self.properties
+
+
+class Response(ipc.Message):
+    def __init__(self, text):
+        self.text = text
+
+    def _get_args(self):
+        return [self.text], {}
+
+{
+    "o": "GET_INVITE",
+    "a": {},
+    "s": 0,
+}
+
+
+async def broadcast(self, opcode, recep, arg):
+
+    beginning_time = time.time()
+
+    if recep == "*":
+        recep = list(range(0, self.bot.CLUSTER_COUNT))
+
+
+
+    while True:
+        await
+        asyncio.sleep(0.1)
+        table = await
+        r.table("crosscommunication").get(id).run(self.bot.connection)
+        if (len(table['recep']) == 0) or (math.ceil((time.time() - beginning_time) * 1000) >= 5000):
+            await
+            r.table("crosscommunication").get(id).delete().run(self.bot.connection)
+            break
+
+    end_time = time.time()
+    return table, math.ceil((end_time - beginning_time) * 1000)
+class IPC():
+    def __init__(self, bot):
+        self.bot = bot
+        self.tasks = dict()
+        self.done = dict()
+
+        starting_port = 7785
+
+        port = starting_port + self.bot.CLUSTER_ID
+        print(f"[IPC] Starting server on localhost:{str(port)}")
+        ipc.Server(("localhost", port), server_process_request).serve_forever()
+
+    def server_process_request(self):
+        id = list(self.tasks.values())[-1] + 1
+        while self.done[id] is None:
+            0
+        response = [Response(self.done[id])]
+        del self.done[id]
+        return response
+
+    async def handle_requests(self):
+        for id, task in self.tasks:
+            
+            opcode = task['o']
+            arg = json.loads(task['a'])
+            recip = task['s']
+
+            print(f"[IPC] Retrieved task from {recip}: {opcode}")
+
+            if opcode == "HEARTBEAT":
+                responce = time.time()
+            if opcode == "MODULE_RELOADALL":
+                responce = self.bot.modules.reloadall()
+            if opcode == "MODULE_RELOAD":
+                if type(arg) == str:
+                    responce = self.bot.modules.reload(arg)
+                else:
+                    for module_name in arg:
+                        responce[len(responce)] = self.bot.modules.reload(module_name)
+            if opcode == "MODULE_LOAD":
+                if type(arg) == str:
+                    responce = self.bot.modules.load(arg)
+                else:
+                    for module_name in arg:
+                        responce[len(responce)] = self.bot.modules.load(module_name)
+            if opcode == "MODULE_UNLOAD":
+                if type(arg) == str:
+                    responce = self.bot.modules.unload(arg)
+                else:
+                    for module_name in arg:
+                        responce[len(responce)] = self.bot.modules.unload(module_name)
+            if opcode == "DATA_RELOAD":
+                success, data = await self.bot.reload_data(self, arg or "data.json")
+                if success == True:
+                    self.bot.data = data
+                responce = success
+            if opcode == "GET_GUILD_ST":
+                for guild in self.bot.guilds:
+                    if arg.lower() in guild.name.lower():
+                        responce[str(guild.id)] = self.bot.extractGuildInfo(self, guild)
+            if opcode == "GET_GUILD_ID":
+                if type(arg) == str or type(arg) == int or type(arg) == float:
+                    guild = self.bot.get_guild(int(arg))
+                    if guild:
+                        responce[str(guild.id)] = self.bot.extractGuildInfo(self, guild)
+                else:
+                    for guild_id in arg:
+                        guild = self.bot.get_guild(int(guild_id))
+                        if guild:
+                            responce[str(guild.id)] = self.bot.extractGuildInfo(self, guild)
+            if opcode == "GET_USER_ST":
+                arg = arg.lower()
+                for guild in self.bot.guilds:
+                    for user in guild.members:
+                        if arg in user.name.lower():
+                            responce[str(user.id)] = self.bot.extractUserInfo(self, user)
+            if opcode == "GET_USER_ID":
+                if type(arg) == str or type(arg) == int or type(arg) == float:
+                    user = self.bot.get_user(int(arg))
+                    if user:
+                        responce[str(user.id)] = self.bot.extractUserInfo(self, user)
+                else:
+                    for user_id in arg:
+                        user = self.bot.get_user(int(user_id))
+                        if guild:
+                            responce[str(user.id)] = self.bot.extractUserInfo(self, user)
+            if opcode == "GET_INVITE":
+                if type(arg) == str or type(arg) == int:
+                    responce = await self.bot.get_guild_invite(self, int(arg))
+                else:
+                    for guild_id in arg:
+                        responce[str(guild_id)] = await self.bot.get_guild_invite(self, int(arg))
+            if opcode == "GET_ELEVATED":
+                if type(arg) == str or type(arg) == int:
+                    responce = await self.bot.get_elevated(self, int(arg))
+                else:
+                    for guild_id in arg:
+                        responce[str(guild_id)] = await self.bot.get_elevated(self, int(arg))
+            if opcode == "GET_EMOTES":
+                if type(arg) == str or type(arg) == int or type(arg) == float:
+                    guild = self.bot.get_guild(int(arg))
+                    if guild:
+                        responce = self.bot.extractEmotes(self, guild)
+                else:
+                    for guild_id in arg:
+                        guild = self.bot.get_guild(int(guild_id))
+                        if guild:
+                            responce[str(guild_id)] = self.bot.extractEmotes(self, guild)
+            if opcode == "BOT_INFO":
+                responce['guilds'] = len(self.bot.guilds)
+            
+                memberlist = list(self.bot.get_all_members())
+                responce['members'] = len(memberlist)
+                responce['unique'] = len(set(m.id for m in memberlist))
+            
+                responce['latencies'] = self.bot.latencies
+                responce['uptime'] = (datetime.now() - self.bot.uptime).total_seconds()
+                responce['shards'] = self.bot.SHARD_ID
+                responce['heartbeat'] = time.time()
+            
+                process = psutil.Process(os.getpid())
+                memory = process.memory_info()
+                responce['mbused'] = math.ceil(memory.rss / 10000) / 100
+                responce['threads'] = process.num_threads()
+            if opcode == "MINI_INFO":
+                memberlist = list(self.bot.get_all_members())
+                responce['members'] = len(memberlist)
+                responce['unique'] = len(set(m.id for m in memberlist))
+                responce['guilds'] = len(self.bot.guilds)
+                print(responce)
+            if opcode == "MUTUAL_GUILDS":
+                responce = self.bot.mutual_servers(self, int(arg))
+            if opcode == "BIG_GUILDS_10":
+                guilds = list()
+                for guild in self.bot.guilds:
+                    if len(guild.members) > 1000:
+                        guilds.append(self.bot.extractGuildInfo(self, guild))
+            
+            
+                def g(o):
+                    return o['bots'] + o['members']
+            
+            
+                responce = sorted(guilds, key=g, reverse=True)
+                responce = responce[:10]
+
+            del self.bot.tasks[id]
+            self.bot.done[id] = json.dumps(responce)
+
+
+
+
+
+def setup(bot)
+    bot.add_cog(IPC(bot))

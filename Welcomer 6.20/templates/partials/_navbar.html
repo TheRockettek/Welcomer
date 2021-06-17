@@ -1,0 +1,73 @@
+{% block navbar %}
+  <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row navbar-dark" style="max-height: 63px;">
+    <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
+      <a class="navbar-brand brand-logo" href="/">
+        <img src="/static/images/logo_3.svg" alt="logo" /> </a>
+      <a class="navbar-brand brand-logo-mini" href="/">
+        <img src="/static/images/logo-mini_3.svg" alt="logo" /> </a>
+    </div>
+    <div class="navbar-menu-wrapper d-flex align-items-center">
+      <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+        <span class="mdi mdi-menu"></span>
+      </button>
+      <ul class="navbar-nav navbar-nav-left header-links d-none d-md-flex">
+        <li class="nav-item">
+          <a href="/invitebot" class="nav-link">Invite
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav navbar-nav-left header-links d-none d-md-flex">
+        <li class="nav-item">
+          <a href="/invite/welcomer" class="nav-link">Support
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav navbar-nav-left header-links d-none d-md-flex">
+        <li class="nav-item">
+          <a href="/dashboard" class="nav-link">Dashboard
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav navbar-nav-left header-links d-none d-md-flex">
+        <li class="nav-item">
+          <a href="/donate" class="nav-link text-primary font-weight-bold">Donate
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav navbar-nav-left header-links d-none d-md-flex">
+        <li class="nav-item">
+          <a href="/status" class="nav-link">Status
+          </a>
+        </li>
+      </ul>
+
+      {% set userinfo = dict(session.get("user_data",{})) %}
+      {% set logged_in = True if dict(session.get("user_data",{})) else False %}
+
+      <ul class="navbar-nav navbar-nav-right">
+        <li class="nav-item dropdown">
+          {% if logged_in %}
+          <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+          <span class="profile-text"><b>{{ userinfo['username'] }}</b>#{{ userinfo['discriminator'] }}</span>
+          {% if "avatar" in userinfo and userinfo['avatar'] and False %}
+          <img class="img-xs rounded-circle" src="https://cdn.discordapp.com/avatars/{{ userinfo['id']}}/{{ userinfo['avatar'] }}.{{ "gif" if "a_" in userinfo['avatar'] else "jpg" }}?size=128">
+          {% endif %}
+          </a>
+          <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+            <a class="dropdown-item dropmenu-item" href="/dashboard">Dashboard</a>
+            <a class="dropdown-item dropmenu-item" href="/donate"> Donate </a>
+            <a class="dropdown-item dropmenu-item" href="/logout"> Log Out </a>
+          </div>
+          {% else %}
+          <a class="nav-link" id="UserDropdown" href="/login">
+            Log in with discord
+          </a>
+          {% endif %}
+        </li>
+      </ul>
+      <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+        <span class="icon-menu"></span>
+      </button>
+    </div>
+  </nav>
+{% endblock %}

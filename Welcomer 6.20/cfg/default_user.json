@@ -1,0 +1,53 @@
+{
+    "id": 0,
+    "g": {
+        "dv": 0,
+        "g": {
+            "a": [],
+            "n": null,
+            "d": null,
+            "uc": null,
+            "ua": null,
+            "u": 0,
+            "m": {
+                "c": {},
+                "u": {}
+            }
+        },
+        "b": {
+            "l": "en-gb",
+            "bg": "",
+            "hm": true,
+            "pd": false
+        }
+    },
+    "xp": {
+        "g": 0,
+        "s": {}
+    },
+    "r": {
+        "l": 0,
+        "r": 0
+    },
+    "m": {
+        "p": false,
+        "1": {
+            "h": false,
+            "u": null,
+            "p": false
+        },
+        "3": {
+            "h": false,
+            "u": null,
+            "p": false
+        },
+        "5": {
+            "h": false,
+            "u": null,
+            "p": false
+        },
+        "hs": false,
+        "s": []
+    },
+    "b": []
+}

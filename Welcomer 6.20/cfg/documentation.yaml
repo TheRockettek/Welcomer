@@ -1,0 +1,62 @@
+FAQ:
+  What is the default bot prefix: The default bot prefix is <code>+</code>. You are able to obtain the prefix on any server by simply mentioning the bot
+  How to change bot prefix: You are able to change the bot prefix on the dashboard by going to <code>Bot Settings</code> or by doing <code>+setprefix =</code> as a command
+  How can i get support: To join the support server, simply head into the site bar and click the support tab to be sent an invite to the server
+Donating:
+  Why do people have to pay to use your bot: All the features welcomer that welcomer has ever had still available to everyone for free. We only have extra perks as a way to say thank you to people who help keep our bot online.
+  I have donated through patreon but i have not received a membership: When you are donating through patreon, please make sure you bind a discord account to your patreon account. If you have forgotten to do this by accident, please contact a staff member on our support server for more assistance with some proof of purchase.
+  I have donated, now what: When you donate towards the bot, you should automatically receive a message confirming this in your direct messages with welcomer. To apply your donation to a server, you can either directly apply it to the server you are on by doing +membership add or provide an id after like +membership add 341685098468343822 and also make sure you have not used up your applicable servers limit.
+  Why do i instantly get charged on patreon: Patreon charges automatically when you donate because this makes it that you need your payment details to be valid before getting rewards. If you donate on the last day of the month, you will be charged then and on the first of the next month.
+  Why are custom backgrounds paid for: All previously set custom backgrounds will not be removed however to change it you will require to do the one time payment. This is simply put to show support for the development of the bot as recently the bot now requires over 100 Gigabytes of storage for storing both these custom backgrounds and 1 week cached images, its a little gesture that you support the bot. There are still a large amount of free backgrounds and once you have paid for custom backgrounds you are able to apply this to any server
+Dashboard:
+  How to use the dashboard: To use the dashboard, all you have to do is log in and click on dashboard. Upon doing this, you will be prompted to select the server you want to manage and you can change this at any time by clicking <code>Change server</code>
+  Why is my server missing: If your server is missing from the list, this means you are not logged in on the right account on the site
+  Why am i getting unknown permission error: Despite showing all guilds you are in, you may not have permission to edit these servers
+  How to delete a server config: To delete your server config, head to <code>Bot settings</code> on the dashboard and click on <code>Reset</code>. Please note your data is not recoverable once this is done
+  How to allow people to join my server through welcomer: To allow for invites, simply head to <code>Bot settings > Site Settings</code> on the dashboard and enable <code>Allow Invites</code>
+Welcomer Text:
+  How to enable: To enable welcomer text on the dashboard, go to <code>Welcomer > Welcomer Text</code> on the dashboard and click on <code>Enable Text Messages</code>
+  How to change the text: To change your welcomer text, you can go on the same Welcomer Text page and modify the Welcomer Message
+  How to display the member count: To display the membercount like 35th, you can use the markdown <code>{members}</code>, if you want just the number use <code>{server.user.count}</code>
+  How to display an emoji: To display an emoji, simply do <code>:emojiname:</code> in the welcome message, it should automatically change to an emoji with this name on the server
+  How to show who invited a user: To show an invited user, you can use the markdown <code>{invite.inviter}</code>. Please note you will also need to enable showing invites.
+Welcomer Images:
+  How to enable: To enable images, simply head on to <code>Welcomer > Welcomer Images</code> on the dashboard and toggle enabling welcomer images
+  How to change the image text: To change the welcomer text, head to the Welcomer Image section on the dashboard and locate to Image Message. Each line of the text area will correspond to a different line in the image
+  How to display the member count: To display the membercount like 35th, you can use the markdown <code>{members}</code>, if you want just the number use <code>{server.user.count}</code>
+  How to change the background: To change the background to a free one, you can simply use the dropdown in Welcomer Image backgrounds, if you would like to switch back to your custom background, you can change this to <code>Custom Background</code>
+  How to upload a custom background: To change the custom background you can simply drop a new file into the custom background slot and once you save your changes, it will be updated instantaneously
+  How to change the image theme: You can now change the Image theme to display the image differently. Simply go to the Welcomer Image section and use the dropdown with Image Theme. If you would like the default style, choose <code>Legacy</code>
+  Where is a list of all the free backgrounds: You can find a list of all the backgrounds on the sidebar or clicking <a href="/backgrounds">here</a>
+  Why is a users avatar poop: If the image creator has timed out whilst retrieving an image from discords CDN, the image will instead display as this to make sure images are made as fast as possible
+  Why is there poop icons for old welcome images: Due to the scale welcomer has to cater too, we make over 90 GB of images weekly. Images will remain in our caches for only 1 week before they are removed to make space for new images. The rest of responsibility of caching is then given to cloudflare and discord
+Leaver:
+  How to set up leaver: To set up leaver you can either do <code>+leaver enable</code> or go to leaver on the dashboard and select <code>Enable leaver</code>
+  How to change leavers message: To change the message on the site you can simply edit the text field. To edit it through a command, you can do <code>+leaver setmessage Goodbye {user}</code>
+AutoModeration:
+  How to set up auto moderation: To enable automod, do <code>+automod enable</code> or enable it from the <code>Auto Moderation</code> category on the dashboard
+  How to set up a regex filter: To add to the regex filter, simply add it to the list on the dashboard or do <code>+automod regex add <regex expression></code>
+  Why is my regex invalid: The regex desired by welcomer must be of the python flavour. You can use a tool such as <a href="https://regex101.com">regex101</a> and set its flavour to python to test out if your regex is valid
+  What is smartmod: Smartmod is a feature where a filtered message of the users message is sent instead of simply deleting it
+Borderwall:
+  What is borderwall: Borderwall is a feature set up to verify users who join your server. A user will receive a predefined role once they have verified
+  How to set up borderwall: To set up borderwall, you must specify a role you want to assign users and enable it. You can enable and set the roles it will assign from going to <code>Borderwall</code> on the dashboard or doing <code>+borderwall setrole <@></code> and <code>+borderwall enable</code>. Please note that the setrole command will only allow for a single role to be assignable
+Temporary Channels:
+  How to set up tempchannel: To set up tempchannels, you must specify a category to use and then enable it. You can specify the category and enable it by going to the <code>Temporary Channels</code> category on the dashboard or doing <code>+tempchannels setcategory <category id></code> and <code>+tempchannels enable</code>
+  How to make channels get deleted when empty: To delete channels when they are empty, you must enable autopurge. You can do this by turning it on the dashboard or by doing <code>+tempchannels autopurge enable</code>
+  How to change the category: To change the category tempchannel uses, you can either mention a different channel on the dashboard or do <code>+tempchannel setcategory <category id></code>
+NamePurge:
+  How to set up namepurge: To enable namepurge, you can either do <code>+namepurge enable</code> or enable it from the dashboard under <code>Name Purge</code>
+  How to make namepurge ignore bot names: To make namepurge ignore bots, you can do <code>+namepurge ignorebots enable</code> or to enable this from the dashboard
+  How to stop namepurge kicking a specific user: Only elevated users will be exempt from namepurge. It is not possible for ordinary users to be exempt without turning namepurge off
+ServerStats:
+  How to set up serverstats: To enable serverstats, you have to set a category with <code>+serverstats setcategory <category id></code> then enabling it with </code>+serverstats enable</code> or by using the <code>Server Stats</code> category on the dashboard
+  Why is the youtube serverstat missing: The youtube serverstats has since been removed due to the endpoint it using being constantly restricted by google. Despite requesting for an increase in quota 3 months ago, nothing has changed and there has been no alternative solution at the moment
+Roles:
+  How to set up timeroles: To enable timeroles you can do <code>+timeroles enable</code> or by heaving to the <code>Roles > TimeRoles</code> category on the dashboard. You can then add roles to this by enabling it and setting the minutes on the dashboard or by doing the command <code>+timeroles addrole <role> <minutes></code>
+  How to give users roles when they join: You can give users roles when they join by enabling AutoRoles in <code>Roles > AutoRoles</code> and toggling the specific roles you want to assign them then enabling autoroles. You can also do this with commands by doing <code>+autorole add <@></code> and <code>+autorole enable</code>
+  How to allow users to add their own roles with freerole: To add freeroles you can head to <code>Roles > FreeRoles</code> and add roles and enabling it from the dashboard.  You can also do this with commands by doing <code>+freeroles addrole <@></code> and <code>+freeroles enable</code>
+  Why are some roles greyed out: Roles that welcomer cannot assign will be greyed out. To allow these roles to be assigned, make sure welcomer is hoisted above these
+This is the default welcomer documentation file:
+  How do i change this: To change the documentation file. Head on to cfg/documentation.yml
+  How to update this page: On page load, this will be updated so the server does not need to be updated

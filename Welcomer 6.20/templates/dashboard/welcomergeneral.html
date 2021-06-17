@@ -1,0 +1,177 @@
+{% include "partials/_header.html" %}
+<div class="container-scroller">
+  {% include "partials/_navbar.html" %}
+  <div class="container-fluid page-body-wrapper">
+    {% include "partials/_sidebar.html" %}
+    <div class="main-panel">
+      <div class="content-wrapper">
+        <div class="card">
+            <div class="card-body">
+                <div class="container-fluid bg-primary py-2 mb-4">
+                    <p class="mb-0 text-white">Welcomer General</p>
+                </div>
+
+                <div class="row border-bottom my-4">
+                    <div class="col col-6">
+                        <m3>Welcomer Channel</m3>
+                    </div>
+                    <div class="col col-6 text-right">
+
+                        <div class="scrollable-tt w-100">
+                            <input id="channel" class="typeahead w-100 text-light" type="text" placeholder="Type a channel name" value="{{ config['welcomerchannel'] }}">
+                        </div>
+
+                        <script>
+                        var blood = new Bloodhound({
+                            datumTokenizer: Bloodhound.tokenizers.whitespace,
+                            queryTokenizer: Bloodhound.tokenizers.whitespace,
+                            local: {{ channellist | safe }}
+                        });
+
+                        $('.scrollable-tt .typeahead').typeahead(null, {
+                            hint: true,
+                            highlight: true,
+                            limit: 100,
+                            name: 'channels',
+                            source: blood
+                        });
+                        </script>
+
+                    </div>
+                    <div class="col col-12">
+                        <p class="text-muted">The channel welcomer will use to send text and image messages</p>
+                    </div>
+                </div>
+
+                <div class="row border-bottom mt-4 mb-4">
+                    <div class="col col-6">
+                        <m3>Show Badges</m3>
+                    </div>
+                    <div class="col col-6 text-right">
+                        <label class="switch"><input id="badges" type="checkbox" {{ "checked" if config['badges'] else "" }}><span class="slider round"></span></label>
+                    </div>
+                    <div class="col col-12">
+                        <p class="text-muted">By show badges when a user joins, it will show special information such as if they are an owner of another server, their membership status and if they are staff for the bot. Please note this will only work if images or text is enabled</p>
+                    </div>
+                </div>
+
+                <div class="row border-bottom mt-4 mb-4">
+                    <div class="col col-6">
+                        <m3>Show Invites</m3>
+                    </div>
+                    <div class="col col-6 text-right">
+                        <label class="switch"><input id="invited" type="checkbox" {{ "checked" if config['invited'] else "" }}><span class="slider round"></span></label>
+                    </div>
+                    <div class="col col-12">
+                        <p class="text-muted">Show invites enables checking the invite list when a user joins to be able to track who has invited them. <b>This is necessary if you want to use the invite markdown else you will get unknown. Please ensure the bot also has necessary permissions</b></p>
+                    </div>
+                </div>
+
+                <div class="row border-bottom mt-4 mb-4">
+                    <div class="col col-6">
+                        <m3>Use embeds</m3>
+                    </div>
+                    <div class="col col-6 text-right">
+                        <label class="switch"><input id="embed" type="checkbox" {{ "checked" if config['embed'] else "" }}><span class="slider round"></span></label>
+                    </div>
+                    <div class="col col-12">
+                        <p class="text-muted">Toggles if welcomer should display text in an embed, images will always be embeded</p>
+                    </div>
+                </div>
+
+                <div class="row border-bottom mt-4 mb-4">
+                    <div class="col col-6">
+                        <m3>Enable Text Messages</m3>
+                    </div>
+                    <div class="col col-6 text-right">
+                        <label class="switch"><input id="textenabled" type="checkbox" {{ "checked" if config['textenabled'] else "" }}><span class="slider round"></span></label>
+                    </div>
+                    <div class="col col-12">
+                        <p class="text-muted">By enabling welcomer text messages, this will utilise a customised message when a user joins. <b>Welcomer will not welcome any new users with images or text if no channel has been specified</b></p>
+                    </div>
+                </div>
+
+                <div class="row border-bottom mt-4 mb-4">
+                    <div class="col col-6">
+                        <m3>Enable Images</m3>
+                    </div>
+                    <div class="col col-6 text-right">
+                        <label class="switch"><input id="imagesenabled" type="checkbox" {{ "checked" if config['imagesenabled'] else "" }}><span class="slider round"></span></label>
+                    </div>
+                    <div class="col col-12">
+                        <p class="text-muted">By enabling welcomer images, the bot will attempt to create images for ther based off of the current settings. Please note enabling embeds may be required for higher resolution images and animated ones due to discord 8Mb file limit</p>
+                    </div>
+                </div>
+
+                <div class="row border-bottom mt-4 mb-4">
+                    <div class="col col-6">
+                        <m3>Enable Direct Messages</m3>
+                    </div>
+                    <div class="col col-6 text-right">
+                        <label class="switch"><input id="dmsenabled" type="checkbox" {{ "checked" if config['dmsenabled'] else "" }}><span class="slider round"></span></label>
+                    </div>
+                    <div class="col col-12">
+                        <p class="text-muted">By forcing direct messages, a custom message will be sent to the user by direct message if they have these enabled</p>
+                    </div>
+                </div>
+                
+                <div class="container-fluid bg-primary py-2 mb-4 mt-5">
+                    <p class="mb-0 text-white">Welcomer Custom Embed</p>
+                </div>
+
+                <div class="row border-bottom mt-4 mb-4">
+                    <div class="col col-6">
+                        <div class="badge badge-outline-primary badge-pill">New Feature</div>
+                        <m3>Use Custom Embed</m3>
+                    </div>
+                    <div class="col col-6 text-right">
+                        <label class="switch"><input id="embedenabled" type="checkbox" {{ "checked" if config['embedenabled'] else "" }}><span class="slider round"></span></label>
+                    </div>
+                    <div class="col col-12">
+                        <p class="text-muted">When custom embeds are enabled, <b>any welcomer text image will be overwritten and will use this instead</b>, and will add a welcomer image if it has been enabled</p>
+                    </div>
+                </div>
+
+                <div class="row border-bottom my-4">
+                    <div class="col col-6">
+                        <div class="badge badge-outline-primary badge-pill">New Feature</div>
+                        <m3>Custom Embed Data</m3>
+                    </div>
+                    <div class="col col-6 text-right">
+                        <textarea style="height: 200px;" id="customembed" type="text" class="form-control">{{ config['customembed'] }}</textarea>
+                    </div>
+                    <div class="col col-12">
+                        <p class="text-muted">Custom Embed Data allows you to customise your own embeds by either providing a YAML or JSON like format. Find out how to use this and find a generator <a href="/customembeds">here</a>. Custom Embeds also support the use of formatting which you can find <a href="/formatting">here</a></p>
+                    </div>
+                </div>
+
+                <div class="wrapper">
+                    <a onclick="applychanges()" class="btn btn-outline-primary btn-block">Save changes</a>
+                </div>
+
+                <script>
+                function applychanges() {
+                    var data = {
+                        channel: document.getElementById("channel").value,
+                        customembed: document.getElementById("customembed").value,
+                        badges: document.getElementById("badges").checked,
+                        invited: document.getElementById("invited").checked,
+                        embed: document.getElementById("embed").checked,
+                        dmsenabled: document.getElementById("dmsenabled").checked,
+                        textenabled: document.getElementById("textenabled").checked,
+                        embedenabled: document.getElementById("embedenabled").checked,
+                        imagesenabled: document.getElementById("imagesenabled").checked,
+                    };
+                    $.ajax({method: "POST", data: data, dataType: "json",
+                        success: function(data) {if (data.success == true) {$.toast({heading: 'Your settings have been applied', loaderBg: '#7289da', bgColor: '#5767a0', position: 'top-right', hideAfter: 5000, showHideTransition: 'fade', icon: 'success'})} else {$.toast({heading: 'Encountered an error whilst applying changes', loaderBg: '#7289da', bgColor: '#5767a0', text: data.error, position: 'top-right', hideAfter: 5000, showHideTransition: 'fade', icon: 'error'})}},
+                        error: function() {$.toast({heading: 'An error had occured while applying settings', loaderBg: '#7289da', bgColor: '#5767a0', position: 'top-right', hideAfter: 5000, showHideTransition: 'fade', icon: 'error'})}
+                    });
+                };
+                </script>
+            </div>
+        </div>
+        {% include "partials/_footer.html" %}
+    </div>
+  </div>
+</div>
+{% include "partials/_ender.html" %}

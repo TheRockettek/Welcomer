@@ -1,0 +1,144 @@
+{% include "partials/_header.html" %}
+<div class="container-scroller">
+  {% include "partials/_navbar.html" %}
+  <div class="container-fluid page-body-wrapper">
+    {% include "partials/_sidebar.html" %}
+    <div class="main-panel">
+      <div class="content-wrapper">
+        <div class="card">
+            <div class="card-body">
+                <div class="container-fluid bg-primary py-2 mb-4">
+                    <p class="mb-0 text-white">Tempchannel Settings</p>
+                </div>
+
+                <div class="row border-bottom mt-4 mb-4">
+                    <div class="col col-6">
+                        <m3>Enable Tempchannel</m3>
+                    </div>
+                    <div class="col col-6 text-right">
+                        <label class="switch"><input id="enabled" type="checkbox" {{ "checked" if config['enabled'] else "" }}><span class="slider round"></span></label>
+                    </div>
+                    <div class="col col-12">
+                        <p class="text-muted">By enabling tempchannel, you are able to allow users to create temporary disposable voice channels. They are able to either do <code>+tempchannel give</code> or by joining a lobby channel if you have set it up</p>
+                    </div>
+                </div>
+
+                <div class="row border-bottom mt-4 mb-4">
+                    <div class="col col-6">
+                        <m3>Enable Autopurge</m3>
+                    </div>
+                    <div class="col col-6 text-right">
+                        <label class="switch"><input id="autopurge" type="checkbox" {{ "checked" if config['autopurge'] else "" }}><span class="slider round"></span></label>
+                    </div>
+                    <div class="col col-12">
+                        <p class="text-muted">By autopurge, when users leave a tempchannel and becomes empty, it will be removed</p>
+                    </div>
+                </div>
+
+                <div class="row border-bottom mt-4 mb-4">
+                    <div class="col col-6">
+                        <m3>Default channel limit</m3>
+                    </div>
+                    <div class="col col-6 text-right">
+                        <input type="number" id="defaultlimit" name="limitrange" value="{{ config['defaultlimit'] }}">
+                    </div>
+                    <div class="col col-12">
+                        <p class="text-muted">The default user limit for tempchannels. By setting this to 0, the tempchannel user limit will be unlimited</p>
+                    </div>
+                </div>
+
+                <div class="row border-bottom my-4">
+                    <div class="col col-6">
+                        <m3>Tempchannel Category</m3>
+                    </div>
+                    <div class="col col-6 text-right">
+
+                        <div class="scrollable-tt w-100">
+                            <input id="category" class="typeahead w-100 text-light" type="text" placeholder="Type a category name" value="{{ config['category'] }}">
+                        </div>
+
+                        <script>
+                        var blood = new Bloodhound({
+                            datumTokenizer: Bloodhound.tokenizers.whitespace,
+                            queryTokenizer: Bloodhound.tokenizers.whitespace,
+                            local: {{ categorylist | safe }}
+                        });
+
+                        $('#category').typeahead(null, {
+                            hint: true,
+                            highlight: true,
+                            limit: 100,
+                            name: 'channels',
+                            source: blood
+                        });
+                        </script>
+
+                    </div>
+                    <div class="col col-12">
+                        <p class="text-muted">Category that new tempchannels will be created in</p>
+                    </div>
+                </div>
+
+                <div class="row border-bottom my-4">
+                    <div class="col col-6">
+                        <div class="badge badge-outline-primary badge-pill">New Feature</div>
+                        <m3>Lobby Channel</m3>
+                    </div>
+                    <div class="col col-6 text-right">
+
+                        <div class="scrollable-tt w-100">
+                            <input id="lobby" class="typeahead w-100 text-light" type="text" placeholder="Type a channel name" value="{{ config['lobby'] }}">
+                        </div>
+
+                        <script>
+                        var blood = new Bloodhound({
+                            datumTokenizer: Bloodhound.tokenizers.whitespace,
+                            queryTokenizer: Bloodhound.tokenizers.whitespace,
+                            local: {{ channellist | safe }}
+                        });
+
+                        $('#lobby').typeahead(null, {
+                            hint: true,
+                            highlight: true,
+                            limit: 100,
+                            name: 'channels',
+                            source: blood
+                        });
+                        </script>
+
+                    </div>
+                    <div class="col col-12">
+                        <p class="text-muted">When a user joins the set lobby channel, a new tempchannel will be created for them and they will be sent to it. Tempchannels will need to be enabled and the bot must have permissions to be able to work</p>
+                    </div>
+                </div>
+
+                <div class="wrapper">
+                    <a onclick="applychanges()" class="btn btn-outline-primary btn-block">Save changes</a>
+                </div>
+
+                <script>
+                $("#defaultlimit").ionRangeSlider({
+                    min: 0,
+                    max: 99
+                });
+                function applychanges() {
+                    var data = {
+                        enabled: document.getElementById("enabled").checked,
+                        autopurge: document.getElementById("autopurge").checked,
+                        defaultlimit: document.getElementById("defaultlimit").value,
+                        category: document.getElementById("category").value,
+                        lobby: document.getElementById("lobby").value,
+                    };
+                    $.ajax({method: "POST", data: data, dataType: "json",
+                        success: function(data) {if (data.success == true) {$.toast({heading: 'Your settings have been applied', loaderBg: '#7289da', bgColor: '#5767a0', position: 'top-right', hideAfter: 5000, showHideTransition: 'fade', icon: 'success'})} else {$.toast({heading: 'Encountered an error whilst applying changes', loaderBg: '#7289da', bgColor: '#5767a0', text: data.error, position: 'top-right', hideAfter: 5000, showHideTransition: 'fade', icon: 'error'})}},
+                        error: function() {$.toast({heading: 'An error had occured while applying settings', loaderBg: '#7289da', bgColor: '#5767a0', position: 'top-right', hideAfter: 5000, showHideTransition: 'fade', icon: 'error'})}
+                    });
+                };
+                </script>
+            </div>
+        </div>
+        {% include "partials/_footer.html" %}
+    </div>
+  </div>
+</div>
+{% include "partials/_ender.html" %}

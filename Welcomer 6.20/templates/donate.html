@@ -1,0 +1,321 @@
+{% include "partials/_header.html" %}
+<div class="container-scroller">
+  {% include "partials/_navbar.html" %}
+  <div class="container-fluid page-body-wrapper">
+    {% include "partials/_nondash_sidebar.html" %}
+    <div class="main-panel">
+      <div class="content-wrapper">
+
+        {{ error | safe }}
+
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+              <div class="container text-center pt-5">
+                <h1 class="mb-3 mt-5">Boost your server today!</h1>
+                <p class="w-75 mx-auto mb-5">Help support the bot and get amazing perks to help out with your server. We
+                  support both monthly payments or one-time durational memberships through paypal and patreon. Choose
+                  the plan that suits you the best!!</p>
+                <a href="https://www.patreon.com/bePatron?u=7235929"
+                  data-patreon-widget-type="become-patron-button">Become a Patron!</a>
+                <script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
+              </div>
+
+              <div class="container text-center pt-5">
+                <div class="row pricing-table">
+                  <div class="col-md-6 grid-margin stretch-card pricing-card">
+                    <div class="card border-primary border pricing-card-body">
+                      <div class="text-center pricing-card-head">
+                        <h3>Custom Welcomer Background</h3>
+                        <p>For medium to large server owners</p>
+                        <h1 class="font-weight-normal mb-4">£5.00 / $6</h1>
+                        <h1 class="font-weight-normal mb-4">One time payment</h1>
+                      </div>
+                      <div class="wrapper">
+                        <b>To apply your membership, please use <code>+membership addcustombackground</code> instead of
+                          <code>+membership add</code></b>
+                        <a disabled href="/donate/0/1" class="btn btn-outline-primary btn-block" disabled>Custom
+                          Background: Paypal (£5.00)</a>
+                        <a href="https://www.patreon.com/join/WelcomerBot/checkout?rid="
+                          class="btn btn-outline-primary btn-block">Custom Background: Patreon ($5)</a>
+                      </div>
+                      <li style="list-style: none;padding: 10px;">
+                        <div class="set-divider"></div>
+                      </li>
+                      <div class="wrapper">
+                        <p>Receive a custom background on any server you give a membership to and apply to an infinite
+                          amount of servers.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 grid-margin stretch-card pricing-card">
+                    <div class="card border-primary border pricing-card-body">
+                      <div class="text-center pricing-card-head">
+                        <h3 class="text-primary">Welcomer Pro</h3>
+                      </div>
+                      <ul class="list-unstyled plan-features">
+                        <li>Time Roles</li>
+                        <li>Welcomer Images</li>
+                        <li>Custom Welcomer Backgrounds</li>
+                        <li>Animated Welcomer Backgrounds</li>
+                        <li>Dedicated Donator Bot</li>
+                        <li>Donator role on Support Server</li>
+                        <li>Knowledge you directly help keep this bot up</li>
+                        <li>Memberships applicable from 1 to 5 servers</li>
+                      </ul>
+                      <div class="wrapper">
+                        <a href="/invitebot/donator" class="btn btn-outline-primary btn-block">Invite Donator Only
+                          Bot</a>
+                        <a href="#pro5" class="btn btn-outline-primary btn-block">View Memberships</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="container-fluid bg-primary py-2 mb-4 mt-5">
+                <p class="mb-0 text-white">Welcomer Pro x1 Plans</p>
+              </div>
+
+              <table id="pro1" class="table">
+                <tbody>
+                  <tr>
+                    <td>Welcomer Pro x1 - 1 month</td>
+                    <td>
+                      <label class="badge badge-alert">£5.00 / month</label>
+                    </td>
+                    <td>
+                      <div class="wrapper">
+                        <a disabled href="/donate/1/1" class="btn btn-outline-primary btn-block">£5.00</a>
+                        <a href="https://www.patreon.com/join/WelcomerBot/checkout?rid="
+                          class="btn btn-outline-primary btn-block">Patreon ($5/mo)</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Welcomer Pro x1 - 3 months</td>
+                    <td>
+                      <label class="badge badge-primary">£4.50 / month - 10% off</label>
+                    </td>
+                    <td>
+                      <div class="wrapper">
+                        <a disabled href="/donate/1/3" class="btn btn-outline-primary btn-block">£13.50</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Welcomer Pro x1 - 6 months</td>
+                    <td>
+                      <label class="badge badge-danger">£4.00 / month - 20% off</label>
+                    </td>
+                    <td>
+                      <div class="wrapper">
+                        <a disabled href="/donate/1/6" class="btn btn-outline-primary btn-block">£24.00</a>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div class="container-fluid bg-primary py-2 mb-4 mt-5">
+                <p class="mb-0 text-white">Welcomer Pro x3 Plans</p>
+              </div>
+
+              <table id="pro3" class="table">
+                <tbody>
+                  <tr>
+                    <td>Welcomer Pro x3 - 1 month</td>
+                    <td>
+                      <label class="badge badge-alert">£10.00 / month</label>
+                    </td>
+                    <td>
+                      <div class="wrapper">
+                        <a disabled href="/donate/3/1" class="btn btn-outline-primary btn-block">£10.00</a>
+                        <a href="https://www.patreon.com/join/WelcomerBot/checkout?rid="
+                          class="btn btn-outline-primary btn-block">Patreon ($10/mo)</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Welcomer Pro x3 - 3 months</td>
+                    <td>
+                      <label class="badge badge-primary">£9.00 / month - 10% off</label>
+                    </td>
+                    <td>
+                      <div class="wrapper">
+                        <a disabled href="/donate/3/3" class="btn btn-outline-primary btn-block">£27.00</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Welcomer Pro x3 - 6 months</td>
+                    <td>
+                      <label class="badge badge-danger">£8.00 / month - 20% off</label>
+                    </td>
+                    <td>
+                      <div class="wrapper">
+                        <a disabled href="/donate/3/6" class="btn btn-outline-primary btn-block">£48.00</a>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div class="container-fluid bg-primary py-2 mb-4 mt-5">
+                <p class="mb-0 text-white">Welcomer Pro x5 Plans</p>
+              </div>
+
+              <table id="pro5" class="table">
+                <tbody>
+                  <tr>
+                    <td>Welcomer Pro x5 - 1 month</td>
+                    <td>
+                      <label class="badge badge-alert">£15.00 / month</label>
+                    </td>
+                    <td>
+                      <div class="wrapper">
+                        <a disabled href="/donate/5/1" class="btn btn-outline-primary btn-block">£15.00</a>
+                        <a href="https://www.patreon.com/join/WelcomerBot/checkout?rid="
+                          class="btn btn-outline-primary btn-block">Patreon ($15/mo)</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Welcomer Pro x5 - 3 months</td>
+                    <td>
+                      <label class="badge badge-primary">£13.50 / month - 10% off</label>
+                    </td>
+                    <td>
+                      <div class="wrapper">
+                        <a disabled href="/donate/5/3" class="btn btn-outline-primary btn-block">£40.50</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Welcomer Pro x5 - 6 months</td>
+                    <td>
+                      <label class="badge badge-danger">£12.00 / month - 20% off</label>
+                    </td>
+                    <td>
+                      <div class="wrapper">
+                        <a disabled href="/donate/5/6" class="btn btn-outline-primary btn-block">£72.00</a>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div class="container-fluid bg-primary py-2 mb-4 mt-5">
+                <p class="mb-0 text-white">FAQ</p>
+              </div>
+
+              <div class="accordion basic-accordion" id="accordion-1" role="tablist">
+                <div class="card">
+                  <div class="card-header" role="tab" id="heading-1">
+                    <h5 class="mb-0">
+                      <a data-toggle="collapse" href="#collapse-1" aria-expanded="false" aria-controls="collapse-1">Why
+                        do people have to pay to use your bot</a>
+                    </h5>
+                  </div>
+                  <div id="collapse-1" class="collapse" role="tabpanel" aria-labelledby="heading-1"
+                    data-parent="#accordion-1">
+                    <div class="card-body">Please do not think that welcomer has paywall! All the features welcomer that
+                      welcomer has ever had still available to everyone for free. We only have extra perks as a way to
+                      say thank you to people who help keep our bot online. Without people donating towards the bot, we
+                      would not be able to keep this bot community funded and as more people invite the bot, more
+                      powerful hardware is needed to be able to run it. Hosting is not cheap and by donating, you're
+                      helping keep it up and running 👌</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion basic-accordion" id="accordion-2" role="tablist">
+                <div class="card">
+                  <div class="card-header" role="tab" id="heading-2">
+                    <h5 class="mb-0">
+                      <a data-toggle="collapse" href="#collapse-2" aria-expanded="false" aria-controls="collapse-2">I
+                        have donated through patreon but i have not received a membership</a>
+                    </h5>
+                  </div>
+                  <div id="collapse-2" class="collapse" role="tabpanel" aria-labelledby="heading-2"
+                    data-parent="#accordion-2">
+                    <div class="card-body">When you are donating through patreon, please make sure you bind a discord
+                      account to your patreon account. If you have forgotten to do this by accident, please contact a
+                      staff member on our support server for more assistance with some proof of purchase.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion basic-accordion" id="accordion-3" role="tablist">
+                <div class="card">
+                  <div class="card-header" role="tab" id="heading-3">
+                    <h5 class="mb-0">
+                      <a data-toggle="collapse" href="#collapse-3" aria-expanded="false" aria-controls="collapse-3">I
+                        have donated, now what?</a>
+                    </h5>
+                  </div>
+                  <div id="collapse-3" class="collapse" role="tabpanel" aria-labelledby="heading-3"
+                    data-parent="#accordion-3">
+                    <div class="card-body">When you donate towards the bot, you should automatically receive a message
+                      confirming this in your direct messages with welcomer. To apply your donation to a server, you can
+                      either directly apply it to the server you are on by doing <code>+membership add</code> or provide
+                      an id after like <code>+membership add 341685098468343822</code> and also make sure you have not
+                      used up your applicable servers limit. Your applicable server limit is 1 for plus, 3 for pro and 5
+                      for extended. If you want to remove a membership from a server you can do the same process as
+                      adding however you would need to do <code>+membership remove</code>.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion basic-accordion" id="accordion-4" role="tablist">
+                <div class="card">
+                  <div class="card-header" role="tab" id="heading-4">
+                    <h5 class="mb-0">
+                      <a data-toggle="collapse" href="#collapse-4" aria-expanded="false" aria-controls="collapse-4">Why
+                        do i instantly get charged on patreon?</a>
+                    </h5>
+                  </div>
+                  <div id="collapse-4" class="collapse" role="tabpanel" aria-labelledby="heading-4"
+                    data-parent="#accordion-4">
+                    <div class="card-body">Patreon charges automatically when you donate because this makes it that you
+                      need your payment details to be valid before getting rewards and people could just donate and
+                      remove their patreonage at the end of the month and receive the full rewards. Because of how
+                      patreon opperates, if you donate on the last day of the month, you will be charged then and on the
+                      first of the next month.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion basic-accordion" id="accordion-5" role="tablist">
+                <div class="card">
+                  <div class="card-header" role="tab" id="heading-5">
+                    <h5 class="mb-0">
+                      <a data-toggle="collapse" href="#collapse-5" aria-expanded="false" aria-controls="collapse-5">Why
+                        are custom backgrounds paid for?</a>
+                    </h5>
+                  </div>
+                  <div id="collapse-5" class="collapse" role="tabpanel" aria-labelledby="heading-4"
+                    data-parent="#accordion-5">
+                    <div class="card-body">At first when welcomer was made, custom images used to be free to use and had
+                      been for quite a long time. Recently we have decided to make it that a one time payment of £1 or
+                      $1.50 would be needed to be able to unlock this feature. This is because as of recently, the bot
+                      has become more used and over time has used a trendous amount of both storage space and processing
+                      to be able to utilise all these custom backgrounds. All previously set custom backgrounds will not
+                      be removed however to change it you will require to do the one time payment. This is simply put to
+                      show support for the development of the bot as recently the bot now requires over 100 Gigabytes of
+                      storage for storing both these custom backgrounds and 1 week cached images, its a little gesture
+                      that you support the bot. Despite making custom backgrounds paid for again, there are still a
+                      large amount of free backgrounds and once you have paid for custom backgrounds you are able to
+                      apply this to any server</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% include "partials/_footer.html" %}
+      </div>
+    </div>
+  </div>
+  {% include "partials/_ender.html" %}

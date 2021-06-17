@@ -1,0 +1,151 @@
+guild management
+    view site
+
+    details
+    guild logs
+    invites
+
+    bot settings
+        - has donator
+
+        - prefix
+        - locale
+
+        - force dms
+        - embed colour
+
+        - show staff
+        - allow invites
+        - splash
+        - description
+
+    reset config
+
+>welcomer
+    - general
+        - channel
+        - embed
+        - badges
+        - invited
+
+        - custom embeding (from welcomer.text)
+    - images
+        - enabled
+        - text
+        - theme
+        - text align
+        - colours
+        - border
+        - background
+        - bg upload
+    - text
+        - enabled
+        - text
+        - custom embeding (from welcomer.text)
+        
+    - direct
+        - enabled
+        - text
+        - use embed
+        - custom embeding
+
+    - formatting
+    - setup wizard
+
+>moderation
+    - view recents
+    - lookup punishments
+    - active punishments
+    - force reason
+
+>roles
+    timeroles
+        - enable
+        - roles
+
+    autorole
+        - enable
+        - roles
+
+    freerole
+        - enable
+        - roles
+
+>logging
+    - view logs
+    - configure
+        - enabled
+        - show audit
+        - show moderation
+        - show join leaves
+
+<channel management
+    - channel blacklists
+    - channel whitelists
+    - staff bypass
+
+<leaver
+    - enable
+    - channel
+    - embed
+    - text
+    - formatting (link)
+
+<analytics
+    - channel messages
+    - active in voice
+    - members
+    - joins
+    - leaves
+    - online members
+
+<staff
+    - users
+    - allow ping
+<rules
+    - enabled
+    - rules
+
+<automod
+    - enabled
+    - filters
+    - thresholds
+    - filter
+    - regex
+    - smartmod
+
+<borderwall
+    - enabled
+    - channel
+    - roles
+    - send in dms
+    - wait time
+    - messages
+
+<tempchannel
+    - enabled
+    - category
+    - lobby
+    - default_limit
+    - auto_purge
+
+<name purge
+    - enabled
+    - filter
+    - ignore bots
+
+<music
+    - enable dj
+    - add users
+    - change skipping
+    - skip threshold
+
+<serverstats
+    - enable
+    - category
+    - channels
+
+<serverlock
+    - whitelists
+        - users
+        - enable

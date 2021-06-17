@@ -1,0 +1,92 @@
+{% include "partials/_header.html" %}
+<div class="container-scroller">
+    {% include "partials/_navbar.html" %}
+    <div class="container-fluid page-body-wrapper">
+        <div class="main-panel content-wrapper w-100">
+            {% if guild_info %}
+            <div class="container text-center pricing-table mu-5 my-auto">
+                <div class="card py-3 mx-auto px-3" style="max-width:400px; opacity: 0.96">
+                    {% if str(guild_info['d']['g'].get('ic', None)) != "None" %}
+                    <div>
+                        <img class="rounded-circle"
+                            src="https://cdn.discordapp.com/icons/{{ guild_id }}/{{ guild_info['d']['g']['ic'] }}.png?size=256"
+                            width="128">
+                    </div>
+                    {% endif %}
+
+                    <h4 class="mb-0">{{ guild_info['d']['g']['n'] }}</h4>
+                    <!-- <div class="mx-auto">
+                            <p class="page-description text-muted mb-0">
+                                <i class="mx-1 mdi mdi-circle text-success mr-1"></i>{{ guild_info['d']['d']['o'] }} online
+                                <i class="mx-1 mdi mdi-circle text-muted mr-1"></i>{{ guild_info['d']['m']['m'] }} members
+                            </p>
+                        </div> -->
+                    <div class="w-50 mx-auto">
+                        {% if guild_info['d']['b']['ai'] %}
+                        <div class="wrapper my-4" onclick="enter()">
+                            <a id="bwbutton" class="btn btn-success btn-block">Join Server</a>
+                        </div>
+                        {% else %}
+                        <div class="wrapper my-4">
+                            <m4 class='text-muted'>This server has disabled invites through welcomer</m4>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% if guild_info['d']['b']['ai'] %}
+            <script>
+                function enter() {
+                    document.getElementById("bwbutton").outerHTML = "<div id='bwbutton' class=' my-2 square-path-loader'></div>";
+                    document.getElementById("bwbutton").onclick = "";
+                    $.ajax({
+                        url: "/api/invite/{{ guild_id }}",
+                        method: "POST",
+                        dataType: "json",
+                        success: function (data) {
+                            if (data.success) {
+                                document.location = "https://discord.gg/" + data.code;
+                            } else {
+                                document.getElementById("bwbutton").outerHTML = "<m4 class='text-muted'>" + data.error + "</m4>";
+                            }
+                        },
+                        error: function () {
+                            document.getElementById("bwbutton").outerHTML = "<a id='bwbutton' onclick='enter()' class='btn btn-outline-primary btn-block'>Failed to retrieve invite</a>";
+                        }
+                    })
+                }
+            </script>
+            {% endif %}
+            {% if "d" in guild_info and guild_info['d']['b']['s'] and len(guild_info['d']['b']['s']) > 0 %}
+            <style>
+                .main-panel {
+                    background: linear-gradient(transparent, transparent, #272a2e),
+                    url({{ guild_info['d']['b']['s'] }}) !important;
+                    background-size: cover !important;
+                    background-repeat: no-repeat !important;
+                    background-position: center !important;
+                }
+            </style>
+            {% endif %}
+            {% else %}
+            <div class="container text-center pricing-table mu-5 my-auto">
+                <div class="card py-3 mx-auto px-3" style="max-width:400px; opacity: 0.96">
+                    <div class="my-4">
+                        <img src="/static/images/sad2.png" width="64">
+                    </div>
+                    <h4 class="mb-0 mx-3">This guild doesn't have Welcomer on it</h4>
+                    <div class="w-50 mx-auto">
+                        <div class="wrapper my-4">
+                            <m4>Is this your Server?</m4>
+                            <a href="/invitebot"><button class="btn btn-primary btn-lg my-1 w-100">Invite
+                                    Welcomer</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% include "partials/_footer.html" %}
+        </div>
+    </div>
+</div>
+{% include "partials/_ender.html" %}

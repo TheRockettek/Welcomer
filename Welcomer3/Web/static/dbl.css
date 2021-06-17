@@ -1,0 +1,81 @@
+#botprofileicon {
+display: none !important;
+}
+div {
+color: #999999 !important;
+}
+code {
+    background-color: transparent;
+    color: #ffffff;
+    font-size: 0.875em;
+    font-weight: normal;
+    padding: 0.25em 0.5em 0.25em;
+}
+.page {
+color: #ffffff !important;
+}
+p {
+color: #ffffff !important;
+}
+html {
+background-color: #2C2F33 !important;
+}
+.status.green {
+color: #00ff3c !important;
+}
+.column {
+margin: auto !important;
+}
+.columns .bot-img {
+box-shadow: 1px 1px 0px 0px #2c2f33, 4px 4px 8px 0px rgba(0,0,0,0.2) !important;
+}
+a {
+color: #7a7a7a !important;
+} 
+.btn-blue {
+background: #495ea9 !important;
+}
+.btn-orange {
+background: #495ea9 !important;
+}
+body {
+color: #ffffff !important;
+}
+.lib {
+color: #ffffff !important;
+}
+.bot-name {
+color: #ffffff !important;
+}
+.color-medium-blue {
+color: #495ea9 !important;
+}
+#menu {
+background: #212428 !important;
+}
+.longdescription .content {
+box-shadow: none !important;
+}
+.longdescription {
+border: none !important;
+}
+.owners {
+border: none !important;
+}
+#bot-details-page #details .container {
+border: none !important;
+}
+#bot-details-page .bot-img {
+background: transparent !important;
+}
+#prefix {
+color: #ffffff !important;
+}
+.voted {
+background-color: #495ea9 !important;
+color: #ffffff !important;
+}
+.btn-like {
+background: white;
+color: #495ea9;
+}

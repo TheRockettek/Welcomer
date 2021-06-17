@@ -1,0 +1,346 @@
+{% include "partials/_header.html" %}
+<div class="container-scroller">
+    {% include "partials/_navbar.html" %}
+    <div class="container-fluid page-body-wrapper">
+        {% include "partials/_nondash_sidebar.html" %}
+        <div class="main-panel">
+            <div class="content-wrapper">
+                {% if valid_guild %}
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 grid-margin stretch-card">
+                        <div class="card card-statistics">
+                            <div class="card-body row">
+                                <div class="mr-auto ml-4 row align-self-center">
+                                    {% if str(guildinfo['d']['g'].get('ic', None)) != "None" %}
+                                    <div>
+                                        <img class="rounded-circle"
+                                            src="https://cdn.discordapp.com/icons/{{ id }}/{{ guildinfo['d']['g']['ic'] }}.png?size=128"
+                                            width="128">
+                                    </div>
+                                    {% else %}
+                                    <div>
+                                        <img class="rounded-circle"
+                                            src="https://cdn.discordapp.com/embed/avatars/1.png?size=128" width="128">
+                                    </div>
+                                    {% endif %}
+                                    <div class="ml-4">
+                                        <div class="clearfix">
+                                            <div class="float-left">
+                                                <div class="fluid-container">
+                                                    <h3 class="font-weight-medium text-right mb-0">
+                                                        {{ guildinfo['d']['g']['n'] }}
+                                                        {% if "donation" in donations %}
+                                                        <div class="badge badge-primary badge-pill">Pro</div>
+                                                        {% endif %}
+                                                        {% if "partner" in donations %}
+                                                        <div class="badge badge-pill">Partnered</div>
+                                                        {% endif %}
+                                                    </h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p class="text-muted mt-3 mb-0">
+                                            <i class="mdi mdi-plus mr-1" aria-hidden="true"></i>Created
+                                            <b>{{ since_unix_str( guildinfo['d']['g']['gc'] ) }}</b>
+                                        </p>
+                                        <p class="text-muted mt-3 mb-0">
+                                            <i class="mdi mdi-bank-plus mr-1" aria-hidden="true"></i>Added
+                                            <b>{{ since_unix_str( guildinfo['d']['g']['ga'] ) }}</b>
+                                        </p>
+                                    </div>
+                                </div>
+                                {% if guildinfo['d']['b']['ai'] %}
+                                <div class="align-self-center mr-4">
+                                    <a id="invite" href="/invite/{{ id }}"><button
+                                            class="btn btn-primary btn-lg my-1 w-100">Join Server</button></a>
+                                </div>
+                                {% else %}
+                                <div class="align-self-center mr-4">
+                                    <a id="invite" href="/invite/{{ id }}"><button disabled
+                                            class="disabled btn btn-primary btn-lg my-1 w-100">Join Server</button></a>
+                                </div>
+                                {% endif %}
+                            </div>
+                            {% if len(guildinfo['d']['b']['d']) > 0 %}
+                            <p class="text-muted mx-4 my-4">
+                                {{ guildinfo['d']['b']['d'] }}
+                            </p>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="col-12 grid-margin">
+                        <div class="card card-statistics">
+                            <div class="row">
+                                <div class="col-xl-4 col-lg-6 col-md-4 col-sm-6 col-4 mx-auto">
+                                    <div class="card-body">
+                                        <div
+                                            class="d-flex align-items-center justify-content-center flex-column flex-sm-row">
+                                            <i class="mdi mdi-crown text-warning mr-0 mr-sm-4 icon-lg"></i>
+                                            <div class="wrapper text-center text-sm-left">
+                                                <p class="card-text mb-0">Owner</p>
+                                                <div class="fluid-container">
+                                                    <h3 class="mb-0 font-weight-medium">
+                                                        {{ guildinfo['d']['g']['o']['name'] }}</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-lg-6 col-md-4 col-sm-6 col-4 mx-auto">
+                                    <div class="card-body">
+                                        <div
+                                            class="d-flex align-items-center justify-content-center flex-column flex-sm-row">
+                                            <i class="mdi mdi-earth text-primary mr-0 mr-sm-4 icon-lg"></i>
+                                            <div class="wrapper text-center text-sm-left">
+                                                <p class="card-text mb-0">Voice Region</p>
+                                                <div class="fluid-container">
+                                                    <h3 class="mb-0 font-weight-medium">
+                                                        {% if "vip-" in guildinfo['d']['b']['r'] %}
+                                                        <div class="badge badge-success badge-pill align-self-center">
+                                                            VIP</div>
+                                                        {% endif %}
+                                                        {{ guildinfo['d']['b']['r'].replace("-", " ").replace("vip ", "") }}
+                                                    </h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-4 mx-auto">
+                                    <div class="card-body">
+                                        <div
+                                            class="d-flex align-items-center justify-content-center flex-column flex-sm-row">
+                                            <i class="mdi mdi-message-settings text-success mr-0 mr-sm-4 icon-lg"></i>
+                                            <div class="wrapper text-center text-sm-left">
+                                                <p class="card-text mb-0">Prefix</p>
+                                                <div class="fluid-container">
+                                                    <h3 class="mb-0 font-weight-medium">{{ guildinfo['d']['b']['p'] }}
+                                                    </h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 grid-margin">
+                        <div class="card card-statistics">
+                            <div class="row">
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-4 mx-auto">
+                                    <div class="card-body">
+                                        <div
+                                            class="d-flex align-items-center justify-content-center flex-column flex-sm-row">
+                                            <i class="mdi mdi-account-group text-primary mr-0 mr-sm-4 icon-lg"></i>
+                                            <div class="wrapper text-center text-sm-left">
+                                                <p class="card-text mb-0">Member Count</p>
+                                                <div class="fluid-container">
+                                                    <h3 class="mb-0 font-weight-medium">{{ guildinfo['d']['m']['a'] }}
+                                                    </h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-4 mx-auto">
+                                    <div class="card-body">
+                                        <div
+                                            class="d-flex align-items-center justify-content-center flex-column flex-sm-row">
+                                            <i class="mdi mdi-account-multiple text-primary mr-0 mr-sm-4 icon-lg"></i>
+                                            <div class="wrapper text-center text-sm-left">
+                                                <p class="card-text mb-0">User Count</p>
+                                                <div class="fluid-container">
+                                                    <h3 class="mb-0 font-weight-medium">{{ guildinfo['d']['m']['m'] }}
+                                                    </h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-4 mx-auto">
+                                    <div class="card-body">
+                                        <div
+                                            class="d-flex align-items-center justify-content-center flex-column flex-sm-row">
+                                            <i class="mdi mdi-robot-industrial text-primary mr-0 mr-sm-4 icon-lg"></i>
+                                            <div class="wrapper text-center text-sm-left">
+                                                <p class="card-text mb-0">Bot Count</p>
+                                                <div class="fluid-container">
+                                                    <h3 class="mb-0 font-weight-medium">{{ guildinfo['d']['m']['b'] }}
+                                                    </h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 
+                <div class="col-12 grid-margin">
+                    <div class="card card-statistics">
+                        <div class="row">
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 mx-auto">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center justify-content-center flex-column flex-sm-row">
+                                        <i class="mdi mdi-checkbox-blank-circle text-success mr-0 mr-sm-4 icon-lg"></i>
+                                        <div class="wrapper text-center text-sm-left">
+                                            <p class="card-text mb-0">Users Online</p>
+                                            <div class="fluid-container">
+                                            <h3 class="mb-0 font-weight-medium">{{ guildinfo['d']['d']['o'] }}</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 mx-auto">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center justify-content-center flex-column flex-sm-row">
+                                        <i class="mdi mdi-checkbox-blank-circle mr-0 mr-sm-4 icon-lg"></i>
+                                        <div class="wrapper text-center text-sm-left">
+                                            <p class="card-text mb-0">Users Offline</p>
+                                            <div class="fluid-container">
+                                            <h3 class="mb-0 font-weight-medium">{{ guildinfo['d']['d']['of'] }}</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4 mx-auto">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center justify-content-center flex-column flex-sm-row">
+                                        <i class="mdi mdi-checkbox-blank-circle text-info mr-0 mr-sm-4 icon-lg"></i>
+                                        <div class="wrapper text-center text-sm-left">
+                                            <p class="card-text mb-0">Users Streaming</p>
+                                            <div class="fluid-container">
+                                            <h3 class="mb-0 font-weight-medium">{{ guildinfo['d']['d']['s'] }}</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center justify-content-center flex-column flex-sm-row">
+                                        <i class="mdi mdi-checkbox-blank-circle text-warning mr-0 mr-sm-4 icon-lg"></i>
+                                        <div class="wrapper text-center text-sm-left">
+                                            <p class="card-text mb-0">Users Idle</p>
+                                            <div class="fluid-container">
+                                            <h3 class="mb-0 font-weight-medium">{{ guildinfo['d']['d']['i'] }}</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center justify-content-center flex-column flex-sm-row">
+                                        <i class="mdi mdi-checkbox-blank-circle text-danger mr-0 mr-sm-4 icon-lg"></i>
+                                        <div class="wrapper text-center text-sm-left">
+                                            <p class="card-text mb-0">Users DnD</p>
+                                            <div class="fluid-container">
+                                            <h3 class="mb-0 font-weight-medium">{{ guildinfo['d']['d']['d'] }}</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+
+                    <div class="col-12 grid-margin">
+                        <div class="card card-statistics">
+                            <div class="row">
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-4 mx-auto">
+                                    <div class="card-body">
+                                        <div
+                                            class="d-flex align-items-center justify-content-center flex-column flex-sm-row">
+                                            <i class="mdi mdi-pound text-primary mr-0 mr-sm-4 icon-lg"></i>
+                                            <div class="wrapper text-center text-sm-left">
+                                                <p class="card-text mb-0">Text Channels</p>
+                                                <div class="fluid-container">
+                                                    <h3 class="mb-0 font-weight-medium">
+                                                        {{ len(guildinfo['d']['c']['t']) }}</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-4 mx-auto">
+                                    <div class="card-body">
+                                        <div
+                                            class="d-flex align-items-center justify-content-center flex-column flex-sm-row">
+                                            <i class="mdi mdi-volume-high text-primary mr-0 mr-sm-4 icon-lg"></i>
+                                            <div class="wrapper text-center text-sm-left">
+                                                <p class="card-text mb-0">Voice Channels</p>
+                                                <div class="fluid-container">
+                                                    <h3 class="mb-0 font-weight-medium">
+                                                        {{ len(guildinfo['d']['c']['v']) }}</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-4 mx-auto">
+                                    <div class="card-body">
+                                        <div
+                                            class="d-flex align-items-center justify-content-center flex-column flex-sm-row">
+                                            <i class="mdi mdi-file-tree text-primary mr-0 mr-sm-4 icon-lg"></i>
+                                            <div class="wrapper text-center text-sm-left">
+                                                <p class="card-text mb-0">Category Channels</p>
+                                                <div class="fluid-container">
+                                                    <h3 class="mb-0 font-weight-medium">
+                                                        {{ len(guildinfo['d']['c']['c']) }}</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {% if guildinfo['d']['b']['ss'] %}
+
+                <h2 class="mr-2 mt-5 text-white text-center"> Server Staff </h2>
+
+                <div class="container mt-3 mb-5">
+                    <div class="row justify-content-center" id="bot-status">
+                        {% for staff_member in staff %}
+                        {% if staff_member['name'] != "" %}
+                        <div class="features align-middle col-lg-3 col-md-5 ml-1 mr-1 my-1 p-3 text-center card">
+                            <img class="mx-auto rounded-circle pb-1"
+                                src="{{ staff_member['avatar'][-1] if "avatar" in staff_member }}" width="128">
+                            <h5>{{ staff_member['name'] }}#{{ staff_member['discriminator'] }}</h5>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+
+                {% endif %}
+                {% else %}
+
+                <div class="container text-center pricing-table">
+                    <div class="grid-margin stretch-card pricing-card">
+                        <div class="card border-primary border pricing-card-body">
+                            <div class="text-center pricing-card-head">
+                                <img src="/static/images/sad2.png" style="width: 64px; height: 64px;">
+                                <h4 class="font-weight-normal mb-5">This guild doesn't have Welcomer on it</h4>
+                                <small>Own this server?</small>
+                                <a href="/invitebot"><button class="btn btn-primary btn-lg my-1 w-100">Invite
+                                        Welcomer</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            {% include "partials/_footer.html" %}
+        </div>
+    </div>
+</div>
+{% include "partials/_ender.html" %}

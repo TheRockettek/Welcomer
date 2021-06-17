@@ -1,0 +1,37 @@
+{
+    "data_version": 0,
+    "id": 0,
+    "details": {
+        "avatar": [], 
+        "locale": "",
+        "name": "",
+        "discriminator": 0,
+        "user_creation": 0,
+        "user_addition": 0,
+        "update": 0
+    },
+    "membership": {
+        "low_donator": false,
+        "partner": false,
+        "plus": false,
+        "pro": false,
+        "low_donator_t": 0,
+        "pro_t": 0,
+        "plus_t": 0
+    },
+    "profile_background": "",
+    "hide_mutual": false,
+    "prefer_dms": true,
+    "last_reputation": 0,
+    "reputation": 0,
+    "last_faucet": 0,
+    "balance": 0,
+    "globalxp": 0,
+    "last_message": 0,
+    "last_mutual": {},
+    "mutual": {},
+    "recent_commands": [],
+    "previous_names": [],
+    "badges": [],
+    "xp": []
+}

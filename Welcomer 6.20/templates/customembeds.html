@@ -1,0 +1,622 @@
+{% include "partials/_header.html" %}
+<div class="container-scroller">
+    {% include "partials/_navbar.html" %}
+    <div class="container-fluid page-body-wrapper">
+        {% include "partials/_nondash_sidebar.html" %}
+        <div class="container-scroller content-wrapper">
+            <div class="container-fluid top-banner">
+                <div class="row top-banner-content my-5">
+                    <div class="w-75 mx-auto">
+                        <div class="container">
+
+                            <h2 class="mr-2 text-white"> Embed Builder</h2>
+
+                            <style>
+                                .badge-container {
+                                    width: 100%;
+                                    display: flex;
+                                    flex-direction: column;
+                                    padding: 5px 10px;
+                                    background: rgba(0, 0, 0, 0.5);
+                                    border: 1px solid rgba(255, 255, 255, 0.5);
+                                    text-align: center;
+                                }
+
+                                .badge-container .badge-icon {
+                                    background: url("https://s3.amazonaws.com/patreon_public_assets/toolbox/patreon_white.png") center center no-repeat;
+                                    background-size: contain;
+                                    width: 100%;
+                                    height: 20px;
+                                }
+
+                                .badge-container .badge-text {
+                                    font-family: "Lato", sans-serif;
+                                    font-size: 12px;
+                                    padding: 2px;
+                                    color: #fff;
+                                }
+
+                                .badge-container .badge-text.badge-text-bottom {
+                                    position: relative;
+                                    top: -2px;
+                                }
+
+                                .preview {
+                                    background: #36393e;
+                                    display: flex;
+                                    box-orient: vertical;
+                                    flex-direction: column;
+                                }
+
+                                .wrapper {
+                                    display: flex;
+                                    max-width: 520px;
+                                }
+
+                                .container {
+                                    margin-top: 50px;
+                                }
+
+                                .side-colored {
+                                    width: 4px;
+                                    border-radius: 3px 0 0 3px;
+                                    background: #4f545c;
+                                }
+
+                                .embed {
+                                    border-radius: 0 3px 3px 0;
+                                    background: rgba(46, 48, 54, 0.3);
+                                    border-color: rgba(46, 48, 54, 0.6);
+                                    display: flex;
+                                    padding: 8px 10px;
+                                    color: rgba(255, 255, 255, 0.6);
+                                    font-size: 14px;
+                                }
+
+                                .card-block {
+                                    padding: 20px;
+                                    display: flex;
+                                    margin-bottom: 10px;
+                                }
+
+                                .embed a {
+                                    color: #0096cf;
+                                }
+
+                                .embed img.embed-thumb {
+                                    max-height: 80px;
+                                    max-width: 80px;
+                                    border-radius: 3px;
+                                    flex-shrink: 0;
+                                    width: auto;
+                                    -o-object-fit: contain;
+                                    object-fit: contain;
+                                    margin-left: 20px;
+                                }
+
+                                .embed .embed-footer {
+                                    font-size: 12px;
+                                }
+
+                                .embed .embed-footer span {
+                                    color: rgba(255, 255, 255, 0.6);
+                                }
+
+                                .embed .embed-inner .embed-title {
+                                    color: #fff;
+                                }
+
+                                .embed .embed-inner .embed-author {
+                                    display: flex;
+                                    align-items: center;
+                                    margin-bottom: 5px;
+                                }
+
+                                .embed .embed-inner .embed-author img.embed-author-icon {
+                                    margin-right: 9px;
+                                    width: 20px;
+                                    height: 20px;
+                                    -o-object-fit: contain;
+                                    object-fit: contain;
+                                    border-radius: 50%;
+                                }
+
+                                .embed .embed-inner .embed-author .embed-author-name {
+                                    display: inline-block;
+                                    font-weight: 600;
+                                    font-size: 14px;
+                                    color: #fff !important;
+                                }
+
+                                .embed .embed-inner .fields {
+                                    display: flex;
+                                    flex-wrap: wrap;
+                                    flex-direction: row;
+                                    box-lines: miltiple;
+                                    margin-top: -10px;
+                                }
+
+                                .embed .embed-inner .fields .field {
+                                    flex: 0;
+                                    box-flex: 1;
+                                    padding-top: 10px;
+                                    max-width: 506px;
+                                    min-width: 100%;
+                                }
+
+                                .embed .embed-inner .fields .field.inline {
+                                    box-flex: 1;
+                                    flex: 1;
+                                    min-width: 150px;
+                                    flex-basis: auto;
+                                }
+
+                                .embed .embed-inner .fields .field .field-name {
+                                    color: #fff;
+                                    font-size: 14px;
+                                    margin-bottom: 4px;
+                                    font-weight: 600;
+                                }
+
+                                .embed .embed-inner .fields .field .field-value {
+                                    color: rgba(255, 255, 255, 0.7);
+                                    font-size: 14px;
+                                    font-weight: 500;
+                                    line-height: 1.1em;
+                                    white-space: pre-wrap;
+                                    margin-top: 6px;
+                                    word-wrap: break-word;
+                                }
+
+                                form {
+                                    width: 100%;
+                                }
+
+                                .input-fields {
+                                    padding: 20px;
+                                }
+
+                                .form-check .form-check-label input {
+                                    opacity: 1;
+                                }
+                            </style>
+
+                            <script>
+                                $(document).ready(() => {
+                                    let switches = {
+                                        title: false,
+                                        url: false,
+                                        icon: false
+                                    };
+
+
+                                    let fields = 0;
+
+                                    let source = ``;
+
+                                    let embed = {
+                                        title: 'Embed title (required)',
+                                        author: {
+                                            name: '',
+                                            icon_url: ''
+                                        },
+
+                                        description: '',
+                                        url: '',
+                                        thumbnail: { url: '' },
+                                        color: 3553598,
+                                        fields: [],
+                                        footer: ''
+                                    };
+
+
+                                    function resetEmbed() {
+                                        $('.embed-inner').html('');
+                                        $('.embed-footer').remove();
+                                        $('.embed-thumb').remove();
+                                    }
+
+                                    function updateEmbed(embed) {
+                                        resetEmbed();
+
+                                        if (embed.content) {
+                                            $('.card-content').text(embed.content);
+                                        }
+
+                                        if (embed.url) {
+                                            $('.embed-inner').append(`<div class="embed-title"><a href="${embed.url}">${embed.title}</a></div>`);
+                                        } else {
+                                            $('.embed-inner').append(`<div class="embed-title">${embed.title}</div>`);
+                                        }
+
+                                        if (embed.description) {
+                                            $('.embed-inner').append(`<div class="embed-description">${embed.description}</div>`);
+                                        }
+
+                                        if (embed.color) {
+                                            $('.side-colored').css('background-color', embed.color);
+                                        }
+
+                                        if (embed.author.name) {
+                                            $('.embed-title').before(`<div class="embed-author"><a class="embed-author-name" href="${embed.author.url}">${embed.author.name}</a></div>`);
+                                            if (embed.author.icon_url) {
+                                                $('.embed-author-name').before(`<img class="embed-author-icon" src="${embed.author.icon_url}" />`);
+                                            }
+                                        }
+
+                                        if (embed.thumbnail.url) {
+                                            $('.card.embed .card-block').append(`<img class="embed-thumb" src="${embed.thumbnail.url}" />`);
+                                            $('.embed-thumb').height($('.embed-thumb')[0].naturalHeight);
+                                        }
+
+                                        if (embed.fields.length > 0) {
+                                            $('.embed-inner').append(`<div class="fields"></div>`);
+                                        }
+
+                                        for (let field of embed.fields) {
+                                            $('.embed-inner .fields').append(`
+                                <div class="field ${field.inline && 'inline'}">
+                                <div class="field-name">${field.name}</div>
+                                <div class="field-value">${field.value}</div>
+                                </div>
+                            `);
+                                        }
+
+                                        if (embed.footer) {
+                                            $('.card.embed').append(`<div class="embed-footer"><span>${embed.footer}</span></div>`);
+                                        }
+
+                                        // code
+                                        emb = embed
+                                        if (emb.color && typeof (emb.color) === 'string') {
+                                            emb.color = parseInt(emb.color.replace("#", ""), 16);
+                                        }
+                                        $('.source').text(JSON.stringify(emb));
+                                    }
+
+                                    // run once on startup
+                                    updateEmbed(embed);
+
+                                    function generateInputFields(fields) {
+                                        // generate inputs for fields
+                                        $('.input-fields').html('');
+                                        for (let i = 0; i < fields; i++) {
+                                            $('.input-fields').append(`<div class="form-group row">
+                            <div class="col-sm-4">
+                            <input class="form-control" id="field-${i}-name" type="text" placeholder="name" value="${embed.fields[i].name !== undefined ? embed.fields[i].name : ''}" />
+                            </div>
+                            <div class="col-sm-4">
+                            <input class="form-control" id="field-${i}-value" type="text" placeholder="value" value="${embed.fields[i].value !== undefined ? embed.fields[i].value : ''}" />
+                            </div>
+                            <div class="col-sm-2">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                <input class="form-check-input" id="field-${i}-inline" type="checkbox" ${embed.fields[i].inline !== undefined ? 'checked="checked"' : ''}> Inline
+                                </label>
+                            </div>
+                            </div>
+                            <div class="col-sm-2">
+                            <button id="field-${i}-delete" class="btn btn-danger">Delete</button>
+                            </div>
+                        </div>`);
+                                            $(`#field-${i}-name`).keyup(() => {
+                                                updateFieldName(i, $(`#field-${i}-name`).val());
+                                            });
+
+                                            $(`#field-${i}-value`).keyup(() => {
+                                                updateFieldValue(i, $(`#field-${i}-value`).val());
+                                            });
+
+                                            $(`#field-${i}-inline`).click(() => {
+                                                updateFieldInline(i, $(`#field-${i}-inline`).is(':checked'));
+                                            });
+
+                                            $(`#field-${i}-delete`).click(e => {
+                                                e.preventDefault();
+                                                deleteField(i);
+                                            });
+                                        };
+                                        $('.input-fields').append(`<button id="add-field" class="btn btn-success">Add field</button>`);
+                                        $('#add-field').click(e => {
+                                            e.preventDefault();
+                                            addField();
+                                        });
+                                    }
+
+                                    generateInputFields(fields);
+
+                                    function updateFieldName(index, value) {
+                                        embed.fields[index].name = value;
+                                        updateEmbed(embed);
+                                    }
+
+                                    function updateFieldValue(index, value) {
+                                        embed.fields[index].value = value;
+                                        updateEmbed(embed);
+                                    }
+
+                                    function updateFieldInline(index, value) {
+                                        embed.fields[index].inline = value;
+                                        updateEmbed(embed);
+                                    }
+
+                                    function deleteField(index) {
+                                        embed.fields.splice(index, 1);
+                                        updateEmbed(embed);
+                                        fields -= 1;
+                                        generateInputFields(fields);
+                                    }
+
+                                    function addField() {
+                                        embed.fields.push({ inline: true });
+                                        fields += 1;
+                                        generateInputFields(fields);
+                                    }
+
+                                    function updateTitle(value) {
+                                        embed.title = value || '';
+                                        updateEmbed(embed);
+                                    }
+
+                                    function updateUrl(value) {
+                                        embed.url = value || '';
+                                        updateEmbed(embed);
+                                    }
+
+                                    function updateThumb(value) {
+                                        embed.thumbnail.url = value || false;
+                                        updateEmbed(embed);
+                                    }
+
+                                    function updateDescription(value) {
+                                        embed.description = value || '';
+                                        updateEmbed(embed);
+                                    }
+
+                                    function updateColor(value) {
+                                        embed.color = value || false;
+                                        updateEmbed(embed);
+                                    }
+
+                                    function updateAuthorName(value) {
+                                        embed.author.name = value || '';
+                                        updateEmbed(embed);
+                                    }
+
+                                    function updateAuthorUrl(value) {
+                                        embed.author.url = value || '';
+                                        updateEmbed(embed);
+                                    }
+
+                                    function updateAuthorIcon(value) {
+                                        embed.author.icon_url = value || '';
+                                        updateEmbed(embed);
+                                    }
+
+                                    function updateFooter(value) {
+                                        embed.footer = value || '';
+                                        updateEmbed(embed);
+                                    }
+                                    function updateContent(value) {
+                                        embed.content = value || '';
+                                        updateEmbed(embed)
+                                    }
+
+                                    $('#form').submit(e => {
+                                        e.preventDefault();
+                                    });
+
+                                    // checking helpers
+                                    function addWarning(item, type, message) {
+                                        item.addClass('form-control-warning');
+                                        item.removeClass('form-control-success');
+                                        item.parent().addClass('has-warning');
+                                        item.parent().removeClass('has-success');
+                                        if ($(`#${type}-feedback`).length === 0) {
+                                            item.after(`<div class="form-control-feedback" id="${type}-feedback">${message}</div>`);
+                                        }
+                                    }
+
+                                    function addSuccess(item, type) {
+                                        item.removeClass('form-control-warning');
+                                        item.addClass('form-control-success');
+                                        item.parent().addClass('has-success');
+                                        item.parent().removeClass('has-warning');
+                                        $(`#${type}-feedback`).remove();
+                                    }
+
+                                    $('#title').keyup(() => {
+                                        let item = $('#title');
+                                        let title = item.val();
+
+                                        // preform checks
+                                        if (title.length === 0) {
+                                            addWarning(item, 'title', 'title cannot be empty');
+                                        } else {
+                                            addSuccess(item, 'title');
+                                            // update
+                                            updateTitle(title);
+                                        }
+
+                                    });
+
+                                    $('#url').keyup(() => {
+                                        let item = $('#url');
+                                        let url = item.val();
+
+                                        if (url.substr(0, 4) !== 'http' && url.length !== 0) {
+                                        } else {
+                                            addSuccess(item, 'url');
+                                            // update
+                                            updateUrl(url);
+                                        }
+
+
+                                    });
+
+                                    $('#icon').keyup(() => {
+                                        let item = $('#icon');
+                                        let icon = item.val();
+
+                                        if (icon.substr(0, 4) !== 'http' && icon.length !== 0) {
+                                        } else {
+                                            addSuccess(item, 'icon');
+                                            // update
+                                            updateThumb(icon);
+                                        }
+                                    });
+
+                                    $('#description').keyup(() => {
+                                        let item = $('#description');
+                                        let description = item.val();
+                                        addSuccess(item, 'description');
+                                        // update
+                                        updateDescription(description);
+                                    });
+
+                                    $('#color').change(() => {
+                                        updateColor($('#color').val());
+                                    });
+
+                                    $('#author_name').keyup(() => {
+                                        let item = $('#author_name');
+                                        let author_name = item.val();
+
+                                        addSuccess(item, 'author_name');
+                                        // update
+                                        updateAuthorName(author_name);
+                                    });
+
+                                    $('#author_url').keyup(() => {
+                                        let item = $('#author_url');
+                                        let author_url = item.val();
+
+                                        addSuccess(item, 'author_url');
+                                        // update
+                                        updateAuthorUrl(author_url);
+                                    });
+
+                                    $('#author_icon').keyup(() => {
+                                        let item = $('#author_icon');
+                                        let author_icon = item.val();
+
+                                        addSuccess(item, 'author_icon');
+                                        // update
+                                        updateAuthorIcon(author_icon);
+                                    });
+
+                                    $('#footer').keyup(() => {
+                                        let item = $('#footer');
+                                        let footer = item.val();
+
+                                        addSuccess(item, 'footer');
+                                        // update
+                                        updateFooter(footer);
+                                    });
+                                    $('#text_content').keyup(() => {
+                                        let item = $('#text_content');
+                                        let content = item.val();
+
+                                        updateContent(content)
+                                    });
+
+                                });
+                            </script>
+
+                            <div class="container">
+                                <div class="col-md-10 offset-md-1">
+                                    <div class="card-deck">
+                                        <div class="card">
+                                            <div class="card-header">Embed Editor</div>
+                                            <div class="card-block">
+                                                <form id="form">
+                                                    <div class="form-group">
+                                                        <label>Basic settings</label>
+                                                        <input class="form-control" id="text_content" type="text"
+                                                            placeholder="message content" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input class="form-control" id="title" type="text"
+                                                            placeholder="title" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input class="form-control" id="description" type="text"
+                                                            placeholder="description" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input class="form-control" id="url" type="text"
+                                                            placeholder="url" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Color</label>
+                                                        <input class="form-control" id="color" type="color" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Thumbnail settings</label>
+                                                        <input class="form-control" id="icon" type="text"
+                                                            placeholder="icon" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Author settings</label>
+                                                        <input class="form-control" id="author_name" type="text"
+                                                            placeholder="author name" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input class="form-control" id="author_url" type="text"
+                                                            placeholder="author link" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input class="form-control" id="author_icon" type="text"
+                                                            placeholder="author icon" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Fields</label>
+                                                    </div>
+                                                    <div class="input-fields"></div>
+                                                    <div class="form-group">
+                                                        <label>Footer settings</label>
+                                                        <input class="form-control" id="footer" type="text"
+                                                            placeholder="footer text" />
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><br />
+                                <div class="col-md-8 offset-md-2">
+                                    <div class="card">
+                                        <div class="card-block preview">
+                                            <span class="card-content"></span>
+                                            <div class="wrapper">
+                                                <div class="side-colored"></div>
+                                                <div class="card embed">
+                                                    <div class="card-block">
+                                                        <div class="embed-inner"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><br />
+                                <div class="col-md-10 offset-md-1">
+                                    <div class="card">
+                                        <div class="card-header">Embed code</div>
+                                        <div class="card-block">
+                                            <div class="source" style="
+                            width: 100%;
+                            padding: 20px;
+                            "></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% include "partials/_footer.html" %}
+        </div>
+    </div>
+</div>
+{% include "partials/_ender.html" %}

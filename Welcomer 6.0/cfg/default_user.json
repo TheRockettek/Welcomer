@@ -1,0 +1,48 @@
+{
+    "id": 0,
+    "g": {
+        "dv": 0,
+        "g": {
+            "a": [],
+            "n": null,
+            "d": null,
+            "uc": null,
+            "ua": null,
+            "u": 0,
+            "m": {
+                "c": {},
+                "u": {}
+            }
+        },
+        "b": {
+            "l": "en-gb",
+            "bg": "",
+            "hm": true,
+            "pd": false
+        }
+    },
+    "r": {
+        "l": 0,
+        "r": 0
+    },
+    "m": {
+        "p": false,
+        "plus": {
+            "h": false,
+            "u": null,
+            "p": false
+        },
+        "pro": {
+            "h": false,
+            "u": null,
+            "p": false
+        },
+        "extended": {
+            "h": false,
+            "u": null,
+            "p": false
+        },
+        "s": []
+    },
+    "b": []
+}

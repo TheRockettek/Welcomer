@@ -1,0 +1,78 @@
+{% include "partials/_header.html" %}
+<div class="container-scroller">
+  {% include "partials/_navbar.html" %}
+  <div class="container-fluid page-body-wrapper">
+    {% include "partials/_nondash_sidebar.html" %}
+    <div class="container-scroller content-wrapper">
+      <div class="container-fluid top-banner">
+        <div class="row top-banner-content my-5">
+          <div class="col-md-10 mx-auto">
+            <div class="container">
+
+              <style>
+                .features {
+                  max-width: 240px;
+                }
+              </style>
+
+              <img src="/static/images/logo-mini_3.svg" class="mx-auto d-block" width="150" alt="welcomer discord bot icon">
+              <h1 class="mr-2 text-white justify-content-center text-center display-3 font-weight-bold mb-4"> Welcomer Bot, the go-to bot for your discord server </h1>
+              <h2 class="mr-2 text-white justify-content-center text-center display-5 font-weight-light"> Entertaining {{ member_count }} members in {{ guild_count }} servers</h2>
+              <div class="row justify-content-center mb-5">
+                <div class="align-self-center justify-content-center mt-5">
+                  <a href="/invitebot"><button class="btn btn-primary btn-lg mb-1">Invite Welcomer</button></a>
+                  <a href="/invite/welcomer"><button class="btn btn-primary btn-lg mb-1">Support Server</button></a>
+                </div>
+              </div>
+
+              <!-- <div class="row justify-content-center mb-5">
+                <h2 class="mr-2 mt-5 text-white text-center">We are currently doing a survey to see users opinions!</h2>
+                <div class="align-self-center justify-content-center mt-5">
+                  <a href="https://forms.gle/4Uh91qaXW25qtud87"><button class="btn btn-primary btn-lg mb-1">View Survey</button></a>
+                  <a href="/future"><button class="btn btn-primary btn-lg mb-1">The future of welcomer</button></a>
+                </div>
+              </div> -->
+
+              <h2 class="mr-2 mt-5 text-white text-center">Features</h2>
+              <!-- <h3 class="mr-2 text-white justify-content-center text-center display-5 font-weight-light text-md"> Wherever it be welcoming new users; giving users custom roles or maybe you just want to moderate your server, welcomer can assist both you and your guild members with whatever you want and can do many more features that you would not have expected, such as the ability to moderate peoples names to remove those pesky advertisers. Welcomer can do it entirely!</h3> -->
+
+              <div class="container mt-3">
+                <div class="row justify-content-center">
+                  <div class="features align-middle col-lg-5 col-md-5 ml-1 mr-1 my-1 p-3 text-center card">
+                    <i class="menu-icon mdi mdi-tooltip-image" style="font-size: xx-large;"></i>
+                    <h4>Welcome Images</h4>
+                    <small>Welcomer Images allow for customisable images ranging from many backgrounds, themes and text colours</small>
+                  </div>
+                  <div class="features align-middle col-lg-5 col-md-5 ml-1 mr-1 my-1 p-3 text-center card">
+                    <i class="menu-icon mdi mdi-cogs" style="font-size: xx-large;"></i>
+                    <h4>Dashboard</h4>
+                    <small>A versitile, easy to use web dashboard to allow you to easily control all features of the bot without having to memorise any commands</small>
+                  </div>
+                  <div class="features align-middle col-lg-5 col-md-5 ml-1 mr-1 my-1 p-3 text-center card">
+                    <i class="menu-icon mdi mdi-gavel" style="font-size: xx-large;"></i>
+                    <h4>Moderation</h4>
+                    <small>Moderation allowing for mod logs and auto moderation which is fully configurable</small>
+                  </div>
+                  <div class="features align-middle col-lg-5 col-md-5 ml-1 mr-1 my-1 p-3 text-center card">
+                    <i class="menu-icon mdi mdi-castle" style="font-size: xx-large;"></i>
+                    <h4>Borderwall</h4>
+                    <small>Borderwall allows for easy accessibility to ensure users who join are not bots and ensure that people who join can be trusted</small>
+                  </div>
+                  <div class="features align-middle col-lg-5 col-md-5 ml-1 mr-1 my-1 p-3 text-center card">
+                    <i class="menu-icon mdi mdi-format-list-bulleted-type" style="font-size: xx-large;"></i>
+                    <h4>... Any more features</h4>
+                    <small>TimeRoles, AutoRoles, FreeRoles, Logging, Rules, Temporary Channels, Name Purge, Welcomer Text any more</small>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      {% include "partials/_footer.html" %}
+    </div>
+  </div>
+</div>
+{% include "partials/_ender.html" %}

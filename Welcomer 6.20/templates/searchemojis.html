@@ -1,0 +1,136 @@
+{% include "partials/_header.html" %}
+<div class="container-scroller">
+  {% include "partials/_navbar.html" %}
+  <div class="container-fluid page-body-wrapper">
+    {% include "partials/_nondash_sidebar.html" %}
+    <div class="main-panel">
+      <div class="content-wrapper">
+
+        <h2>Search Emojis</h2> 
+
+        <div class="card">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-12">
+                  <div class="form-group d-flex">
+                    <input id="term" type="text" class="form-control" placeholder="Search Here" value="">
+                    <button onclick="search()" type="submit" class="btn btn-primary ml-3">Find Emoji</button>
+                  </div>
+                </div>
+                <div id="termresult" class="col-12 mb-5">
+                </div>
+                <div id="listresults" class="row">
+                    Btw there could be porn and flashy stuff so good luck.
+                </div>
+              </div>
+            </div>
+          </div>
+        
+      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
+      <script>
+      function search() {
+        term = document.getElementById("term").value;
+        if ($.trim(term).length > 2) {
+          var start_time = new Date().getTime();
+          $.ajax({
+            url: "/api/searchemoji",
+            method: "POST",
+            data: {
+              term: term,
+            },
+            dataType: "json",
+            beforeSend: function() {
+              document.getElementById("listresults").innerHTML = "<div class='square-path-loader'></div>"
+              document.getElementById("termresult").innerHTML = `
+                <h2>Retrieving Results For
+                  <u class="ml-2">"${term}"</u>
+                </h2>
+              `
+            },
+            success: function(data, status) {
+              if (data.success) {
+                var request_time = (new Date().getTime() - start_time) / 1000;
+                _html = "";
+                var slicedata = data.data.slice(0, 200);
+                slicedata.forEach(function(result) {
+                  _html += `
+                    <div class="col">
+                      <a class="d-block h4 mb-0"><img class="lozad" data-src="https://cdn.discordapp.com/emojis/${result[1]}.${result[2] == true ? "gif" : "png"}?v=1"></a>
+                      <a>${result[3]}</a>
+                      <a class="page-url text-primary" href="/guild/${result[0]}">Visit Guild</a>
+                    </div>
+                  `
+                })
+                document.getElementById("listresults").innerHTML = _html;
+                document.getElementById("termresult").innerHTML = `
+                  <h2>Search Result For
+                    <u class="ml-2">"${term}"</u>
+                  </h2>
+                  <p class="text-muted">
+                    ${data.data.length} results (${request_time} seconds)
+                  </p>
+                `;
+                var observer = lozad();
+                observer.observe();
+
+              }
+            },
+            error: function(xhr, status, error) {
+
+              document.getElementById("termresult").innerHTML = `
+                <div class="alert alert-fill-danger" role="alert">
+                  <i class="mdi mdi-alert-circle"></i> An unknown error has occured and we were unable to retrieve the listing.
+                </div>
+              `;
+
+              if (error == "timeout") {
+                document.getElementById("termresult").innerHTML = `
+                <div class="alert alert-fill-danger" role="alert">
+                  <i class="mdi mdi-alert-circle"></i> Request timed out. Please try again.
+                </div>
+              `;
+              };
+
+              if (error == "parseerror") {
+                document.getElementById("termresult").innerHTML = `
+                <div class="alert alert-fill-danger" role="alert">
+                  <i class="mdi mdi-alert-circle"></i> Error occured retrieving search results.
+                </div>
+              `;
+              };
+
+              if (error == "error") {
+                document.getElementById("termresult").innerHTML = `
+                <div class="alert alert-fill-danger" role="alert">
+                  <i class="mdi mdi-alert-circle"></i> An internal exception occured.
+                </div>
+              `;
+              };
+
+              if (error == "error") {
+                document.getElementById("termresult").innerHTML = `
+                <div class="alert alert-fill-danger" role="alert">
+                  <i class="mdi mdi-alert-circle"></i> Request was aborted.
+                </div>
+              `;
+              };
+
+              if (xhr.status && xhr.status == 400) {
+                document.getElementById("termresult").innerHTML = `
+                <div class="alert alert-fill-danger" role="alert">
+                  <i class="mdi mdi-alert-circle"></i> ${xhr.responseText}
+                </div>
+              `;
+              };
+            }
+          });
+        }
+      }
+      </script>
+      {% include "partials/_footer.html" %}
+    </div>
+  </div>
+</div>
+{% include "partials/_ender.html" %}

@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../styles.css">
+
+    <title>Welcomer</title>
+</head>
+<body class="wm-form">
+
+    <h2 class="set-title">
+        Pellentesque
+    </h2>
+    <h2 class="set-subtitle">
+        Praesent nec arcu nec justo tristique efficitur.
+    </h2>
+    <h2 class="set-desc">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vitae leo ac mi placerat lacinia. Ut tempor et ipsum non laoreet. Duis diam arcu, auctor vulputate nisi sit amet, venenatis venenatis ipsum. Aenean lobortis orci mi, sed feugiat est pretium at. Cras tempor ipsum in erat hendrerit placerat.
+    </h2>
+    <div class="set-divider"></div>
+    <input class="set-input"></body>
+    <br>
+    <br>
+    <select class="set-select">
+        <option selected>Open this select menu</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+    </select>
+
+    <br>
+
+    <button type="submit" class="set-submit">
+        <div class="set-submit-text">
+            Submit
+        </div>
+    </button>
+
+    <br>
+    <br>
+
+    <div class="set-radio">
+        <label class="set-radio-selection">
+            <label class="checkbox-wrapper">
+                <input class="input-default" type="checkbox">
+                <div class="checkbox">
+                    <svg name="Checkmark" width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                        <g id="group" fill="none" fill-rule="evenodd">
+                            <polyline stroke="#7289da" stroke-width="2" points="3.5 9.5 7 13 15 5">
+                            </polyline>
+                        </g>
+                    </svg>
+                </div>
+            </label>
+            <div class="set-radio-text">
+                Selection A
+            </div>
+        </label>
+        <label class="set-radio-selection">
+            <label class="checkbox-wrapper">
+                <input class="input-default" type="checkbox">
+                <div class="checkbox">
+                    <svg id="Checkmark" width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                        <g id="group" fill="none" fill-rule="evenodd">
+                            <polyline stroke="#7289da" stroke-width="2" points="3.5 9.5 7 13 15 5">
+                            </polyline>
+                        </g>
+                    </svg>
+                </div>
+            </label>
+            <div class="info-3LOr12">
+                <div class="set-radio-text">
+                    Selection B
+                </div>
+            </div>
+        </label>
+    </div>
+
+    <div class="set-divider"></div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.js" integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <script>
+        for (elem in $(".input-default")) {
+            elem = $(".input-default")[elem];
+            if (elem.checked) {
+                elem.parentElement.parentElement.className = "set-radio-selection enabled";
+                elem.parentElement.children[1].className = "checkbox enabled";
+                elem.parentElement.children[1].children[0].children[0].children[0].style['stroke'] = "#7289da"
+            } else {
+                elem.parentElement.parentElement.className = "set-radio-selection"
+                elem.parentElement.children[1].className = "checkbox";
+                elem.parentElement.children[1].children[0].children[0].children[0].style['stroke'] = "transparent"
+            }
+            elem.addEventListener( 'change', function() {
+                if (this.checked) {
+                    this.parentElement.parentElement.className = "set-radio-selection enabled";
+                    this.parentElement.children[1].className = "checkbox enabled";
+                    this.parentElement.children[1].children[0].children[0].children[0].style['stroke'] = "#7289da"
+                } else {
+                    this.parentElement.parentElement.className = "set-radio-selection"
+                    this.parentElement.children[1].className = "checkbox";
+                    this.parentElement.children[1].children[0].children[0].children[0].style['stroke'] = "transparent"
+                }
+            });
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+{% extends "navigation-menu.html" %}
+
+{% block content %}
+
+<html>
+
+    <head>
+        
+        <link rel="stylesheet" href="https://welcomer.fun/static/style.css">
+        <script src='https://www.google.com/recaptcha/api.js'></script>
+
+    </head>
+    <script>
+    function passConfirmation() {
+        document.getElementById("confirmation").submit();
+    }
+    </script>
+    <body>
+
+        <div class="homeText">
+
+            {% if exists %}
+                <div class="homeTextTitle">
+                    Hello there {{session['user']}}
+                </div>
+                <div class="homeTextButtons">
+                    <form action="/stonewall/{{token}}/submit" id="confirmation">
+                        <button class="g-recaptcha" data-sitekey="6Ldvt1QUAAAAAJ3_DqxLxmyGdZzk84mB9mGXLl_B" data-callback="passConfirmation">Submit</button>
+                    </form>
+                </div>
+            {% else %}
+                <div class="homeTextTitle">
+                    This may have expired, already been used or no longer exists
+                </div>
+            {% endif %}
+
+        </div>
+
+    </body>
+
+</html>
+{% endblock %}

@@ -1,0 +1,255 @@
+{% include "partials/_header.html" %}
+<div class="container-scroller">
+  {% include "partials/_navbar.html" %}
+  <div class="container-fluid page-body-wrapper">
+    {% include "partials/_sidebar.html" %}
+    <div class="main-panel">
+      <div class="content-wrapper">
+        <div class="card">
+            <div class="card-body">
+                <div class="container-fluid bg-primary py-2 mb-4">
+                    <p class="mb-0 text-white">Auto Moderation Settings</p>
+                </div>
+                
+                <div class="row border-bottom mt-4 mb-4">
+                    <div class="col col-6">
+                        <m3>Enable Auto Moderation</m3>
+                    </div>
+                    <div class="col col-6 text-right">
+                        <label class="switch"><input id="enabled" type="checkbox" {{ "checked" if config['enabled'] else "" }}><span class="slider round"></span></label>
+                    </div>
+                    <div class="col col-12">
+                        <p class="text-muted">AutoMod allows for easy moderation of your server and is easily configurable and customisable</p>
+                    </div>
+                </div>
+
+                <div class="row border-bottom mt-4 mb-4">
+                    <div class="col col-6">
+                        <m3>Enable Smart Moderation</m3>
+                    </div>
+                    <div class="col col-6 text-right">
+                        <label class="switch"><input id="smartmod" type="checkbox" {{ "checked" if config['smartmod'] else "" }}><span class="slider round"></span></label>
+                    </div>
+                    <div class="col col-12">
+                        <p class="text-muted">Smart Moderation allows for all the bad stuff to be filtered out. When a user triggers auto moderation, their message will be modified and resent with the triggered text removed</p>
+                    </div>
+                </div>
+
+                <div class="container-fluid bg-primary py-2 mb-4">
+                    <p class="mb-0 text-white">Auto Moderation Filters</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <div id="listresults" class="col-12">
+                            <div class="row border-bottom mt-2 mb-2">
+                                <div class="col col-8">
+                                    <m3>Invites</m3>
+                                </div>
+                                <div class="col col-4 text-right">
+                                    <label class="switch"><input id="automodfiltinvites" type="checkbox" {{ "checked" if config['automodfiltinvites'] else "" }}><span class="slider round"></span></label>
+                                </div>
+                                <div class="col col-12">
+                                    <p class="text-muted">
+                                        Filters discord invites from messages
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="row border-bottom mt-2 mb-2">
+                                <div class="col col-8">
+                                    <m3>URL Redirections</m3>
+                                </div>
+                                <div class="col col-4 text-right">
+                                    <label class="switch"><input id="automodfilturlredir" type="checkbox" {{ "checked" if config['automodfilturlredir'] else "" }}><span class="slider round"></span></label>
+                                </div>
+                                <div class="col col-12">
+                                    <p class="text-muted">
+                                        Removes links that redirect to a different location
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="row border-bottom mt-2 mb-2">
+                                <div class="col col-8">
+                                    <m3>Any URL</m3>
+                                </div>
+                                <div class="col col-4 text-right">
+                                    <label class="switch"><input id="automodfilturls" type="checkbox" {{ "checked" if config['automodfilturls'] else "" }}><span class="slider round"></span></label>
+                                </div>
+                                <div class="col col-12">
+                                    <p class="text-muted">
+                                        Removes any links in a message
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="row border-bottom mt-2 mb-2">
+                                <div class="col col-8">
+                                    <m3>IP Grabbers</m3>
+                                </div>
+                                <div class="col col-4 text-right">
+                                    <label class="switch"><input id="automodfiltipgrab" type="checkbox" {{ "checked" if config['automodfiltipgrab'] else "" }}><span class="slider round"></span></label>
+                                </div>
+                                <div class="col col-12">
+                                    <p class="text-muted">
+                                        Removes links that point to common IP grabbing services
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="row border-bottom mt-2 mb-2">
+                                <div class="col col-8">
+                                    <m3>Mass Caps</m3>
+                                </div>
+                                <div class="col col-4 text-right">
+                                    <label class="switch"><input id="automodfiltmasscap" type="checkbox" {{ "checked" if config['automodfiltmasscap'] else "" }}><span class="slider round"></span></label>
+                                </div>
+                                <div class="col col-12">
+                                    <p class="text-muted">
+                                        Removes messages that use too many capital letters. Filters out messages with a capital letter percentage higher than the threshold
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="row border-bottom mt-2 mb-2">
+                                <div class="col col-8">
+                                    <m3>Mass Mentions</m3>
+                                </div>
+                                <div class="col col-4 text-right">
+                                    <label class="switch"><input id="automodfiltmassmen" type="checkbox" {{ "checked" if config['automodfiltmassmen'] else "" }}><span class="slider round"></span></label>
+                                </div>
+                                <div class="col col-12">
+                                    <p class="text-muted">
+                                        Removes messages that mention too many users. Filters out messages with a mention count higher than the threshold
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="row border-bottom mt-2 mb-2">
+                                <div class="col col-8">
+                                    <m3>Profanity Filter</m3>
+                                </div>
+                                <div class="col col-4 text-right">
+                                    <label class="switch"><input id="automodfiltprofan" type="checkbox" {{ "checked" if config['automodfiltprofan'] else "" }}><span class="slider round"></span></label>
+                                </div>
+                                <div class="col col-12">
+                                    <p class="text-muted">
+                                        Removes messages that include commonly used profanity
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="row border-bottom mt-2 mb-2">
+                                <div class="col col-8">
+                                    <m3>Custom Filter</m3>
+                                </div>
+                                <div class="col col-4 text-right">
+                                    <label class="switch"><input id="automodfiltfilter" type="checkbox" {{ "checked" if config['automodfiltfilter'] else "" }}><span class="slider round"></span></label>
+                                </div>
+                                <div class="col col-12">
+                                    <p class="text-muted">
+                                        Removes messages that either match text in the text filter or match regex in the regex filter. Use <b><a href="https://regex101.com/">https://regex101.com/</a> and set the flavour to python to test out the regex the bot will use</b>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-fluid bg-primary py-2 mb-4">
+                    <p class="mb-0 text-white">Auto Moderation Thresholds</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <div id="listresults" class="col-12">
+                            <div class="row border-bottom mt-2 mb-2">
+                                <div class="col col-8">
+                                    <m3>Mass Capitalisation Percentage</m3>
+                                </div>
+                                <div class="col col-4 text-right">
+                                    <input id="thresholdcaps" type="number" min=0 max=100 class="form-control" placeholder="Threshold" value="{{ config['thresholdcaps'] }}">
+                                </div>
+                                <div class="col col-12">
+                                    <p class="text-muted">
+                                        Percentage of caps the message can have before it is detected as mass caps. A recommended value is 60 (60%)
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row border-bottom mt-2 mb-2">
+                                <div class="col col-8">
+                                    <m3>Mass Mention Threshold</m3>
+                                </div>
+                                <div class="col col-4 text-right">
+                                    <input id="thresholdmention" type="number" min=1 max=100 class="form-control" placeholder="Threshold" value="{{ config['thresholdmention'] }}">
+                                </div>
+                                <div class="col col-12">
+                                    <p class="text-muted">
+                                        The max number of mentions a user can do before it is detected as mass mentions. A recommended value is 3.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row border-bottom my-4">
+                    <div class="col col-6">
+                        <m3>Text Filter</m3>
+                    </div>
+                    <div class="col col-12 text-right">
+                        <textarea style="height: 200px;" id="filter" type="text" class="form-control">{{ config['filter'] }}</textarea>
+                    </div>
+                    <div class="col col-12">
+                        <p class="text-muted">List of text that is not allowed in a message. Each text should be separated by a line</p>
+                    </div>
+                </div>
+
+                <div class="row border-bottom my-4">
+                    <div class="col col-6">
+                        <div class="badge badge-outline-primary badge-pill">New Feature</div>
+                        <m3>Regex Filter</m3>
+                    </div>
+                    <div class="col col-12 text-right">
+                        <textarea style="height: 200px;" id="regex" type="text" class="form-control">{{ config['regex'] }}</textarea>
+                    </div>
+                    <div class="col col-12">
+                        <p class="text-muted">Advanced users only. Will use the regex specified in a message and will filter out any content that matches the regex. Use <b><a href="https://regex101.com/">https://regex101.com/</a> and set the flavour to python to test out the regex the bot will use</p>
+                    </div>
+                </div>
+
+                <div class="wrapper">
+                    <a onclick="applychanges()" class="btn btn-outline-primary btn-block">Save changes</a>
+                </div>
+
+                <script>
+                function applychanges() {
+                    var data = {
+                        thresholdmention: document.getElementById("thresholdmention").value,
+                        thresholdcaps: document.getElementById("thresholdcaps").value,
+                        filter: document.getElementById("filter").value,
+                        regex: document.getElementById("regex").value,
+                        enabled: document.getElementById("enabled").checked,
+                        smartmod: document.getElementById("smartmod").checked,
+                        automodfiltinvites: document.getElementById("automodfiltinvites").checked,
+                        automodfilturlredir: document.getElementById("automodfilturlredir").checked,
+                        automodfilturls: document.getElementById("automodfilturls").checked,
+                        automodfiltipgrab: document.getElementById("automodfiltipgrab").checked,
+                        automodfiltmasscap: document.getElementById("automodfiltmasscap").checked,
+                        automodfiltmassmen: document.getElementById("automodfiltmassmen").checked,
+                        automodfiltprofan: document.getElementById("automodfiltprofan").checked,
+                        automodfiltfilter: document.getElementById("automodfiltfilter").checked,
+                    };
+                    $.ajax({method: "POST", data: data, dataType: "json",
+                        success: function(data) {if (data.success == true) {$.toast({heading: 'Your settings have been applied', loaderBg: '#7289da', bgColor: '#5767a0', position: 'top-right', hideAfter: 5000, showHideTransition: 'fade', icon: 'success'})} else {$.toast({heading: 'Encountered an error whilst applying changes', loaderBg: '#7289da', bgColor: '#5767a0', text: data.error, position: 'top-right', hideAfter: 5000, showHideTransition: 'fade', icon: 'error'})}},
+                        error: function() {$.toast({heading: 'An error had occured while applying settings', loaderBg: '#7289da', bgColor: '#5767a0', position: 'top-right', hideAfter: 5000, showHideTransition: 'fade', icon: 'error'})}
+                    });
+                };
+                </script>
+            </div>
+        </div>
+        {% include "partials/_footer.html" %}
+    </div>
+  </div>
+</div>
+{% include "partials/_ender.html" %}

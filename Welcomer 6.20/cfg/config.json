@@ -1,0 +1,92 @@
+{
+  "ids": {
+    "main": 330416853971107840,
+    "debug": 342685807221407744,
+    "donator": 498519480985583636,
+    "bcomer": 824435160593727518
+  },
+  "lavalink": {
+    "mitm": ["127.0.0.1", 15004],
+    "server": ["127.0.0.1", 5004]
+  },
+  "cdn": {
+    "location": "/home/rock/CDN/",
+    "host": "127.0.0.1",
+    "port": 5005,
+    "daemonport": 5004,
+    "public": true,
+    "_public": "If set to false, users will not be able to use /retrieve/"
+  },
+  "bot": {
+    "site": "https://welcomer.gg",
+    "version": "but better",
+    "starting_port": 5007,
+    "shards": 240,
+    "clusters": 40,
+    "max_concurrency": 16,
+    "prefix": "+",
+    "emote_server": 585851146359537666
+  },
+  "db": {
+    "host": "127.0.0.1",
+    "db": "rock",
+    "user": "rock",
+    "password": "[removed]"
+  },
+  "roles": {
+    "support": [
+    ],
+    "developer": [],
+    "admins": [
+    ],
+    "trusted": [
+    ]
+  },
+  "webhooks": {
+    "guilds": "https://canary.[removed]",
+    "big_guilds": "https://canary.[removed]",
+    "donations": [
+      "https://canary.[removed]"
+    ],
+    "upvotes": "",
+    "cluster_status": "https://canary.[removed]",
+    "errors": ""
+  },
+  "ipc": {
+    "host": "127.0.0.1",
+    "port": 5006,
+    "auth_key": "[removed]"
+  },
+  "oauth": {
+    "redirect_uri": {
+      "192.168.0.29:15007": "http://192.168.0.29:15007/callback",
+      "welcomer.gg": "https://welcomer.gg/callback",
+      "beta.welcomer.gg": "https://beta.welcomer.gg/callback"
+    },
+    "api_base": "https://discordapp.com/api",
+    "authorization_url": "https://discordapp.com/api/oauth2/authorize?prompt=none",
+    "token_url": "https://discordapp.com/api/oauth2/token",
+    "client_id": "330416853971107840",
+    "secret_key": "[removed]",
+    "client_secret": "[removed]",
+    "serial_secret": "6-[removed]"
+  },
+  "tokens": {
+    "main": "[removed].[removed].[removed]",
+    "debug": "[removed].[removed].[removed][removed][removed]",
+    "donator": "[removed].[removed].[removed]",
+    "b": "[removed].[removed].[removed]"
+  },
+  "keys": {
+    "youtube": "[removed]",
+    "recaptcha": "[removed]",
+    "recaptcha-server": "[removed]-[removed]-[removed]"
+  },
+  "paypal": {
+    "mode": "live",
+    "client_id": "[removed]-[removed]--[removed]",
+    "client_secret": "EL-[removed]-[removed]-[removed]",
+    "_client_id": "[removed]-[removed]",
+    "_client_secret": "[removed]"
+  }
+}

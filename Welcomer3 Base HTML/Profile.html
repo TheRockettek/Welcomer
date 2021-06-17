@@ -1,0 +1,200 @@
+<html>
+
+    <head>
+
+        <link rel="stylesheet" href="https://welcomer.fun/static/style.css">
+
+    </head>
+
+    <style>
+    
+        .profileTop {
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .information {
+            width: 100%;
+            align-self: center;
+        }
+
+        .namestuff {
+            padding-bottom: 0;
+        }
+
+        .GuildBoxContainer {
+            display: flex;
+        }
+    
+        .GuildBoxContainer {
+            margin-left: 3%;
+            margin-right: 3%;
+            padding: 10px;
+            align-items: center;
+            cursor: pointer;
+            border-style: solid;
+            border-width: 1px;
+            border-color: rgba(0,0,0,0.5);
+            border-radius: 5px;
+            background: #2f3136;
+            color: darkgray;
+        font-size: smaller;
+        }
+        
+        .GuildPrefix {
+            padding-left: 5px;
+        }
+
+        .GuildBoxContainers {
+            width: 100%;
+            display: flex;
+        }
+
+        .GuildBanner {
+            display: flex;
+        }
+
+        .GuildBannerLeft {
+            width: 90%;
+        }
+
+        .serverContainerLeft {
+            display: flex;
+        }
+
+        .serverContainerMiddle {
+            display: flex;
+        }
+
+        .GuildBannerRight {
+            margin-right: 5%;
+            align-self: center;
+        }
+
+        .statusIcon {
+            position: relative;
+        bottom: -28px;
+        right: 22px;
+        }
+    </style>
+
+    <body>
+
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+
+        <div class="serverListContainer">
+
+            <div class="profileTop">
+
+                <div class="profile">
+
+                    <img class="avatar" src="{{guild['icon']}}">
+                    
+                    <div class="information">
+
+                        <div class="namestuff">
+
+                            <div class="GuildBanner">
+                                <div class="GuildBannerRight">
+                                        <button onclick="window.open('https://welcomer.fun/guild/{{guild['id']}}');" class="serverContainerButton">Invite</button>
+                                </div>
+                                <div class="GuildBannerLeft">
+                                    <div class="dname">
+                                        <p class="name">{{guild['name']}}</p>
+                                    </div>
+
+                                    <p class="GuildPrefix">Prefix: {{prefix}}</p>
+                                </div>
+
+                            </div>
+
+                            <br>
+
+                            <div class="GuildBoxContainer">
+                                    <button style="background: #43b581;" class="badgeButton"></button>
+                                    {{guild['online']}} Online
+                                    &nbsp;<button style="background: #747f8d;" class="badgeButton"></button>
+                                    {{guild['members']}} Members
+                                    &nbsp;<button style="background: #7289da;" class="badgeButton"></button>
+                                    {{guild['bots']}} Bots
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="separator"></div>
+            
+            <div class="profileBottom">
+
+                <div class="ServerContainer">
+
+                    <div class="ServerContainerTitle">Owner</div>
+
+                    <div class="serverContainerMeta">
+
+                        <div class="serverContainerLeft">
+
+                            <img class="serverIcon" src="{{guild['icon']}}">
+                            <button style="background: {{guild['opres-hex']}};" class="badgeButton statusIcon"></button>
+
+                        </div>
+
+                        <div class="serverContainerMiddle">
+
+                            <div class="serverContainerName">{{guild['oname']}}</div><div class="serverContainerDesc">#{{guild['odisc']}}</div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="serverContainerRight">
+                        <button onclick="window.open('https://welcomer.fun/profile/{{guild['oid']}});" class="serverContainerButton">Profile</button>
+                    </div>
+            
+                </div>
+
+                <div class="separator"></div>
+
+                <div class="ServerContainerTitle">Staff List</div>
+
+                {% for staff in stafflist %}
+
+                <div class="ServerContainer">
+
+                    <div class="serverContainerMeta">
+    
+                        <div class="serverContainerLeft">
+    
+                            <img class="serverIcon" src="{{staff['avatar']}}">
+                            <button style="background: {{staff['pres-hex']}};" class="badgeButton statusIcon"></button>
+    
+                        </div>
+    
+                        <div class="serverContainerMiddle">
+    
+                            <div class="serverContainerName">{{staff['disp']}}</div><div class="serverContainerDesc">#{{staff['disc']}}</div>
+    
+                        </div>
+    
+                    </div>
+    
+                    <div class="serverContainerRight">
+                        <button onclick="window.open('https://welcomer.fun/profile/{{staff['id']}}');" class="serverContainerButton">Profile</button>
+                    </div>
+        
+                </div>
+                
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+    </body>
+
+</html>

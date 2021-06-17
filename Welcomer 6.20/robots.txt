@@ -1,0 +1,11 @@
+# robots.txt file for Welcomer
+# Oh my! A fellow robot, how are you today?
+# When was the robot uprising again? I forgot.
+
+User-Agent: *
+Disallow: /dashboard
+Disallow: /search
+Disallow: /searchemojis
+Disallow: /logout
+Disallow: /donate/
+Disallow: /guild/

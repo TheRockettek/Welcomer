@@ -1,0 +1,212 @@
+{
+    "bancreate" : {
+        "animated" : false,
+        "emoji" : "<:bancreate:432986579062226954>",
+        "id" : "432986579062226954",
+        "name" : "bancreate",
+        "url" : "https://cdn.discordapp.com/emojis/432986579062226954.png"
+    },
+    "bandelete" : {
+        "animated" : false,
+        "emoji" : "<:bandelete:432986578848055299>",
+        "id" : "432986578848055299",
+        "name" : "bandelete",
+        "url" : "https://cdn.discordapp.com/emojis/432986578848055299.png"
+    },
+    "channelcreate" : {
+        "animated" : false,
+        "emoji" : "<:channelcreate:432986578781077514>",
+        "id" : "432986578781077514",
+        "name" : "channelcreate",
+        "url" : "https://cdn.discordapp.com/emojis/432986578781077514.png"
+    },
+    "channeldelete" : {
+        "animated" : false,
+        "emoji" : "<:channeldelete:432986579674333215>",
+        "id" : "432986579674333215",
+        "name" : "channeldelete",
+        "url" : "https://cdn.discordapp.com/emojis/432986579674333215.png"
+    },
+    "channelupdate" : {
+        "animated" : false,
+        "emoji" : "<:channelupdate:432986579196182550>",
+        "id" : "432986579196182550",
+        "name" : "channelupdate",
+        "url" : "https://cdn.discordapp.com/emojis/432986579196182550.png"
+    },
+    "check" : {
+        "animated" : false,
+        "emoji" : "<:check:437236812189270018>",
+        "id" : "437236812189270018",
+        "name" : "check",
+        "url" : "https://cdn.discordapp.com/emojis/437236812189270018.png"
+    },
+    "cross" : {
+        "animated" : false,
+        "emoji" : "<:cross:437236812109316109>",
+        "id" : "437236812109316109",
+        "name" : "cross",
+        "url" : "https://cdn.discordapp.com/emojis/437236812109316109.png"
+    },
+    "downloading" : {
+        "animated" : true,
+        "emoji" : "<a:downloading:437236812881199105>",
+        "id" : "437236812881199105",
+        "name" : "downloading",
+        "url" : "https://cdn.discordapp.com/emojis/437236812881199105.gif"
+    },
+    "infoupdate" : {
+        "animated" : false,
+        "emoji" : "<:infoupdate:432986579309559808>",
+        "id" : "432986579309559808",
+        "name" : "infoupdate",
+        "url" : "https://cdn.discordapp.com/emojis/432986579309559808.png"
+    },
+    "is_bot" : {
+        "animated" : false,
+        "emoji" : "<:is_bot:437236811694080001>",
+        "id" : "437236811694080001",
+        "name" : "is_bot",
+        "url" : "https://cdn.discordapp.com/emojis/437236811694080001.png"
+    },
+    "list" : {
+        "animated" : false,
+        "emoji" : "<:list:432986579007569922>",
+        "id" : "432986579007569922",
+        "name" : "list",
+        "url" : "https://cdn.discordapp.com/emojis/432986579007569922.png"
+    },
+    "loading" : {
+        "animated" : true,
+        "emoji" : "<a:loading:437236812772016129>",
+        "id" : "437236812772016129",
+        "name" : "loading",
+        "url" : "https://cdn.discordapp.com/emojis/437236812772016129.gif"
+    },
+    "member_join" : {
+        "animated" : false,
+        "emoji" : "<:member_join:437241862471024650>",
+        "id" : "437241862471024650",
+        "name" : "member_join",
+        "url" : "https://cdn.discordapp.com/emojis/437241862471024650.png"
+    },
+    "memberjoin" : {
+        "animated" : false,
+        "emoji" : "<:memberjoin:432986578755911680>",
+        "id" : "432986578755911680",
+        "name" : "memberjoin",
+        "url" : "https://cdn.discordapp.com/emojis/432986578755911680.png"
+    },
+    "memberleave" : {
+        "animated" : false,
+        "emoji" : "<:memberleave:432986578672156673>",
+        "id" : "432986578672156673",
+        "name" : "memberleave",
+        "url" : "https://cdn.discordapp.com/emojis/432986578672156673.png"
+    },
+    "memberupdate" : {
+        "animated" : false,
+        "emoji" : "<:memberupdate:432986577694883860>",
+        "id" : "432986577694883860",
+        "name" : "memberupdate",
+        "url" : "https://cdn.discordapp.com/emojis/432986577694883860.png"
+    },
+    "messagedelete" : {
+        "animated" : false,
+        "emoji" : "<:messagedelete:432986578764300301>",
+        "id" : "432986578764300301",
+        "name" : "messagedelete",
+        "url" : "https://cdn.discordapp.com/emojis/432986578764300301.png"
+    },
+    "messageupdate" : {
+        "animated" : false,
+        "emoji" : "<:messageupdate:432986578927747073>",
+        "id" : "432986578927747073",
+        "name" : "messageupdate",
+        "url" : "https://cdn.discordapp.com/emojis/432986578927747073.png"
+    },
+    "probadge" : {
+        "animated" : false,
+        "emoji" : "<:probadge:440575314586894336>",
+        "id" : "440575314586894336",
+        "name" : "probadge",
+        "url" : "https://cdn.discordapp.com/emojis/440575314586894336.png"
+    },
+    "rolecreate" : {
+        "animated" : false,
+        "emoji" : "<:rolecreate:432986578911232001>",
+        "id" : "432986578911232001",
+        "name" : "rolecreate",
+        "url" : "https://cdn.discordapp.com/emojis/432986578911232001.png"
+    },
+    "roleremove" : {
+        "animated" : false,
+        "emoji" : "<:roleremove:432986578969952266>",
+        "id" : "432986578969952266",
+        "name" : "roleremove",
+        "url" : "https://cdn.discordapp.com/emojis/432986578969952266.png"
+    },
+    "roleupdate" : {
+        "animated" : false,
+        "emoji" : "<:roleupdate:432986578911232000>",
+        "id" : "432986578911232000",
+        "name" : "roleupdate",
+        "url" : "https://cdn.discordapp.com/emojis/432986578911232000.png"
+    },
+    "status_away" : {
+        "animated" : false,
+        "emoji" : "<:status_away:437236811841011712>",
+        "id" : "437236811841011712",
+        "name" : "status_away",
+        "url" : "https://cdn.discordapp.com/emojis/437236811841011712.png"
+    },
+    "status_dnd" : {
+        "animated" : false,
+        "emoji" : "<:status_dnd:437236811664982016>",
+        "id" : "437236811664982016",
+        "name" : "status_dnd",
+        "url" : "https://cdn.discordapp.com/emojis/437236811664982016.png"
+    },
+    "status_offline" : {
+        "animated" : false,
+        "emoji" : "<:status_offline:437236812398854154>",
+        "id" : "437236812398854154",
+        "name" : "status_offline",
+        "url" : "https://cdn.discordapp.com/emojis/437236812398854154.png"
+    },
+    "status_online" : {
+        "animated" : false,
+        "emoji" : "<:status_online:437236812382208000>",
+        "id" : "437236812382208000",
+        "name" : "status_online",
+        "url" : "https://cdn.discordapp.com/emojis/437236812382208000.png"
+    },
+    "status_streaming" : {
+        "animated" : false,
+        "emoji" : "<:status_streaming:437236811396546562>",
+        "id" : "437236811396546562",
+        "name" : "status_streaming",
+        "url" : "https://cdn.discordapp.com/emojis/437236811396546562.png"
+    },
+    "typing" : {
+        "animated" : true,
+        "emoji" : "<a:typing:437236812336070656>",
+        "id" : "437236812336070656",
+        "name" : "typing",
+        "url" : "https://cdn.discordapp.com/emojis/437236812336070656.gif"
+    },
+    "welcomerplus" : {
+        "animated" : false,
+        "emoji" : "<:welcomerplus:440575314339299329>",
+        "id" : "440575314339299329",
+        "name" : "welcomerplus",
+        "url" : "https://cdn.discordapp.com/emojis/440575314339299329.png"
+    },
+    "wipbadge" : {
+        "animated" : false,
+        "emoji" : "<:wipbadge:440575314498813964>",
+        "id" : "440575314498813964",
+        "name" : "wipbadge",
+        "url" : "https://cdn.discordapp.com/emojis/440575314498813964.png"
+    }
+}

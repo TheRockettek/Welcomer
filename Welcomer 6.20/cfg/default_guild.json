@@ -1,0 +1,227 @@
+{
+    "c": false,
+    "id": null,
+    "d": {
+        "dv": 2,
+        "g": {
+            "gc": null,
+            "ga": null,
+            "i": [],
+            "ic": null,
+            "n": null,
+            "o": null,
+            "fd": false
+        },
+        "b": {
+            "sw": true,
+            "c": null,
+            "hd": false,
+            "hb": false,
+            "sh": null,
+            "l": "en-gb",
+            "s": null,
+            "ss": false,
+            "ai": false,
+            "p": "+",
+            "d": "",
+            "r": "",
+            "ec": 3553599
+        },
+        "m": {
+            "b": 0,
+            "m": 0,
+            "a": 0,
+            "u": 0
+        },
+        "d": {
+            "s": 0,
+            "o": 0,
+            "i": 0,
+            "d": 0,
+            "of": 0,
+            "u": 0
+        },
+        "c": {
+            "c": [],
+            "v": [],
+            "t": [],
+            "u": 0
+        },
+        "r": {
+            "r": [],
+            "u": 0
+        },
+        "de": [],
+        "i": []
+    },
+    "m": {
+        "fr": false
+    },
+    "a": {
+        "e": false
+    },
+    "r": {
+        "r": [],
+        "e": false
+    },
+    "ch": {
+        "b": {
+            "e": false,
+            "c": []
+        },
+        "w": {
+            "e": false,
+            "c": []
+        },
+        "by": true
+    },
+    "sl": {
+        "wl": {
+            "e": false,
+            "u": []
+        },
+        "p": {
+            "e": false,
+            "h": null
+        }
+    },
+    "st": {
+        "u": [],
+        "ap": false
+    },
+    "tc": {
+        "e": false,
+        "ap": false,
+        "c": null,
+        "l": null,
+        "dl": 0
+    },
+    "ar": {
+        "e": false,
+        "r": []
+    },
+    "rr": [],
+    "l": {
+        "e": false,
+        "c": null,
+        "em": false,
+        "t": "{user} has left the server. We now have {server.user.count} members."
+    },
+    "fr": {
+        "e": false,
+        "r": []
+    },
+    "tr": {
+        "e": false,
+        "r": []
+    },
+    "np": {
+        "e": false,
+        "i": true,
+        "f": [
+            "discord.gg",
+            "twitter.com",
+            "discord.me",
+            "selly.gg",
+            "twitch.tv",
+            "youtube.com",
+            "youtu.be"
+        ]
+    },
+    "w": {
+        "c": null,
+        "e": true,
+        "b": false,
+        "iv": true,
+        "ue": false,
+        "em": ["y","description: Welcome to {guild.name}! You are the {members} member on this server\nthumbnail:\n  url: '{guild.icon}'\ntitle: Welcomer {user}\n"],
+        "i": {
+            "e": true,
+            "bg": null,
+            "b": false,
+            "pb": 0,
+            "c": {
+                "bo": 0,
+                "b": 0,
+                "pb": 0,
+                "ib": 0
+            },
+            "a": 0,
+            "t": 0,
+            "m": "Welcome {user.name}\nto {server}\nyou are the {members} user"
+        },
+        "t": {
+            "e": false,
+            "m": "Welcome {user.mention} to **{server}**. You are the **{members}** user!"
+        },
+        "dm": {
+            "e": false,
+            "m": "Welcome {user.mention} to **{server}**! You are the **{members}** user!",
+            "ue": false,
+            "em": ["y","description: Welcome to {guild.name}! You are the {members} member on this server\nthumbnail:\n  url: '{guild.icon}'\ntitle: Welcomer {user}\n"]
+        }
+    },
+    "s": {
+        "e": false,
+        "ca": null,
+        "c": []
+    },
+    "am": {
+        "e": false,
+        "g": {
+            "i": true,
+            "ur": false,
+            "ig": false,
+            "mc": false,
+            "mm": false,
+            "p": false,
+            "ul": false,
+            "f": false
+        },
+        "t": {
+            "m": 5,
+            "c": 50
+        },
+        "f": [],
+        "r": [],
+        "sm": false
+    },
+    "bw": {
+        "e": false,
+        "r": null,
+        "c": null,
+        "d": false,
+        "w": 0,
+        "m": "This server is secured by borderwall, please verify at {link}.",
+        "mv": "Thank you for verifying. You can now access the server."
+    },
+    "mu": {
+        "d": {
+            "e": false,
+            "l": []
+        },
+        "st": 0,
+        "t": 50
+    },
+    "lo": {
+        "e": false,
+        "a": true,
+        "jl": false,
+        "m": true
+    },
+    "p": [],
+    "cc": [
+        {
+            "n": "examplecommand",
+            "d": "This is an example custom command",
+            "e": [
+                ["reply","Hello this is an example command :)"]
+            ]
+        }
+    ],
+    "xp": {
+        "e": false,
+        "r": [],
+        "d": null
+    }
+}

@@ -1,0 +1,174 @@
+{
+    "badges" : {
+        "0" : {
+            "e" : ":thumbsup:",
+            "i" : 0,
+            "n" : "Welcomer Supporter"
+        },
+        "1" : {
+            "e" : ":gear:",
+            "i" : 1,
+            "n" : "Welcomer Support Staff"
+        },
+        "2" : {
+            "e" : ":hammer_pick:",
+            "i" : 2,
+            "n" : "Welcomer Administrators"
+        },
+        "3" : {
+            "e" : ":globe_with_meridians:",
+            "i" : 3,
+            "n" : "Server Owner (1000+ members)"
+        },
+        "4" : {
+            "c" : "ImRock#3779",
+            "e" : "\ud83c\udf89",
+            "i" : 4,
+            "n" : "WelcomerPro"
+        },
+        "5" : {
+            "c" : "ImRock#3779",
+            "e" : "<:botTag:230105988211015680>",
+            "i" : 5,
+            "n" : "Cancer"
+        }
+    },
+    "blacklist" : {
+        "0" : true
+    },
+    "default_configs" : {
+        "server" : {
+            "automod" : {
+                "embed" : false,
+                "enable" : true,
+                "invites" : true,
+                "mentions" : true,
+                "mentionthreshold" : 4,
+                "messagedelay" : 0.5,
+                "spam" : true,
+                "swearing" : false,
+                "url" : false
+            },
+            "autorole" : {
+                "enable" : false,
+                "role" : 0
+            },
+            "freerole" : {
+                "enable" : false,
+                "roles" : {
+                    "0" : true
+                }
+            },
+            "id" : "110373943822540800",
+            "invites" : {
+                "a" : {
+                    "id" : 0,
+                    "member" : "GenericUser#0001",
+                    "uses" : 0
+                }
+            },
+            "lastmsg" : {
+                "0" : 0
+            },
+            "logging" : {
+                "automod" : true,
+                "channel" : 0,
+                "channels" : true,
+                "enable" : false,
+                "members" : true,
+                "messages" : true,
+                "moderation" : true,
+                "roles" : true,
+                "timeformat" : "%H:%M:%S %d/%m"
+            },
+            "phone" : {
+                "ar" : true,
+                "c" : 0,
+                "e" : false,
+                "number" : "0"
+            },
+            "prefix" : "+",
+            "staff" : {
+                "0" : true
+            },
+            "stats" : {
+                "icon" : "",
+                "members" : 0,
+                "owner" : 0,
+                "owners" : ""
+            },
+            "tempchannel" : {
+                "category" : 0,
+                "enable" : false
+            },
+            "welcomer" : {
+                "badges" : {
+                    "e" : true
+                },
+                "dm" : {
+                    "e" : true,
+                    "t" : {
+                        "d" : "Enjoy your time at %name%!",
+                        "t" : "Welcome $name$"
+                    }
+                },
+                "img" : {
+                    "b" : "default",
+                    "c" : 0,
+                    "e" : true,
+                    "ig" : "default"
+                },
+                "leaver" : {
+                    "e" : false,
+                    "t" : "Looks like $name$ has left us :sob:"
+                },
+                "text" : {
+                    "e" : true,
+                    "t" : "Welcome $mention$ to **%name%**! You are the %members% member on the server :)"
+                }
+            }
+        },
+        "user" : {
+            "about" : "",
+            "badges" : {
+                "0" : "Welcomer#5491"
+            },
+            "id" : "353190313570861056",
+            "lastmsg" : 0,
+            "lastrep" : 0,
+            "money" : 0,
+            "previousnames" : {},
+            "records" : {},
+            "reputation" : 0,
+            "stats" : {
+                "aliases" : {},
+                "elevatedon" : {
+                    "0" : true
+                },
+                "icon" : ""
+            },
+            "xp" : {
+                "0" : 0,
+                "global" : 0
+            }
+        }
+    },
+    "roles" : {
+        "admin" : {
+            "0" : true,
+            "139800365393510400" : true,
+            "143090142360371200" : true,
+            "147788062523523072" : true
+        },
+        "donators" : {
+            "0" : true
+        },
+        "support" : {
+            "0" : true,
+            "357336009152659466" : true
+        },
+        "trusted" : {
+            "0" : true
+        }
+    }
+}

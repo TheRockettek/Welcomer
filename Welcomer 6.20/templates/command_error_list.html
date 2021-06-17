@@ -1,0 +1,5 @@
+<h3>Welcomer Errors</h3><h2>Not handled</h2>
+{% for result in not_handled %}<a href="/errors/{{ result['id'] }}">{{ result['name'] }}</a><table><tr><th>Error</th><th>{{ result['id'] }} </th></tr><tr><th>Type</th><th>{{ result['type'] }}</th></tr><tr><th>Date</th><th>{{ result['occurance'] }} ({{ result['timestamp'] }})</th></tr><tr><th>Bot Version</th><th>{{ result['version'] }}</th><tr><th>Message</th><th>{{ result['mc'] }}</th></tr></table>{% endfor %}
+<h2>Handled</h2>
+{% for result in handled %}<a href="/errors/{{ result['id'] }}">{{ result['name'] }}</a><table><tr><th>Error</th><th>{{ result['id'] }} </th></tr><tr><th>Type</th><th>{{ result['type'] }}</th></tr><tr><th>Date</th><th>{{ result['occurance'] }} ({{ result['timestamp'] }})</th></tr><tr><th>Bot Version</th><th>{{ result['version'] }}</th></tr><tr><th>Message</th><th>{{ result['mc'] }}</th></tr></table>{% endfor %}
+<style>* {font-family: monospace;} h3 {font-family: sans-serif;} tr:first-child {font-weight: bold;} table, th, td {border: 1px solid black;}</style>

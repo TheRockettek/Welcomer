@@ -1,0 +1,197 @@
+{
+    "data_version": 0,
+    "cluster": 0,
+    "id": 0,
+    "details": {
+        "locale": "",
+        "splash": "",
+        "region": "",
+        "icon": "",
+        "name": "",
+        "guild_creation": 0,
+        "guild_addition": 0,
+        "owner": 0,
+        "update": 0,
+        "members": {
+            "bots": 0,
+            "members": 0,
+            "all": 0
+        },
+        "detailed": {
+            "streaming": 0,
+            "online": 0,
+            "update": 0,
+            "idle": 0,
+            "dnd": 0,
+            "offline": 0
+        },
+        "guild": {
+            "site_invite": true,
+            "prefix": "+",
+            "channels": {
+                "categories": [],
+                "voice": [],
+                "text": [],
+                "update": 0
+            },
+            "invites": {}
+        }
+    },
+    "banned_ips": [],
+    "rules": [],
+    "voting": {
+        "active": []
+    },
+    "permissions": {
+        "user": {},
+        "role": {},
+        "elevated": [],
+        "members": [],
+        "staff": [],
+        "moderators": 0
+    },
+    "channelmanaging": {
+        "black": {
+            "enabled": false,
+            "channels": []
+        },
+        "white": {
+            "enabled": false,
+            "channels": []
+        },
+        "slowmode": {
+            "enabled": false,
+            "channels": []
+        },
+        "locked": []
+    },
+    "serverlock": {
+        "whitelist": {
+            "enabled": false,
+            "users": []
+        },
+        "password": {
+            "enabled": false,
+            "hash": ""
+        }
+    },
+    "staff": {
+        "staff_ids": [],
+        "allow_ping": true
+    },
+    "tempchannels": {
+        "enabled": false,
+        "category": 0
+    },
+    "autorole": {
+        "enabled": false,
+        "role_ids": []
+    },
+    "leaver": {
+        "enabled": false,
+        "channel": 0,
+        "embed": true
+    },
+    "freerole": {
+        "enabled": false,
+        "role_ids": []
+    },
+    "timeroles": {
+        "enabled": false,
+        "roles": []
+    },
+    "automod": {
+        "enabled": false,
+        "invites": true,
+        "url-redir": false,
+        "ip-grabbers": true,
+        "caps-spam": false,
+        "mention-spam": true,
+        "smartmod": false,
+        "mention-threshold": 3,
+        "caps-threshold": 50,
+        "regex": [],
+        "white-urls": [],
+        "black-urls": []
+    },
+    "custom_commands": [
+        {
+            "name": "examplecommand",
+            "description": "This is an example custom command",
+            "created": "143090142360371200",
+            "events": [
+                ["reply","Hello this is an example command :)"]
+            ]
+        }
+    ],
+    "welcomer": {
+        "enabled": false,
+        "channel": 0,
+        "enable_embed": false,
+        "embed": {
+            "title": "Welcome {user.name} to {server.name}!",
+            "thumbnail": "",
+            "content": "You are the {server.members} member on this server!",
+            "colour": 0,
+            "show_time": true,
+            "footer": "",
+            "fields": []
+        },
+        "dm": {
+            "message": "Welcome to **{server}**! We hope you enjoy your stay",
+            "enabled": false
+        },
+        "text": {
+            "message": "Hey {user}, you're the **{members}** member on **{server}** :tada: !",
+            "enabled": true,
+            "invited": false,
+            "badges": true
+        },
+        "images": {
+            "enabled": true,
+            "background": "default",
+            "colour": {
+                "border": 0,
+                "text": 0,
+                "profile": 0
+            },
+            "resolution": [
+                1000,
+                300
+            ],
+            "message": [
+                "Welcome {user.name}",
+                "to {server}",
+                "you are the {members} user"
+            ]
+        }
+    },
+    "stats": {
+        "enabled": false,
+        "category": 0,
+        "tracked": {
+            "channels": false,
+            "minecraft": false,
+            "members": true,
+            "twitch": false,
+            "youtube": false,
+            "time": false,
+            "total": true,
+            "bots": true,
+            "youtubechannel": "",
+            "twitchchannel": "",
+            "minecraftip": ""
+        }
+    },
+    "borderwall": {
+        "enabled": false,
+        "role": 0,
+        "channel": 0
+    },
+    "xp": {
+        "message": "Congratulations {user} you have ranked up to level **{level}** :tada:",
+        "enabled": false,
+        "forcedm": false,
+        "rankups": []
+    }
+}

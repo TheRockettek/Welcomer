@@ -1,0 +1,136 @@
+
+                <div class="row border-bottom my-4">
+                        <div class="col col-6">
+                            <m3>Slide Picker</m3>
+                        </div>
+                        <div class="col col-6 text-right">
+                            <label class="switch"><input enabled id="" type="checkbox" {{ "checked" if config['invited'] else "" }}><span class="slider round"></span></label>
+                        </div>
+                        <div class="col col-12">
+                            <p class="text-muted">This is the description</p>
+                        </div>
+                    </div>
+    
+                    <div class="row border-bottom my-4">
+                        <div class="col col-6">
+                            <m3>Colour Picker</m3>
+                        </div>
+                        <div class="col col-6 text-right">
+                            <input type='text' class="color-picker" value="#{{ sub(hex(config['embedcolour']), 2) }}" />
+                        </div>
+                        <div class="col col-12">
+                            <p class="text-muted">This is the description</p>
+                        </div>
+                    </div>
+    
+                    <div class="row border-bottom my-4">
+                        <div class="col col-6">
+                            <m3>Dropify</m3>
+                        </div>
+                        <div class="col col-6 text-right">
+                            <input type="file" class="dropify" />
+                        </div>
+                        <div class="col col-12">
+                            <p class="text-muted">This is the description</p>
+                        </div>
+                    </div>
+    
+                    <div class="row border-bottom my-4">
+                        <div class="col col-6">
+                            <m3>Standard Input</m3>
+                        </div>
+                        <div class="col col-6 text-right">
+                            <input type="text" class="form-control" id="exampleInputName1" placeholder="Name">
+                        </div>
+                        <div class="col col-12">
+                            <p class="text-muted">This is the description</p>
+                        </div>
+                    </div>
+    
+                    <div class="row border-bottom my-4">
+                        <div class="col col-6">
+                            <m3>TextArea Input</m3>
+                        </div>
+                        <div class="col col-6 text-right">
+                            <textarea style="height: 200px;" type="text" class="form-control" id="exampleInputName1" placeholder="Name"></textarea>
+                        </div>
+                        <div class="col col-12">
+                            <p class="text-muted">This is the description</p>
+                        </div>
+                    </div>
+        
+    
+                    <div class="row border-bottom my-4">
+                        <div class="col col-6">
+                            <m3>AutoFill</m3>
+                        </div>
+                        <div class="col col-6 text-right">
+    
+                            <div class="scrollable-tt w-100">
+                                <input class="typeahead w-100" type="text" placeholder="Select a channel">
+                            </div>
+    
+                            <script>
+                            var blood = new Bloodhound({
+                                datumTokenizer: Bloodhound.tokenizers.whitespace,
+                                queryTokenizer: Bloodhound.tokenizers.whitespace,
+                                local: ['#welcomer (1)', '#welcomen (2)', '#welcomen (2)', '#welcomen (2)', '#welcomen (3)', '#welcomen (4)', '#welcomen (5)', '#welcomen (6)']
+                            });
+    
+                            $('.scrollable-tt .typeahead').typeahead(null, {
+                                hint: true,
+                                highlight: true,
+                                limit: 100,
+                                name: 'channels',
+                                source: blood
+                            });
+                            </script>
+    
+                        </div>
+                        <div class="col col-12">
+                            <p class="text-muted">This is the description</p>
+                        </div>
+                    </div>
+        
+                    <div class="row border-bottom my-4">
+                        <div class="col col-6">
+                            <m3>Tags</m3>
+                        </div>
+                        <div class="col col-6 text-right">
+                            <div class="icheck-square">
+                                <input tabindex="5" type="checkbox" id="square-checkbox-1">
+                                <label for="square-checkbox-1">Checkbox 1</label>
+                            </div>
+                            <div class="icheck-square">
+                                <input tabindex="6" type="checkbox" id="square-checkbox-2" checked>
+                                <label for="square-checkbox-2">Checkbox 2</label>
+                            </div>
+                            <div class="icheck-square">
+                                <input type="checkbox" id="square-checkbox-disabled" disabled>
+                                <label for="square-checkbox-disabled">Disabled</label>
+                            </div>
+                            <div class="icheck-square">
+                                <input type="checkbox" id="square-checkbox-disabled-checked" checked disabled>
+                                <label for="square-checkbox-disabled-checked">Disabled &amp; checked</label>
+                            </div>
+                            <div class="icheck-square">
+                                <input tabindex="7" type="radio" id="square-radio-1" name="minimal-radio">
+                                <label for="square-radio-1">Radio button 1</label>
+                            </div>
+                            <div class="icheck-square">
+                                <input tabindex="8" type="radio" id="square-radio-2" name="minimal-radio" checked>
+                                <label for="square-radio-2">Radio button 2</label>
+                            </div>
+                            <div class="icheck-square">
+                                <input type="radio" id="square-radio-disabled" disabled>
+                                <label for="square-radio-disabled">Disabled</label>
+                            </div>
+                            <div class="icheck-square">
+                                <input type="radio" id="square-radio-disabled-checked" checked disabled>
+                                <label for="square-radio-disabled-checked">Disabled &amp; checked</label>
+                            </div>
+                        </div>
+                        <div class="col col-12">
+                            <p class="text-muted">This is the description</p>
+                        </div>
+                    </div>

@@ -1,0 +1,39 @@
+{
+    "default_prefix": "+",
+    "twitch_client_id": "",
+    "host": "127.0.0.1",
+    "cdn_port": 8801,
+    "ipc_port": 8800,
+    "base_port": 8802,
+    "sharding": {
+        "shards": 80,
+        "clusters": 8
+    },
+    "rethink": {
+        "host": "localhost",
+        "port": 28015,
+        "db": "Welcomer5"
+    },
+    "webhooks": {
+        "guilds_join": "",
+        "guilds_leave": "",
+        "big_guilds_join": "",
+        "big_guilds_leave": "",
+        "donations": "",
+        "upvotes": "",
+        "cluster_status": "",
+        "errors": ""
+    },
+    "staff": {
+        "support": [],
+        "developer": [
+            143090142360371200,
+            206309860038410240
+        ],
+        "admins": [
+            143090142360371200,
+            206309860038410240
+        ],
+        "trusted": []
+    }
+}

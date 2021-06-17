@@ -1,0 +1,109 @@
+{% include "partials/_header.html" %}
+<div class="container-scroller">
+    {% include "partials/_navbar.html" %}
+    <div class="container-fluid page-body-wrapper">
+        {% include "partials/_nondash_sidebar.html" %}
+        <div class="main-panel">
+            <div class="content-wrapper">
+                <div class="container text-center pricing-table">
+                    <div class="grid-margin stretch-card pricing-card">
+                        <div class="card border-primary border pricing-card-body">
+
+                            {% if show_bw %}
+                            <div class="text-center pricing-card-head">
+                                <img src="/static/images/peek.png" style="width: 64px; height: 64px;">
+                                <h1 class="font-weight-normal mb-4">This server is protected by BorderWall</h1>
+                                <h4 class="font-weight-normal mb-4">You are authenticating into
+                                    {{ data.get("s", "Unknown")}} for <b>{{ data.get("u","Unknown")}}</b></h3>
+                                    <p>You are accessing through <b>{{ ip }}</b>.</p>
+                            </div>
+
+                            <li style="list-style: none;padding: 10px;">
+                                <div class="set-divider"></div>
+                            </li>
+                            <div class="wrapper">
+                                <a id="bwbutton" onclick="enter()" class="btn btn-outline-primary btn-block">Cross the
+                                    border</a>
+                                <div class="g-recaptcha" id="recaptcha" data-callback="submittoken"
+                                    data-sitekey="{{ recaptcha_key }}" data-size="invisible">
+                                </div>
+                            </div>
+
+                            <li style="list-style: none;padding: 10px;">
+                                <div class="set-divider"></div>
+                            </li>
+                            <p>This site is protected by reCAPTCHA and the Google
+                                <a href="https://policies.google.com/privacy">Privacy Policy</a> and
+                                <a href="https://policies.google.com/terms">Terms of Service</a> apply.
+                            </p>
+                            {% else %}
+                            <div class="text-center pricing-card-head">
+                                <img src="/static/images/dead.png" style="width: 64px; height: 64px;">
+                                <h1 class="font-weight-normal mb-4">Darn, something is wrong</h1>
+                            </div>
+                            <li style="list-style: none;padding: 10px;">
+                                <div class="set-divider"></div>
+                            </li>
+                            {{ error | safe }}
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% if show_bw %}
+            <script
+                src="https://www.recaptcha.net/recaptcha/api.js?render={{ recaptcha_key }}&onload=recaptchaCallback&render=explicit"
+                async defer></script>
+            <script>
+                function recaptchaCallback() {
+                    grecaptcha.ready(function () {
+                        console.log(___grecaptcha_cfg.count);
+                        elem = document.getElementById("recaptcha");
+                        grecaptcha.render(elem);
+                        console.log(___grecaptcha_cfg.count);
+                    });
+                }
+
+                function submittoken(token) {
+                    console.log(token);
+                    if (token != "") {
+                        $.ajax({
+                            url: "/borderwall/{{ borderwall_id }}/authorize",
+                            method: "POST",
+                            data: {
+                                token: token,
+                            },
+                            dataType: "json",
+                            success: function (data) {
+                                if (data.success == true) {
+                                    swal("You have been verified through BorderWall", "You may now exit.", "success");
+                                    document.getElementById("bwbutton").outerHTML = "<a id='bwbutton' class='btn btn-outline-success btn-block'>You have been verified</a>";
+
+                                } else {
+                                    swal("BorderWall failed to verify", data.error, "error");
+                                    document.getElementById("bwbutton").outerHTML = "<a id='bwbutton' onclick='enter()' class='btn btn-outline-primary btn-block'>Failed to verify</a>";
+                                }
+                            },
+                            error: function () {
+                                swal("An error had occured whilst attempting to verify you", "Please reload and try again", "error");
+                                document.getElementById("bwbutton").outerHTML = "<a id='bwbutton' onclick='enter()' class='btn btn-outline-primary btn-block'>Failed to verify</a>";
+                            }
+                        })
+                    }
+                };
+
+                function enter() {
+                    document.getElementById("bwbutton").outerHTML = "<div id='bwbutton' class='square-path-loader'></div>";
+                    document.getElementById("bwbutton").onclick = "";
+                    grecaptcha.ready(function () {
+                        grecaptcha.execute();
+                    });
+                };
+            </script>
+            {% endif %}
+            {% include "partials/_footer.html" %}
+        </div>
+    </div>
+</div>
+{% include "partials/_ender.html" %}

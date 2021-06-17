@@ -1,0 +1,114 @@
+{% include "partials/_header.html" %}
+<div class="container-scroller">
+  {% include "partials/_navbar.html" %}
+  <div class="container-fluid page-body-wrapper">
+    {% include "partials/_sidebar.html" %}
+    <div class="main-panel">
+      <div class="content-wrapper">
+        <div class="card">
+            <div class="card-body">
+                <div class="container-fluid bg-primary py-2 mb-4">
+                    <p class="mb-0 text-white">Punishment Settings</p>
+                </div>
+
+                <div class="row border-bottom mt-4 mb-4">
+                    <div class="col col-6">
+                        <m3>Force Reasons</m3>
+                    </div>
+                    <div class="col col-6 text-right">
+                        <label class="switch"><input id="forcereason" type="checkbox" {{ "checked" if config['forcereason'] else "" }}><span class="slider round"></span></label>
+                    </div>
+                    <div class="col col-12">
+                        <p class="text-muted">By forcing reasons, any moderation will require a reason to always be provided for it to be able to be executed</p>
+                    </div>
+                </div>
+                
+                <div class="row border-bottom mt-4 mb-4">
+                    <div class="col col-6">
+                        <m3>Log Moderation</m3>
+                    </div>
+                    <div class="col col-6 text-right">
+                        <label class="switch"><input id="logmoderation" type="checkbox" {{ "checked" if config['logmoderation'] else "" }}><span class="slider round"></span></label>
+                    </div>
+                    <div class="col col-12">
+                        <p class="text-muted">Enables logging of moderation in the main logging area. <b>To make this work, ensure that logging has also been enabled in <code>Logging > Manage</code></b></p>
+                    </div>
+                </div>
+
+                <div class="row border-bottom my-4">
+                    <div class="col col-6">
+                        <m3>Export Punishment Data</m3>
+                    </div>
+                    <div class="col col-6 text-right">
+                        {% if has_file %}
+                        <div class="wrapper">
+                            <a onclick="openInNewTab('/api/punishments/export');" class="btn btn-outline-primary primary-fill btn-block">Export</a>
+                        </div>        
+                        {% else %}
+                        <div class="wrapper">
+                            <a onclick="$.toast({heading: 'Unable to export punishment as the data does not exist', text: 'This can be caused when you reset your punishment data', loaderBg: '#7289da', bgColor: '#5767a0', position: 'top-right', hideAfter: 5000, showHideTransition: 'fade', icon: 'error'});" class="btn btn-outline-primary primary-fill btn-block">Export</a>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="col col-12">
+                        <p class="text-muted">Exports your current punishment data as a .CSV file</p>
+                    </div>
+                </div>
+    
+                <div class="row border-bottom my-4">
+                    <div class="col col-6">
+                        <m3>Reset Punishment Data</m3>
+                    </div>
+                    <div class="col col-6 text-right">
+                        <div class="wrapper">
+                            <a onclick="resetdata()" class="btn btn-outline-danger danger-fill btn-block">Reset</a>
+                        </div>        
+                    </div>
+                    <div class="col col-12">
+                        <p class="text-muted">Resets punishment data. <b>Not recoverable once reset!</b>. Please note that this will also lose any information on outstanding punishments so you will have to remove the warns, mutes or bans manually</p>
+                    </div>
+                </div>
+
+                <div class="wrapper">
+                    <a onclick="applychanges()" class="btn btn-outline-primary btn-block">Save changes</a>
+                </div>
+
+                <script>
+                function openInNewTab(url) {
+                var win = window.open(url, '_blank');
+                win.focus();
+                }
+                function resetdata() {
+                    swal({
+                        title: 'Are you sure?',
+                        text: "Once you reset your punishment data, will not be able to revert this! Please note that this will also lose any information on outstanding punishments so you will have to remove the warns, mutes or bans manually",
+                        showCancelButton: true,
+                        buttons: {
+                        cancel: { text: "Cancel", value: null, visible: true, className: "btn btn-primary", closeModal: true,},
+                        confirm: { text: "I understand", value: true, visible: true, className: "btn btn-danger", closeModal: true
+                    }}}).then((result) => {
+                        if (result == true) {
+                            $.ajax({url: "/api/punishments/reset", method: "POST", dataType: "json",
+                            success: function(data) {if (data.success == true) {$.toast({heading: 'Your punishment data has been cleared', loaderBg: '#7289da', bgColor: '#5767a0', position: 'top-right', hideAfter: 5000, showHideTransition: 'fade', icon: 'success'})} else {$.toast({heading: 'Encountered an error whilst applying changes', loaderBg: '#7289da', bgColor: '#5767a0', text: data.error, position: 'top-right', hideAfter: 5000, showHideTransition: 'fade', icon: 'error'})}},
+                            error: function() {$.toast({heading: 'An error had occured while applying settings', loaderBg: '#7289da', bgColor: '#5767a0', position: 'top-right', hideAfter: 5000, showHideTransition: 'fade', icon: 'error'})}
+                        });
+                    }});
+                };
+                function applychanges() {
+                    var data = {
+                        forcereason: document.getElementById("forcereason").checked,
+                        logmoderation: document.getElementById("logmoderation").checked,
+                    };
+                    $.ajax({method: "POST", data: data, dataType: "json",
+                        success: function(data) {if (data.success == true) {$.toast({heading: 'Your settings have been applied', loaderBg: '#7289da', bgColor: '#5767a0', position: 'top-right', hideAfter: 5000, showHideTransition: 'fade', icon: 'success'})} else {$.toast({heading: 'Encountered an error whilst applying changes', loaderBg: '#7289da', bgColor: '#5767a0', text: data.error, position: 'top-right', hideAfter: 5000, showHideTransition: 'fade', icon: 'error'})}},
+                        error: function() {$.toast({heading: 'An error had occured while applying settings', loaderBg: '#7289da', bgColor: '#5767a0', position: 'top-right', hideAfter: 5000, showHideTransition: 'fade', icon: 'error'})}
+                    });
+                };
+                </script>
+            </div>
+        </div>
+        {% include "partials/_footer.html" %}
+    </div>
+  </div>
+</div>
+{% include "partials/_ender.html" %}

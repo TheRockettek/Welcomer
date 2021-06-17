@@ -1,0 +1,64 @@
+<a href="/errors">Back</a>
+
+<h3>{{ error['name'] }}</h3>
+
+<table>
+    <tr>
+        <th>Error</th>
+        <th>{{ error['id'] }} </th>
+    </tr>
+        
+    <tr>
+        <th>Status</th>
+        <th>{{ error['status'] }} <form method="post"><input type="submit" value="Toggle Handled"></form></th>
+    </tr>
+    <tr>
+        <th>Type</th>
+        <th>{{ error['type'] }}</th>
+    </tr>
+    <tr>
+        <th>Date</th>
+        <th>{{ error['occurance'] }} ({{ error['timestamp'] }})</th>
+    </tr>
+    <tr>
+        <th>Bot Version</th>
+        <th>{{ error['version'] }}</th>
+    </tr>
+</table>
+
+<br><br>
+<h3>Command Information</h3>
+<table>
+    <tr>
+        <th>Guild</th>
+        <th>{{ error['gname'] }} ({{ error['gid'] }})</th>
+    </tr>
+    <tr>
+        <th>Account</th>
+        <th>{{ error['aname'] }} ({{ error['aid'] }})</th>
+    </tr>
+    <tr>
+        <th>Message</th>
+        <th>{{ error['mc'] }}</th>
+    </tr>
+    <tr>
+        <th>Command</th>
+        <th>{{ error['command'] }} ({{ error['cog'] }})</th>
+    </tr>
+</table>
+
+<h3>Traceback</h3>
+<textarea>
+{% for line in error['tb'] %}
+    {{ line }}
+{% endfor %}
+</textarea>
+
+<style>
+* {font-family: monospace;}
+h3 {font-family: sans-serif;}
+tr:first-child {font-weight: bold;}
+textarea {width: 100%;height: 50%;}
+script[type="text/plain"] {display:block;}
+table, th, td {border: 1px solid black;}
+</style>

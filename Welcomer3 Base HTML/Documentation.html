@@ -1,0 +1,192 @@
+<html>
+
+    <head>
+        
+        <link rel="stylesheet" href="style.css">
+
+    </head>
+    <div class="header">
+
+        <div class="headerInner">
+    
+            <div class="headerInnerLogo">
+    
+                <a href="/">
+                
+                    <img class="botLogo" height=20 width=20 src="/botlogo.png">
+                    Welcomer
+                
+                </a>
+    
+            </div>
+    
+            <div class="headerInnerLeft">
+    
+                <ul class="headerInnerNav">
+                
+                    <li class="headerInnerNavItem">
+    
+                        <a href="https://discordapp.com/oauth2/authorize?client_id=330416853971107840&scope=bot&permissions=8">Add Bot</a>
+    
+                    </li>
+    
+                    <li class="headerInnerNavItem">
+    
+                        <a href="/serverlist">Server List</a>
+    
+                    </li>
+    
+                    <li class="headerInnerNavItem">
+    
+                        <a href="/guilds">Top Guilds</a>
+    
+                    </li>
+    
+                    <li class="headerInnerNavItem">
+    
+                        <a href="/leaderboards">Leaderboards</a>
+    
+                    </li>
+
+                    <li class="headerInnerNavItem">
+    
+                            <a href="/docs">Docs</a>
+        
+                    </li>                    
+
+                    <li class="headerInnerNavItem">
+    
+                            <a href="https://discord.gg/pmQkU8t">Support Server</a>
+        
+                    </li>
+
+                </ul>
+    
+            </div>
+    
+            <div class="headerInnerRight">
+    
+                <ul class="headerInnerNav">
+
+                    <li class="headerInnerNavItem">
+
+                        <a>Dashboard is WIP</a>
+                    
+                    </li>
+
+                </ul>
+
+                <!--<ul class="headerInnerNav">
+    
+                    {% if session['user'] is defined %}
+                    
+                        <li class="headerInnerNavItem">
+    
+                            <a class="username" href="/profile">{{session['user']['username']}}</a>
+    
+                        </li>
+                        
+                        <li class="headerInnerNavItem">
+    
+                            <a href="/logout">Logout</a>
+    
+                        </li>
+                    {% else %}
+                        <li class="headerInnerNavItem">
+    
+                            <a href="/login">Login</a>
+    
+                        </li>
+                    {% endif %}
+    
+                </ul>
+            -->
+    
+            </div>
+    
+        </div>
+    
+    <body>
+
+        <div class="docContainer">
+
+            <a class="docHeader">General</a>
+
+            <h1 class="docTitle">How to change the prefix</h1>
+            <h2 class="docText">To be able to change the prefix you will need to use <code class="inline">+setprefix &lt;prefix&gt;</code> and you will need to require elevation. Please do not forget this prefix!<br><code class="inline">+setprefix &gt;</code><br><code class="inline">+setprefix aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</code></h2>
+
+            <h1 class="docTitle">How to use preferdms</h1>
+            <h2 class="docText">Prefer DMs is a feature where, if enabled, will instead send you help for usage and such in your direct messages instead of in the channels. This will send general usage help however permission errors and such will not send in your direct messages. Please note that the help command will always preferdms. To enable prefer dms just do <code class="inline">+preferdms &lt;True&gt;</code> or to disable it do <code class="inline">+preferdms &lt;False&gt;</code>. Please note if you do not specify after if you want it on or not, it will just toggle between the two.<br><code class="inline">+preferdms True</code><br><code class="inline">+preferdms False</code></h2>
+
+            <h1 class="docTitle">How to obtain Welcomer Pro / Welcomer +</h1>
+            <h2 class="docText">At the moment it is not possible to obtain Welcomer Pro or Welcomer +. This is because the site has not been fully done and we do not want you to have the opportunity to donate and it does not go through properly or you do not get the role.</h2>
+            <a class="docHeader">Welcomer</a>
+
+            <h1 class="docTitle">How to enable/disable Welcomer</h1>
+            <h2 class="docText">To enable welcomer, all you simply need to do is <code class="inline">+welcomer enable</code>, however before you do that make sure you have set the channel first and the bot has permissions to <code class="inline">ATTACH_FILES</code> and <code class="inline">SEND_MESSAGES</code>.<br><code class="inline">+welcomer enable</code><br><code class="inline">+welcomer disable</code></h2>
+
+            <h1 class="docTitle">How to change the channel</h1>
+            <h2 class="docText">To change the background for welcomer, all you need to do is <code class="inline">+welcomer setbackground &lt;channel&gt;</code>. You are able to select backgrounds by either entering its name, its id or mentionining it.<br><code class="inline">+welcomer set-channel #welcome</code><br><code class="inline">+welcomer set-channel 358943134337466371</code><br><code class="inline">+welcomer set-channel Welcome</code></h2>
+
+            <h1 class="docTitle">How to enable/disable text/images</h1>
+            <h2 class="docText">To toggle images just do <code class="inline">+welcomer use-image &lt;enable/disable&gt;</code>. If you do not supply either enable, disable, true, false etc. then it will just toggle between its two states.<br>This applies the same with <code class="inline">+welcomer use-text &lt;enable/disable&gt;</code>.<br><code class="inline">+welcomer use-text True</code><br><code class="inline">+welcomer use-image False</code></h2>
+
+            <h1 class="docTitle">How to mention users in text</h1>
+            <h2 class="docText">To mention users in welcome text, use the formatting tag <code class="inline">$member_mention</code>. Make sure you do not use this for images as images do not support the mention tag.<br><code class="inline">+welcomer set-message Welcome $member_mention!</code></h2>
+
+            <h1 class="docTitle">How to change the image text</h1>
+            <h2 class="docText">To be able to change the image text you can do <code class="inline">+welcomer set-image-text &lt;position&gt; ,,,</code>. The 3 possible positions are <code class="inline">top</code>, <code class="inline">middle</code> and <code class="inline">bottom</code> and you do not require to encapsulate the text in parentheses.<br><code class="inline">+welcomer set-image-text top Welcome $member</code><br><code class="inline">+welcomer set-image-text middle to $server!</code><br><code class="inline">+welcomer set-image-text bottom You are the $members user :)</code></h2>
+
+            <h1 class="docTitle">How to change the background</h1>
+            <h2 class="docText">To be able to change the background all you need to do is <code class="inline">+welcomer set-background &lt;background&gt;</code>. You are able to obtain a list of all the backgrounds with <code class="inline">+welcomer backgrounds</code> and the background names are case sensitive. It is possible to see how the images look beforehand by either visiting the support server in the #backgrounds channel or doing the command <code class="inline">+welcomer preview-background &lt;background&gt;</code>.<br><br><b>When Welcomer Pro and Welcomer + is released, it will be possible to set your custom background by using </b><code class="inline">+welcomer set-custom-background</code><b> then uploading an image afterwards however this is not out yet.</b><br><code class="inline">+welcomer set-background Tanya</code><br><code class="inline">+welcomer backgrounds</code><br><code class="inline">+welcomer preview-background Aesthetics</code><br><code class="inline">+welcomer set-custom-background</code></h2>
+
+            <h1 class="docTitle">Where can i find the markdown</h1>
+            <h2 class="docText">To find the markdown for welcomer text, images and leaver aspects, do <code class="inline">+welcomer markdown</code>.<br><code class="inline">+welcomer markdown</code>.</h2>
+
+            <h1 class="docTitle">General Solutions to problems</h1>
+            <h2 class="docText"><img src="https://welcomer.fun/static/invalidimage.png"><br>The issue of a broken image is usually caused by an invalid hex code on either the image colour or circle colour. Please ensure your hexidecimal colours are either 6 letters long or 8 letters (if using RGBA).<br>Good - Is either 6 or 8 letters <code class="inline">+welcomer set-image-colour text 000000</code><br>Bad - Is not 6 or 8 letters<code class="inline">+welcomer set-image-colour text FFF</code><br><br>If your welcomer is no longer welcoming people, please use <code class="inline">+welcomer config</code> to verify they are online and the channel exists. Usually when doing <code class="inline">+welcomer</code>, a list will appear at the bottom to help resolve common errors and if text or images are not enabled.<br><img src="https://welcomer.fun/static/commonissues.png">.</h2>
+
+            <a class="docHeader">Leaver</a>
+
+            <h1 class="docTitle">How to enable/disable Leaving messages</h1>
+            <h2 class="docText">To enable or disable leaving messages you need to do either <code class="inline">+leaver enable</code> or <code class="inline">+leaver disable</code>.</h2>
+
+            <h1 class="docTitle">How to change leaver channel</h1>
+            <h2 class="docText">To change the background for leaver, all you need to do is <code class="inline">+leaver setbackground &lt;channel&gt;</code>. You are able to select backgrounds by either entering its name, its id or mentionining it.<br><code class="inline">+leaver set-channel #goodbye</code><br><code class="inline">+leaver set-channel 429724829692985364</code><br><code class="inline">+leaver set-channel goodbye</code></h2>
+
+            <h1 class="docTitle">How to change the leaver message</h1>
+            <h2 class="docText">To change the leaver message, you can do  <code class="inline">+welcomer set-message ...</code>. Please note this can also follow the welcomer markdown and also does not require parentheses to encapsulate it.<br><code class="inline">+leaver set-message Goodbye $member, it was nice knowing you :wave:</code></h2>
+
+            <h1 class="docTitle">Where can i find the markdown</h1>
+            <h2 class="docText">To find the markdown for welcomer text, images and leaver aspects, do <code class="inline">+welcomer markdown</code>.</h2>
+
+            <a class="docHeader">Autorole</a>
+
+            <h1 class="docTitle"></h1>
+            <h2 class="docText"></h2>
+
+            <h1 class="docTitle"></h1>
+            <h2 class="docText"></h2>
+
+            <h1 class="docTitle"></h1>
+            <h2 class="docText"></h2>
+
+            <h1 class="docTitle"></h1>
+            <h2 class="docText"></h2>
+
+            <h1 class="docTitle"></h1>
+            <h2 class="docText"></h2>
+
+            <a class="docHeader">Stafflist</a>
+
+            <h1 class="docTitle"></h1>
+            <h2 class="docText"></h2>
+
+            <h1 class="docTitle"></h1>
+            <h2 class="docText"></h2>
+
+        </div>
+
+    </body>
+
+</html>
